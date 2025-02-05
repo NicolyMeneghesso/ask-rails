@@ -1,0 +1,7 @@
+{
+  "name": "time_to_answer",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Nicoly Meneghesso <nihmeneghesso@gmail.com>",
+  "license": "MIT"
+}
