@@ -5,7 +5,11 @@ Rails.application.routes.draw do
 
   namespace :panel do
     get '/', to: "home#index"
-    get "home/index"
+    get "home/index" #dashboard
+
+    namespace :admin do
+      resources :admins, only: [:index, :edit]
+    end
   end
   
   devise_for :admins
