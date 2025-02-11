@@ -15,25 +15,7 @@
    <body>
       <div class="wrapper">
          <!--MENU LATERAL-->
-         <nav id="sidebar" class="sidebar js-sidebar">
-            <div class="sidebar-content js-simplebar">
-               <h2 class="title-menu">Ask</h2>
-
-               <ul class="sidebar-nav">
-                  <li class="sidebar-header">Pages</li>
-                  <li class="sidebar-item">
-                     <%= link_to panel_home_index_path, class:"sidebar-link" do %>
-                        <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Dashboard</span>
-                     <% end %>
-                  </li>
-                  <li class="sidebar-item active">
-                     <%= link_to panel_admin_admins_path, class:"sidebar-link" do %>
-                        <i class="align-middle" data-feather="users"></i> <span class="align-middle">Administrators</span>
-                     <% end %>
-                  </li>
-               </ul>
-            </div>
-         </nav>
+         <%= render "layouts/sidebar" %>  
          <!--Navegador-->
          <div class="main">
             <nav class="navbar navbar-expand navbar-light navbar-bg" >

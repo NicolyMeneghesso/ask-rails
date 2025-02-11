@@ -1,24 +1,20 @@
-.card, .card-header {
-    background-color: #273443;
-    padding: 10px 18px;
-}
-
 .card-title {
-    font-size: 18px;
-    color: rgb(190, 191, 194);
+    font-size: 20px;
+    color: rgb(75, 75, 77);
 }
 
 tbody, td, tfoot, th, thead, tr {
-    border-color: rgb(80, 81, 82) !important;
+    border-color: rgb(109, 109, 110) !important;
 }
 
 /*parte da edição do admin*/
-.title-admin{
+.title-admin {
     font-size: 28px !important;
+    color: rgb(75, 75, 77);
 }
 
 .form-label {
-    color: rgb(197, 192, 192);
+    color: rgb(75, 75, 77);
     font-size: 16px;
     font-weight: 600;
 }
@@ -26,7 +22,6 @@ tbody, td, tfoot, th, thead, tr {
 .form-control {
     border: none;
     height: 40px;
-    color: rgb(0, 0, 0) !important;
     font-size: 16px;
 }
 
@@ -37,5 +32,25 @@ tbody, td, tfoot, th, thead, tr {
     justify-content: center;
     align-items: center;
     font-size: 16px;
-    color: rgb(197, 192, 192);
+    color: rgb(75, 75, 77);
+    border: solid 1px rgb(89, 96, 166);
+}
+
+.btn-edit:hover {
+    background-color: rgb(89, 96, 166);
+    color: rgb(231, 231, 236);
+}
+
+/*Alert*/
+
+.alert-danger {
+    background: #c41224b9;
+    color: black;
+    height: 40px;
+    padding: 10px;
+}
+
+.alert-dismissible .btn-close {
+    position: absolute;
+    right: 35px;
 }
