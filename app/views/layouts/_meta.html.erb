@@ -1,0 +1,8 @@
+<title><%= content_for(:title) || "Time To Answer" %></title>
+<%= tag.meta name: "viewport", content: "width=device-width,initial-scale=1,shrink-to-fit=no" %>
+<%= tag.meta name: "apple-mobile-web-app-capable", content: "yes" %>
+<%= tag.meta name: "mobile-web-app-capable", content: "yes" %>
+<%= tag.meta charset: "utf-8" %>
+
+<%= csrf_meta_tags %>
+<%= csp_meta_tag %>
