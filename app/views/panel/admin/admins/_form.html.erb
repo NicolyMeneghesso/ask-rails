@@ -1,0 +1,22 @@
+<%= form_with(model: [:panel, :admin, admin], local: true) do |form| %>
+
+   <div>
+      <%= form.label :email, style: "display: block", for: "exampleInputEmail1", class: "form-label mb-1" %>
+      <%= form.text_field :email, class: "form-control bg-secondary bg-gradient bg-opacity-75 mb-4",  id: "exampleInputEmail1" %>
+   </div>
+
+   <div>
+      <%= form.label :password, style: "display: block", for: "inputPassword4", class: "form-label mb-1" %>
+      <%= form.text_field :password, class: "form-control bg-secondary bg-gradient bg-opacity-75 mb-4",  id: "inputPassword4" %>
+   </div>
+
+    <div>
+      <%= form.label :password_confirmation, style: "display: block", for: "inputPassword4", class: "form-label mb-1" %>
+      <%= form.text_field :password_confirmation, class: "form-control bg-secondary bg-gradient bg-opacity-75 mb-4",  id: "inputPassword4" %>
+   </div>
+
+   <div class="d-flex flex-column align-items-center">
+      <button class="btn btn-outline-secondary bg-opacity-75 btn-edit">Submit</button>
+    <%= form.submit nil, class:"btn btn-form" %>
+  </div>
+<% end %>

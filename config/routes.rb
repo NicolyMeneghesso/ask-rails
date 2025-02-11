@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     get "home/index" #dashboard
 
     namespace :admin do
-      resources :admins, only: [:index, :edit]
+      resources :admins, only: [:index, :edit, :update]
     end
   end
   

@@ -1,3 +1,21 @@
+body {
+    overflow: auto;
+}
+
+.sidebar-content, footer, .sidebar-item, a.sidebar-link {
+    background-color: rgb(89, 96, 166);
+    color: rgb(255, 255, 255);
+}
+
+.sidebar-item.active>.sidebar-link {
+    background: linear-gradient(90deg, rgba(0, 1, 8, 0.126), rgba(0, 1, 8, 0.115) 70%, transparent);
+    border-left-color: #d7e2ef;
+}
+
+.sidebar-item.active>.sidebar-link::before {
+    background-color: none;
+}
+
 .navbar-light {
     background-color: #19222C;
 }
@@ -13,4 +31,6 @@
 .hamburger::after {
     background-color: #bdc0c5;
 }
+
+
 
