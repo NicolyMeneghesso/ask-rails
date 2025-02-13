@@ -8,8 +8,8 @@ tbody, td, tfoot, th, thead, tr {
 }
 
 /*parte da edição do admin*/
-.title-admin {
-    font-size: 28px !important;
+.title-edit-admin {
+    font-size: 25px;
     color: rgb(75, 75, 77);
 }
 
@@ -25,8 +25,8 @@ tbody, td, tfoot, th, thead, tr {
     font-size: 16px;
 }
 
-.btn-edit {
-    height: 40px;
+.btn-card {
+    height: 38px;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -36,7 +36,7 @@ tbody, td, tfoot, th, thead, tr {
     border: solid 1px rgb(89, 96, 166);
 }
 
-.btn-edit:hover {
+.btn-card:hover {
     background-color: rgb(89, 96, 166);
     color: rgb(231, 231, 236);
 }

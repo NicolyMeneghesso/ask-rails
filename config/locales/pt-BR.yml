@@ -1,0 +1,16 @@
+pt-BR:
+  sidebar:
+    title_menu: Painel de Controle
+    subhead: Páginas
+    dashboard: Painel
+    administrators: Administradores
+  navbar:
+    profile: Perfil
+    logout: Sair
+  admin:
+    title_admin: Lista de Administradores
+  editing:
+    btn_edit: Editado
+    title_edit: Editar Conta de Administrador
+  links:
+    back: Voltar

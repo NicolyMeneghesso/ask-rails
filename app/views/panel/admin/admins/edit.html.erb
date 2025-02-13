@@ -1,25 +1,24 @@
-<div class="d-flex justify-content-center">
-   <div class="col-8 col-xl-5">
-		<div class="card bg-primary-subtle py-3 px-4">
-			<div class="card-header bg-primary-subtle d-flex justify-content-center">
-            <h1 class="card-title title-admin">Edit your Admin Login</h1>
-        </div>
-         <% if @admin.errors.any? %>
-            <div class="alert alert-danger alert-dismissible" role="alert">
-               <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-               <div class="alert-message">
-                  <ul>
-                     <% @admin.errors.full_messages.each do |message|%>
-                        <li> <%= message %> </li>
-                     <% end %>
-                  </ul>
-               </div>
+<div class="col-8 col-xl-5">
+   <div class="card bg-primary-subtle py-3 px-4">
+      <div class="card-header bg-primary-subtle d-flex justify-content-center">
+         <h1 class="card-title title-edit-admin"><%= t('editing.title_edit') %></h1>
+      </div>
+      <% if @admin.errors.any? %>
+         <div class="alert alert-danger alert-dismissible" role="alert">
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            <div class="alert-message">
+               <ul>
+                  <% @admin.errors.full_messages.each do |message|%>
+                     <li style="list-style: none;"> <%= message %> </li>
+                  <% end %>
+               </ul>
             </div>
-         <% end %>
-		 	
-			<div class="card-body p-2">
-				<%= render "form", admin: @admin %>
-			</div>
-		</div>
-	</div>
+         </div>
+      <% end %>
+      
+      <div class="card-body p-2">
+         <%= render "form", admin: @admin %>
+         <%= link_to t('links.back'), panel_admin_admins_path, class:"btn btn-card" %>
+      </div>
+   </div>
 </div>

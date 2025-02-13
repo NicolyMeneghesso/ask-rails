@@ -2,6 +2,10 @@ body {
     overflow: auto;
 }
 
+.content, .navbar-light {
+    background-color: rgb(165, 175, 212);
+}
+
 /*MENU LATERAL*/
 .sidebar-content, footer, .sidebar-item, a.sidebar-link {
     background-color: rgb(89, 96, 166);
@@ -26,7 +30,7 @@ body {
 .sidebar-link:hover .align-middle, 
 .sidebar-link:hover svg {
     background: none !important;
-    color: rgb(5, 5, 5) !important; /* Cor do texto */
+    color: rgb(5, 5, 5) !important;
     stroke: rgb(5, 5, 5) !important; /* Cor do ícone SVG */
 }
 
@@ -35,16 +39,8 @@ body {
     box-shadow: none !important;
 }
 
-.user-nav {
-    color: rgb(46, 45, 45);
-}
-
-.nav-link {
-    color: rgb(0, 0, 0);
-}
-
-.navbar-light, .content {
-    background-color: #a5afd4;
+.user-nav, .nav-link {
+    color: rgb(7, 7, 7);
 }
 
 .hamburger {
@@ -61,3 +57,8 @@ body {
     height: 3.5px;
 }
 
+/*Dropmenu*/
+.dropdown-menu, .dropdown-item {
+    background-color: rgb(89, 96, 166);
+    color: rgb(5, 5, 5);
+}

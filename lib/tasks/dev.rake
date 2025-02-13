@@ -36,6 +36,13 @@ namespace :dev do
     end
   end
 
+  desc "Adiciona username para os usuarios e administradores que não tem um definido"
+  task add_username_extra: :environment do 
+    Admin.all.each do |admin|
+      admin.update(username: Faker::Name.name)
+    end
+  end
+
   desc "Adiciona o usuário padrão"
   task add_default_user: :environment do 
     User.create!(
