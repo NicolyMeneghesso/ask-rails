@@ -12,5 +12,8 @@ en:
   editing:
     btn_edit: Edited
     title_edit: Edit Administrator Account
+  new:
+    btn_new: Creating
+    title_new: Create Administrator Account
   links:
     back: Voltar

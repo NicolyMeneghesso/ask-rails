@@ -9,6 +9,19 @@ class Panel::Admin::AdminsController < PanelBaseController
   def edit
   end
 
+  def new
+    @admin = Admin.new
+  end
+
+  def create
+    @admin = Admin.new(params_admin)
+    if @admin.save
+      redirect_to panel_admin_admins_path, notice: "Administrador cadastrado com sucesso"
+    else
+      render :new
+    end
+  end
+
   def update
     if @admin.update(params_admin)
       redirect_to panel_admin_admins_path, notice: "Administrador atualizado com sucesso"
@@ -19,7 +32,7 @@ class Panel::Admin::AdminsController < PanelBaseController
 
   private
     def params_admin
-      params.require(:admin).permit(:email, :password, :password_confirmation)
+      params.require(:admin).permit(:name, :email, :password, :password_confirmation)
     end
 
     def set_admin

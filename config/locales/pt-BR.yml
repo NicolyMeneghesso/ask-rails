@@ -12,5 +12,8 @@ pt-BR:
   editing:
     btn_edit: Editado
     title_edit: Editar Conta de Administrador
+  new:
+    btn_new: Criando
+    title_new: Criar Conta de Administrador
   links:
     back: Voltar

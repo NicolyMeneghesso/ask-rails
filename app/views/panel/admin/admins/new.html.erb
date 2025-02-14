@@ -1,0 +1,13 @@
+<div class="col-8 col-xl-5">
+   <div class="card bg-primary-subtle py-3 px-4">
+      <div class="card-header bg-primary-subtle d-flex justify-content-center pb-2">
+         <h1 class="card-title title-edit-admin"><%= t('new.title_new') %></h1>
+      </div>
+    
+      
+      <div class="card-body p-2">
+         <%= render "form", admin: @admin %>
+         <%= link_to t('links.back'), panel_admin_admins_path, class:"btn btn-card" %>
+      </div>
+   </div>
+</div>
