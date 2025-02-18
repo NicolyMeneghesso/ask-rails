@@ -56,6 +56,17 @@
          </div>
       </div>
 
-      <script src="https://unpkg.com/@adminkit/core@latest/dist/js/app.js"></script>
+      <%= javascript_include_tag "https://unpkg.com/@adminkit/core@latest/dist/js/app.js" %>
+
+      <script>
+         $.bootstrapGrowl(' <%= j notice %>', {
+               type: 'success', // (null, 'info', 'danger', 'success')
+               offset: {from: 'top', amount: 20},
+               align: 'right', // ('left', 'right', or 'center')
+               allow_dismiss: true, // If true then will display a cross to close the popup.
+               stackup_spacing: 10 // spacing between consecutively stacked growls.
+         });
+      </script>
+
    </body>
 </html>

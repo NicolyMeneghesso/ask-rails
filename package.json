@@ -3,5 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "author": "Nicoly Meneghesso <nihmeneghesso@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap-growl-ifightcrime": "^1.1.0"
+  }
 }
