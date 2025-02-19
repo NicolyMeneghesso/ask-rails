@@ -8,7 +8,7 @@ tbody, td, tfoot, th, thead, tr {
 }
 
 .btn-info {
-    width: 75%;
+    width: 60%;
     margin: 2px;
 }
 
@@ -58,4 +58,35 @@ tbody, td, tfoot, th, thead, tr {
 .alert-dismissible .btn-close {
     position: absolute;
     right: 35px;
+}
+
+/*pagination*/
+.page-link {
+    background-color: rgb(216, 229, 248);
+    border: none;
+    color: rgb(73, 80, 87);
+    text-decoration: none; /* Remove sublinhado */
+    transition: background-color 0.3s ease; /* Suaviza a transição */
+}
+
+.page-link:hover, 
+.page-link:focus {
+    background-color: rgb(180, 200, 230); /* Tom mais escuro ao passar o mouse */
+    text-decoration: none;
+}
+
+/* Estado ao clicar na página */
+.page-link:active {
+    background-color: rgb(150, 180, 220) !important; /* Tom mais escuro ao clicar */
+    color: white !important;
+    text-decoration: none !important;
+}
+
+/* Página ativa */
+.page-item.active .page-link {
+    background-color: rgb(140, 160, 200) !important; /* Background ainda mais escuro para a página ativa */
+    color: white !important;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px; /* Suaviza os cantos */
 }

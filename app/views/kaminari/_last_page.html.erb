@@ -1,0 +1,3 @@
+<li class="page-item">
+  <%= link_to_unless current_page.last?, content_tag(:span, '»', aria: { hidden: true }), url, remote: remote, class: 'page-link' %>
+</li>

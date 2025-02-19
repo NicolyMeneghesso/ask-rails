@@ -26,17 +26,17 @@
                   <ul class="navbar-nav navbar-align">
                      <li class="nav-item dropdown">
                         <span class="nav-link dropdown-toggle d-none d-sm-inline-block" data-bs-toggle="dropdown">
-                           <i class="user-nav" data-feather="user"></i>
+                           <i class="fa-regular fa-user user-nav"></i>
                            <%= current_panel_user.email %>
                          </span>
                         <div class="dropdown-menu dropdown-menu-end">
                            <%= link_to "", class:"dropdown-item" do %>
-                              <i class="me-1" data-feather="user"></i>
+                              <i class="fa-regular fa-user me-1"></i>
                               <%= t('navbar.profile')%>
                            <% end %>
                            <%= link_to "", class:"dropdown-item" do %>
-                              <i class="me-1" data-feather="log-out"></i
-                              ><%= t('navbar.logout')%>
+                              <i class="fa-regular fa-arrow-right-from-bracket me-1"></i>
+                              <%= t('navbar.logout')%>
                            <% end %>
                         </div>
                      </li>
@@ -57,16 +57,5 @@
       </div>
 
       <%= javascript_include_tag "https://unpkg.com/@adminkit/core@latest/dist/js/app.js" %>
-
-      <script>
-         $.bootstrapGrowl(' <%= j notice %>', {
-               type: 'success', // (null, 'info', 'danger', 'success')
-               offset: {from: 'top', amount: 20},
-               align: 'right', // ('left', 'right', or 'center')
-               allow_dismiss: true, // If true then will display a cross to close the popup.
-               stackup_spacing: 10 // spacing between consecutively stacked growls.
-         });
-      </script>
-
    </body>
 </html>

@@ -1,9 +1,9 @@
 class Panel::Admin::AdminsController < PanelBaseController
-  before_action :set_admin, only: [:edit, :update]
+  before_action :set_admin, only: [:edit, :update, :destroy]
   before_action :verify_password, only: [:update]
 
   def index
-    @admins = Admin.all
+    @admins = Admin.all.page(params[:page])
   end
 
   def edit
@@ -27,6 +27,14 @@ class Panel::Admin::AdminsController < PanelBaseController
       redirect_to panel_admin_admins_path, notice: "Administrador atualizado com sucesso"
     else
       render :edit
+    end
+  end
+
+  def destroy
+    if @admin.destroy
+      redirect_to panel_admin_admins_path, notice: "Administrador excluído com sucesso"
+    else
+      render :index
     end
   end
 

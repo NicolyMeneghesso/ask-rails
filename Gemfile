@@ -62,3 +62,4 @@ end
 gem "devise", "~> 4.9"
 gem "tty-spinner"
 gem "faker"
+gem "kaminari"
