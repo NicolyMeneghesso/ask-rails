@@ -4,6 +4,7 @@ pt-BR:
     subhead: Páginas
     dashboard: Painel
     administrators: Administradores
+    subjects: Assuntos/Áreas
   navbar:
     profile: Perfil
     logout: Sair

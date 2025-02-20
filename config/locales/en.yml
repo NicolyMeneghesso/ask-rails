@@ -4,6 +4,7 @@ en:
     subhead: Pages
     dashboard: Dashboard
     administrators: Administrators
+    subjects: Subjects/Areas
   navbar:
     profile: Profile
     logout: Log out
