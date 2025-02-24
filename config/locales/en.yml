@@ -8,13 +8,16 @@ en:
   navbar:
     profile: Profile
     logout: Log out
-  admin:
+  index:
     title_admin: List of Administrators
+    title_subjects: List of Subjects/Areas
   editing:
     btn_edit: Edited
-    title_edit: Edit Administrator Account
+    title_admin: Editing Administrator account
+    title_subjects: Editing Subjects/Areas
   new:
     btn_new: Creating
-    title_new: Create Administrator Account
+    title_admin: Create Administrator account
+    title_subjects: Create Subjects/Areas
   links:
     back: Voltar

@@ -13,7 +13,7 @@ tbody, td, tfoot, th, thead, tr {
 }
 
 /*parte da edição do admin*/
-.title-edit-admin {
+.title-edit {
     font-size: 25px;
     color: rgb(75, 75, 77);
 }
