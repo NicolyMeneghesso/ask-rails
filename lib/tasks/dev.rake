@@ -13,6 +13,7 @@ namespace :dev do
       show_spinner("Adicionando administradores extras...") {%x(rails dev:add_extra_admins)}
       show_spinner("Cadastrando o usuário padrão...") {%x(rails dev:add_default_user)}
       show_spinner("Cadastrando os assuntos padrões...") {%x(rails dev:add_subjects)}
+      show_spinner("Cadastrando os perguntas e respostas...") {%x(rails dev:add_subjects)}
     else 
       puts "Você não está em ambiente de desenvolvimento"
     end
@@ -59,6 +60,9 @@ namespace :dev do
     file_name = 'subjects.txt'
     file_path = File.join(DEFAULT_FILES_PATH, file_name)
 
+    Subject.delete_all
+    ActiveRecord::Base.connection.execute("DELETE FROM sqlite_sequence WHERE name='subjects'")
+    
     File.open(file_path, 'r').each do |line|
       Subject.create!(description: line.strip)
     end

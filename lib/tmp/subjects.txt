@@ -1,57 +1,35 @@
-Administração
-Agronomia
-Análise e Desenvolvimento de Sistemas
-Arquitetura e Urbanismo
-Artes Cênicas
-Artes Visuais
-Astronomia
-Biologia
-Biomedicina
-Ciência da Computação
-Ciências Contábeis
-Ciências Econômicas
-Ciências Sociais
-Comunicação Social
-Design Gráfico
-Direito
-Educação Física
-Enfermagem
-Engenharia Ambiental
-Engenharia Civil
-Engenharia de Alimentos
-Engenharia de Computação
-Engenharia de Controle e Automação
-Engenharia de Produção
+Algoritmos e Estruturas de Dados
+Lógica de Programação
+Paradigmas de Programação
+Arquitetura de Computadores
+Organização e Estruturas de Computadores
+Sistemas Operacionais
+Redes de Computadores
+Segurança da Informação
+Computação em Nuvem
+Programação Orientada a Objetos
+Desenvolvimento Web
+Desenvolvimento Mobile
 Engenharia de Software
-Engenharia Elétrica
-Engenharia Mecânica
-Engenharia Química
-Estatística
-Farmácia
-Filosofia
-Física
-Fisioterapia
-Geografia
-Geologia
-Gestão de Recursos Humanos
-História
-Jornalismo
-Letras
-Logística
-Marketing
-Matemática
-Medicina
-Medicina Veterinária
-Música
-Nutrição
-Odontologia
-Pedagogia
-Psicologia
-Publicidade e Propaganda
-Química
-Radiologia
-Relações Internacionais
-Relações Públicas
-Sistemas de Informação
-Sociologia
-Turismo
+Métodos Ágeis
+Testes de Software
+Qualidade de Software
+Lógica Matemática
+Teoria da Computação
+Compiladores
+Computação Gráfica
+Banco de Dados Relacionais
+Banco de Dados NoSQL
+Big Data e Data Science
+Inteligência Artificial
+Aprendizado de Máquina (Machine Learning)
+Mineração de Dados
+Internet das Coisas (IoT)
+Computação Distribuída
+Sistemas Embarcados
+Engenharia de Requisitos
+Arquitetura de Software
+Gestão de Projetos de Software
+Empreendedorismo e Inovação Tecnológica
+Governança de TI
+Ética e Legislação em TI
