@@ -5,19 +5,23 @@ en:
     dashboard: Dashboard
     administrators: Administrators
     subjects: Subjects/Areas
+    questions: Questions
   navbar:
     profile: Profile
     logout: Log out
   index:
     title_admin: List of Administrators
     title_subjects: List of Subjects/Areas
+    title_questions: Lista of Questions
   editing:
     btn_edit: Edited
-    title_admin: Editing Administrator account
+    title_admin: Editing Administrator
     title_subjects: Editing Subjects/Areas
+    title_questions: Editando Questions
   new:
     btn_new: Creating
-    title_admin: Create Administrator account
+    title_admin: Create Administrator
     title_subjects: Create Subjects/Areas
+    title_questions: Create Questions
   links:
-    back: Voltar
+    back: Back

@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     namespace :admin do
       resources :admins
       resources :subjects
+      resources :questions
     end
   end
   

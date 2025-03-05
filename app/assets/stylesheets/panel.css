@@ -12,6 +12,10 @@ body {
     color: rgb(255, 255, 255);
 }
 
+.fa-light {
+    font-size: 17px;
+}
+
 .sidebar-item.active>.sidebar-link {
     background: none !important;
     border-left-color: transparent !important;

@@ -1,0 +1,105 @@
+1,O que é um algoritmo?,Um algoritmo é uma sequência finita de passos bem definidos para resolver um problema.
+1,Qual é a diferença entre uma fila (queue) e uma pilha (stack)?, Uma fila segue a estratégia FIFO (First In, First Out), enquanto uma pilha segue a estratégia LIFO (Last In, First Out).
+1,O que é um grafo?,Um grafo é uma estrutura de dados composta por vértices e arestas que podem ser usadas para representar relações entre elementos.
+2,O que é um fluxograma?,Um fluxograma é uma representação gráfica de um algoritmo usando símbolos padronizados.
+2,Qual é a função de um operador lógico?,Operadores lógicos, como AND, OR e NOT, são usados para avaliar expressões booleanas.
+2,O que significa depuração (debugging)?,Depuração é o processo de encontrar e corrigir erros em um código.
+3,O que caracteriza a programação orientada a objetos?,A programação orientada a objetos é baseada em classes e objetos, utilizando conceitos como herança, encapsulamento e polimorfismo.
+3,Qual é a diferença entre programação imperativa e declarativa?,A programação imperativa foca em como resolver o problema, enquanto a declarativa foca no que deve ser resolvido.
+3,O que é programação funcional?,A programação funcional é baseada em funções matemáticas e evita mudança de estado.
+4,O que é a arquitetura von Neumann?,É um modelo de arquitetura onde dados e instruções são armazenados na mesma memória
+4,Qual a função do barramento do processador?,O barramento conecta diferentes componentes do computador, permitindo a troca de dados.
+4,O que é um processador multi-core?,É um processador com múltiplos núcleos, permitindo execução paralela de tarefas.
+5,O que são registradores?,Registradores são pequenas memórias de alta velocidade dentro do processador usadas para armazenar dados temporários.
+5,Qual a diferença entre RAM e ROM?,RAM é uma memória volátil usada para armazenar dados temporários, enquanto ROM é uma memória não volátil usada para armazenar firmware.
+5,O que é a unidade de controle de um processador?,A unidade de controle gerencia a execução das instruções do processador.
+6,O que é um sistema operacional?,Um sistema operacional é um software que gerencia o hardware e fornece serviços para programas de aplicação.
+6,O que é um processo?,Um processo é uma instância de um programa em execução.
+6,Qual a diferença entre escalonamento preemptivo e não preemptivo?,No escalonamento preemptivo, o sistema operacional pode interromper um processo em execução; no não preemptivo, um processo só libera a CPU voluntariamente.
+7,O que é o modelo OSI?,O modelo OSI é um modelo de referência para redes que divide a comunicação em sete camadas.
+7,O que é um endereço IP?,Um endereço IP é um identificador numérico único atribuído a um dispositivo em uma rede.
+7,Qual a diferença entre TCP e UDP?TCP é um protocolo orientado à conexão que garante entrega de pacotes, enquanto UDP é mais rápido, mas não garante a entrega.
+8,O que é criptografia?,Criptografia é a técnica de proteger informações transformando-as em um formato ilegível sem a chave correta.
+8,O que é um firewall?,Um firewall é um sistema de segurança que monitora e controla o tráfego de rede com base em regras predefinidas.
+8,O que é um ataque de phishing?,Phishing é um ataque cibernético onde o invasor tenta enganar vítimas para obter informações sensíveis, como senhas.
+9,O que é computação em nuvem?,É um modelo de computação baseado em servidores remotos acessíveis via internet.
+9,O que é SaaS?,Software como Serviço (SaaS) é um modelo de distribuição de software na nuvem.
+9,O que é escalabilidade na nuvem?,A capacidade de um sistema crescer conforme a demanda aumenta.
+10,O que é herança em Programação Orientada a Objetos?,Herança é um princípio da POO que permite que uma classe (subclasse) herde atributos e métodos de outra classe (superclasse), promovendo reutilização de código.
+10,O que é encapsulamento?,Encapsulamento é um conceito da POO que restringe o acesso direto aos atributos e métodos de um objeto, permitindo controle sobre sua manipulação.
+10,O que é polimorfismo?,Polimorfismo é a capacidade de um método ou função se comportar de diferentes formas, dependendo da classe que o implementa.
+11,O que é HTML?,HTML (HyperText Markup Language) é a linguagem de marcação usada para estruturar páginas web.
+11,Qual a diferença entre frontend e backend?,O frontend lida com a interface do usuário e a experiência visual, enquanto o backend gerencia a lógica do servidor, banco de dados e APIs.
+11,O que é um framework web?,Um framework web é um conjunto de ferramentas e bibliotecas que facilitam o desenvolvimento de aplicações web, como React, Angular e Django.
+12,O que é um aplicativo nativo?,Um aplicativo nativo é um app desenvolvido especificamente para um sistema operacional, como Android ou iOS, utilizando suas linguagens e ferramentas nativas.
+12,O que é um Progressive Web App (PWA)?,Um PWA é uma aplicação web que pode ser instalada no dispositivo do usuário e funcionar offline, oferecendo uma experiência similar a um app nativo.
+12,Qual a diferença entre aplicativos híbridos e nativos?,Aplicativos híbridos são desenvolvidos com tecnologias web e encapsulados para rodar em dispositivos móveis, enquanto os nativos são criados diretamente na linguagem específica do sistema operacional.
+13,O que é Engenharia de Software?,Engenharia de Software é a disciplina que aplica princípios de engenharia para o desenvolvimento, manutenção e gerenciamento de sistemas de software eficientes e confiáveis.
+13,O que é um ciclo de vida de software?,O ciclo de vida de software é o conjunto de fases pelo qual um software passa, incluindo concepção, desenvolvimento, testes, implantação e manutenção.
+13,O que são requisitos funcionais e não funcionais?,Requisitos funcionais descrevem o que o sistema deve fazer, enquanto requisitos não funcionais definem características como desempenho, segurança e usabilidade.
+14,O que é Scrum?,Scrum é um framework ágil usado para gerenciamento de projetos de software, baseado em ciclos iterativos chamados sprints.
+14,O que é um Product Owner no Scrum?,O Product Owner é o responsável por definir e priorizar os requisitos do produto, garantindo que a equipe de desenvolvimento entregue valor ao cliente.
+14,O que é um Kanban?,Kanban é um método ágil de gerenciamento visual de tarefas que permite acompanhar o fluxo de trabalho em colunas representando diferentes estágios do processo.
+15,O que é um teste de unidade?,Teste de unidade é um tipo de teste que verifica se uma parte específica do código (como uma função ou método) funciona corretamente de forma isolada.
+15,O que é um teste de integração?,Teste de integração avalia a interação entre diferentes módulos ou componentes do sistema para garantir que funcionem corretamente juntos.
+15,O que é um teste de regressão?,Teste de regressão verifica se novas alterações no código não introduziram falhas em funcionalidades já existentes.
+16,O que é garantia da qualidade de software?,Garantia da qualidade de software refere-se às práticas e processos utilizados para garantir que o software atenda aos requisitos especificados com alta qualidade.
+16,O que é um padrão de qualidade de software?,Um padrão de qualidade de software é um conjunto de diretrizes ou normas, como ISO 25010, que definem critérios para avaliar a qualidade de um sistema.
+16,O que é um indicador de qualidade de software?,Indicadores de qualidade de software são métricas usadas para medir atributos como desempenho, manutenibilidade e usabilidade de um software.
+17,O que é uma proposição na lógica matemática?,Uma proposição é uma afirmação que pode ser verdadeira ou falsa, mas não ambas ao mesmo tempo.
+17,O que são operadores lógicos?,Operadores lógicos, como AND (E), OR (OU) e NOT (NÃO), são usados para combinar proposições na lógica matemática.
+17,O que é uma tabela-verdade?,Uma tabela-verdade é uma representação tabular que mostra todas as combinações possíveis de valores lógicos de uma proposição e seus respectivos resultados.
+18,O que é a tese de Church-Turing?,A tese de Church-Turing afirma que qualquer problema computável pode ser resolvido por uma máquina de Turing, estabelecendo os fundamentos da computação teórica.
+18,O que é um autômato finito?,Um autômato finito é um modelo matemático de computação usado para reconhecer padrões e linguagens formais, composto por estados e transições.
+18,O que é a complexidade de um algoritmo?,A complexidade de um algoritmo mede os recursos necessários (tempo e espaço) para sua execução em função do tamanho da entrada.
+19,O que é um compilador?,Um compilador é um programa que traduz código-fonte de uma linguagem de programação para código de máquina ou bytecode, tornando-o executável pelo computador.
+19,Qual a diferença entre compilação e interpretação?,Compilação traduz o código-fonte inteiro antes da execução, enquanto a interpretação traduz e executa o código linha por linha em tempo de execução.
+19,O que é análise léxica em um compilador?,Análise léxica é a primeira etapa da compilação, onde o código-fonte é transformado em tokens para facilitar o processamento das próximas etapas.
+20,O que é rasterização em computação gráfica?,Rasterização é o processo de converter objetos vetoriais em pixels para exibição em uma tela.
+20,O que é modelagem 3D?,Modelagem 3D é a criação de representações tridimensionais de objetos para uso em animações, jogos e simulações.
+20,O que é um shader?,Um shader é um programa executado na GPU que controla a forma como os pixels e vértices são renderizados.
+21,O que é um banco de dados relacional?,Um banco de dados relacional é um sistema que organiza dados em tabelas relacionadas por chaves primárias e estrangeiras.
+21,O que é SQL?,SQL (Structured Query Language) é uma linguagem utilizada para manipular e consultar dados em bancos de dados relacionais.
+21,O que é normalização em bancos de dados?,Normalização é o processo de organização de um banco de dados para reduzir redundâncias e melhorar a integridade dos dados.
+22,O que é um banco de dados NoSQL?,Um banco de dados NoSQL é um tipo de banco de dados que não usa o modelo relacional, sendo mais flexível para armazenar dados não estruturados.
+22,Quais são os principais tipos de bancos NoSQL?,Os principais tipos são bancos de documentos, chave-valor, colunar e orientados a grafos.
+22,Qual a diferença entre NoSQL e SQL?,SQL usa um esquema rígido baseado em tabelas, enquanto NoSQL permite armazenamento mais flexível e escalável.
+23,O que é Big Data?,Big Data se refere a conjuntos massivos de dados que exigem técnicas avançadas para processamento e análise.
+23,O que é Data Science?,Data Science é a disciplina que usa estatística, aprendizado de máquina e análise de dados para extrair conhecimento de grandes volumes de informações.
+23,O que é um Data Lake?,Um Data Lake é um repositório centralizado para armazenar grandes volumes de dados estruturados e não estruturados.
+24,O que é Inteligência Artificial (IA)?,IA é a área da computação que busca criar sistemas capazes de realizar tarefas que exigem inteligência humana.
+24,Qual a diferença entre IA forte e IA fraca?,IA fraca é projetada para tarefas específicas, enquanto IA forte pode realizar qualquer tarefa cognitiva como um ser humano.
+24,O que são redes neurais artificiais?,Redes neurais são modelos computacionais inspirados no cérebro humano que processam informações e aprendem padrões.
+25,O que é aprendizado de máquina?,Aprendizado de máquina é um ramo da IA que usa algoritmos para ensinar sistemas a reconhecer padrões e tomar decisões sem programação explícita.
+25,O que é aprendizado supervisionado?,Aprendizado supervisionado ocorre quando um modelo é treinado com dados rotulados para fazer previsões futuras.
+25,O que é overfitting?,Overfitting ocorre quando um modelo aprende excessivamente os dados de treinamento e não generaliza bem para novos dados.
+26,O que é mineração de dados?,Mineração de dados é o processo de descobrir padrões e tendências ocultas em grandes volumes de dados.
+26,O que são algoritmos de clustering?,Algoritmos de clustering agrupam dados similares sem necessidade de rótulos prévios, como K-means.
+26,O que é um classificador na mineração de dados?,Um classificador é um modelo treinado para categorizar novos dados com base em exemplos anteriores.
+27,O que é Internet das Coisas (IoT)?,IoT refere-se à conexão de dispositivos físicos à internet para coletar e compartilhar dados automaticamente.
+27,O que é um sensor IoT?,Um sensor IoT é um dispositivo que capta informações do ambiente e as transmite para um sistema computacional.
+27,Quais são os principais desafios da IoT?,Os principais desafios incluem segurança, privacidade, interoperabilidade e gerenciamento de grandes volumes de dados.
+28,O que é computação distribuída?,Computação distribuída é um modelo no qual múltiplos computadores trabalham juntos para resolver um problema, compartilhando recursos e processamento.
+28,O que é um sistema distribuído?,Um sistema distribuído é um conjunto de computadores interconectados que colaboram para executar tarefas como se fossem um único sistema.
+28,Quais são os principais desafios da computação distribuída?,Os principais desafios incluem latência na comunicação, tolerância a falhas e sincronização entre os sistemas.
+29,O que são sistemas embarcados?,Sistemas embarcados são computadores especializados projetados para executar tarefas específicas dentro de um dispositivo maior, como carros, eletrodomésticos e equipamentos médicos.
+29,O que é um microcontrolador?,Um microcontrolador é um chip que contém processador, memória e periféricos integrados, usado em sistemas embarcados para controle de dispositivos.
+29,Quais são as principais características de um sistema embarcado?,São geralmente projetados para alto desempenho, baixo consumo de energia e operação em tempo real.
+30,O que é engenharia de requisitos?,Engenharia de requisitos é o processo de levantamento, análise, especificação e validação das necessidades dos usuários para o desenvolvimento de um sistema de software.
+30,Qual a diferença entre requisitos funcionais e não funcionais?,Requisitos funcionais descrevem o que o sistema deve fazer, enquanto os não funcionais definem características como desempenho, segurança e usabilidade.
+30,O que é um caso de uso na engenharia de requisitos?,Um caso de uso é uma descrição detalhada de como um usuário interage com um sistema para atingir um objetivo específico.
+31,O que é arquitetura de software?,Arquitetura de software é o conjunto de decisões estruturais sobre a organização e o design de um sistema de software.
+31,Qual a diferença entre arquitetura monolítica e arquitetura de microsserviços?,Arquitetura monolítica agrupa toda a lógica do sistema em um único bloco, enquanto a de microsserviços divide o sistema em pequenos serviços independentes.
+31,O que é um padrão arquitetural?,Um padrão arquitetural é uma solução reutilizável para problemas recorrentes no design de software, como MVC e Camadas.
+32,O que é gestão de projetos de software?,Gestão de projetos de software envolve o planejamento, execução e monitoramento de todas as atividades necessárias para entregar um software dentro do prazo, custo e qualidade esperados.
+32,O que é um cronograma de projeto?,Um cronograma de projeto define as etapas, prazos e dependências das atividades de um projeto de software.
+32,O que é análise de riscos em projetos de software?,Análise de riscos identifica e avalia potenciais problemas que podem impactar o sucesso do projeto e propõe estratégias para mitigá-los.
+33,O que é inovação tecnológica?,Inovação tecnológica refere-se ao desenvolvimento e aplicação de novas tecnologias para criar produtos, processos ou serviços inovadores.
+33,O que é uma startup?,Uma startup é uma empresa emergente que busca desenvolver um modelo de negócios inovador e escalável, geralmente usando tecnologia.
+33,Qual a diferença entre inovação incremental e inovação disruptiva?,Inovação incremental melhora produtos ou serviços existentes, enquanto a inovação disruptiva cria novas soluções que transformam o mercado.
+34,O que é governança de TI?,Governança de TI é um conjunto de práticas, políticas e processos para garantir que a tecnologia da informação esteja alinhada aos objetivos estratégicos da organização.
+34,O que é ITIL?,ITIL (Information Technology Infrastructure Library) é um conjunto de boas práticas para gerenciamento de serviços de TI.
+34,Qual a importância da governança de TI para as empresas?,A governança de TI garante que a tecnologia seja usada de forma eficiente, reduzindo riscos e alinhando investimentos tecnológicos com os objetivos do negócio.
+35,O que é ética em TI?,Ética em TI envolve os princípios e valores que orientam o uso responsável da tecnologia da informação, respeitando privacidade e direitos dos usuários.
+35,O que é a LGPD?,A Lei Geral de Proteção de Dados (LGPD) é uma legislação brasileira que regula a coleta, armazenamento e tratamento de dados pessoais para proteger a privacidade dos indivíduos.
+35,O que é cyberbullying e como pode ser prevenido?,Cyberbullying é o assédio digital realizado por meio de redes sociais ou outras plataformas online, podendo ser prevenido com conscientização, monitoramento e medidas de segurança digital.

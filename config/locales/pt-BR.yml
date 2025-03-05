@@ -5,19 +5,23 @@ pt-BR:
     dashboard: Painel
     administrators: Administradores
     subjects: Assuntos/Áreas
+    questions: Questões
   navbar:
     profile: Perfil
     logout: Sair
   index:
     title_admin: Lista de Administradores
     title_subjects: Lista de Assuntos/Áreas
+    title_questions: Lista de Questões
   editing:
     btn_edit: Editado
-    title_admin: Editado conta de Administrador
+    title_admin: Editado Administrador
     title_subjects: Editado Assuntos/Áreas
+    title_questions: Editando Questões
   new:
     btn_new: Criando
-    title_admin: Criar conta de Administrador
+    title_admin: Criar Administrador
     title_subjects: Criar Assuntos/Áreas
+    title_questions: Criar questões
   links:
     back: Voltar

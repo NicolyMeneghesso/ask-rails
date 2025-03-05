@@ -22,6 +22,12 @@
                <span class="align-middle"><%= t('sidebar.subjects') %></span>
             <% end %>
          </li>
+         <li class="sidebar-item active">
+            <%= link_to panel_admin_questions_path, class:"sidebar-link" do %>
+               <i class="fa-light fa-file-circle-question align-middle"></i>
+               <span class="align-middle"><%= t('sidebar.questions') %></span>
+            <% end %>
+         </li>
       </ul>
    </div>
 </nav>

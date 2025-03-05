@@ -13,7 +13,7 @@ namespace :dev do
       show_spinner("Adicionando administradores extras...") {%x(rails dev:add_extra_admins)}
       show_spinner("Cadastrando o usuário padrão...") {%x(rails dev:add_default_user)}
       show_spinner("Cadastrando os assuntos padrões...") {%x(rails dev:add_subjects)}
-      show_spinner("Cadastrando os perguntas e respostas...") {%x(rails dev:add_subjects)}
+      show_spinner("Cadastrando os perguntas e respostas...") {%x(rails dev:add_questions)}
     else 
       puts "Você não está em ambiente de desenvolvimento"
     end
@@ -65,6 +65,23 @@ namespace :dev do
     
     File.open(file_path, 'r').each do |line|
       Subject.create!(description: line.strip)
+    end
+  end
+
+  desc "Adiciona questões e respostas padrões"
+  task add_questions: :environment do 
+    file_name = 'questions.txt'
+    file_path = File.join(DEFAULT_FILES_PATH, file_name)
+
+    Question.delete_all
+    ActiveRecord::Base.connection.execute("DELETE FROM sqlite_sequence WHERE name='questions'")
+    
+    File.open(file_path, 'r').each do |line|
+      # 1,Qual a idade?
+      question_data = line.split(",")
+      # question_data = [1, "Qual a idade?"]
+      created_question = Question.create!(subject_id: question_data[0], description: question_data[1])
+      Answer.create!(question_id: created_question.id, description: question_data[2])
     end
   end
 
