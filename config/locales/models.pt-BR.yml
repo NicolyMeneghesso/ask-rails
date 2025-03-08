@@ -33,5 +33,11 @@
         id: Código
         description: Descrição
         subject: Assunto/Área
+        answers: Respostas
+        created_at: Criando em
+        updated_at: Atualizado em
+      answer:
+        id: Código
+        description: Descrição
         created_at: Criando em
         updated_at: Atualizado em

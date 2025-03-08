@@ -6,7 +6,21 @@
 
    <div>
       <%= form.label :subject, style: "display: block", for: "exampleInputEmail1", class: "form-label mb-1" %>
-      <%= form.collection_select(:subject_id, Subject.all, :id, :description, {}, { class: "form-select form-select-lg mb-3" }) %>
+      <%= form.collection_select(:subject_id, @subjects, :id, :description, {}, { class: "form-select form-select-lg mb-3" }) %>
+   </div>
+
+   <div class="mb-3">
+      <%= form.label :answers, style: "display: block", for: "exampleInputEmail1", class: "form-label mb-1" %>
+      <%= form.fields_for :answers do |answer_form| %>
+         <div class="mb-2">    
+            <%= answer_form.text_field :description, class: "form-control" %>
+         </div>
+         <div class="form-check">
+            <%= answer_form.radio_button :correct, true, class: "form-check-input", checked: answer_form.object.correct %>
+            <%= answer_form.label :correct, "Correta", class: "form-check-label" %>
+         </div>
+         <hr class="line-div-answers">
+      <% end %>
    </div>
 
    <div class="d-flex flex-column align-items-center">

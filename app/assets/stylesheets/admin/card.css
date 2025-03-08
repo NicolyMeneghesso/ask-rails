@@ -46,8 +46,17 @@ tbody, td, tfoot, th, thead, tr {
     color: rgb(231, 231, 236);
 }
 
-/*Alert*/
+.form-check-label {
+    margin-top: 2px;
+    font-size: 15px;
+}
 
+.line-div-answers {
+    margin: .6rem 0;
+    border: solid 1px rgb(89, 96, 166);
+}
+
+/*Alert*/
 .alert-danger {
     background: #c41224b9;
     color: black;

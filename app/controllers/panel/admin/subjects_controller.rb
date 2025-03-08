@@ -5,9 +5,6 @@ class Panel::Admin::SubjectsController < PanelBaseController
     @subjects = Subject.all.page(params[:page])
   end
 
-  def edit
-  end
-
   def new
     @subject = Subject.new
   end
@@ -15,15 +12,18 @@ class Panel::Admin::SubjectsController < PanelBaseController
   def create
     @subject = Subject.new(params_subject)
     if @subject.save
-      redirect_to panel_admin_subject_path, notice: "Assunto/Área cadastrado com sucesso"
+      redirect_to panel_admin_subjects_path, notice: "Assunto/Área cadastrado com sucesso"
     else
       render :new
     end
   end
+  
+  def edit
+  end
 
   def update
     if @subject.update(params_subject)
-      redirect_to panel_admin_subject_path, notice: "Assunto/Área atualizado com sucesso"
+      redirect_to panel_admin_subjects_path, notice: "Assunto/Área atualizado com sucesso"
     else
       render :edit
     end
@@ -31,7 +31,7 @@ class Panel::Admin::SubjectsController < PanelBaseController
 
   def destroy
     if @subject.destroy
-      redirect_to panel_admin_subject_path, notice: "Assunto/Área excluído com sucesso"
+      redirect_to panel_admin_subjects_path, notice: "Assunto/Área excluído com sucesso"
     else
       render :index
     end

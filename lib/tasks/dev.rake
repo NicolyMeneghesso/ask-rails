@@ -72,16 +72,26 @@ namespace :dev do
   task add_questions: :environment do 
     file_name = 'questions.txt'
     file_path = File.join(DEFAULT_FILES_PATH, file_name)
-
+    
+    Answer.delete_all
+    ActiveRecord::Base.connection.execute("DELETE FROM sqlite_sequence WHERE name='answers'")
+    
     Question.delete_all
     ActiveRecord::Base.connection.execute("DELETE FROM sqlite_sequence WHERE name='questions'")
-    
-    File.open(file_path, 'r').each do |line|
-      # 1,Qual a idade?
+   
+    File.open(file_path, 'r').each do |line| #'r' indica que irá apenas aberto para leitura
       question_data = line.split(",")
-      # question_data = [1, "Qual a idade?"]
+      # Criando a questão
       created_question = Question.create!(subject_id: question_data[0], description: question_data[1])
-      Answer.create!(question_id: created_question.id, description: question_data[2])
+       
+      # Criando as respostas e marcando a opção C como correta
+      (2..5).each_with_index do |index, i| #Gera os índices, onde index: nº real do indice, i: do loop
+        Answer.create!(
+          question_id: created_question.id,
+          description: question_data[index].strip, # Removendo espaços extras
+          correct: (i == 2) # Define a terceira opção (C) como verdadeira
+        )
+      end
     end
   end
 
