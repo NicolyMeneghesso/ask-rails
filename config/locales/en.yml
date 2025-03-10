@@ -25,3 +25,5 @@ en:
     title_questions: Create Questions
   links:
     back: Back
+  form:
+    type_answers: Type the answer

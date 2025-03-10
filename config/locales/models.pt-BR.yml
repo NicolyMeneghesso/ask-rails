@@ -8,9 +8,9 @@
         one: Usuário
         other: Usuários
       subject:
-        one: Assunto/Área
+        one: assunto/area
       question:
-        one: Questão
+        one: questão
     attributes:
       admin:
         username: Nome

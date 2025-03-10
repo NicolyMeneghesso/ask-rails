@@ -72,14 +72,14 @@ namespace :dev do
   task add_questions: :environment do 
     file_name = 'questions.txt'
     file_path = File.join(DEFAULT_FILES_PATH, file_name)
-    
+
     Answer.delete_all
     ActiveRecord::Base.connection.execute("DELETE FROM sqlite_sequence WHERE name='answers'")
     
     Question.delete_all
     ActiveRecord::Base.connection.execute("DELETE FROM sqlite_sequence WHERE name='questions'")
    
-    File.open(file_path, 'r').each do |line| #'r' indica que irá apenas aberto para leitura
+    File.open(file_path, 'r').each do |line| #'r' indica que irá apenas ser aberto para leitura
       question_data = line.split(",")
       # Criando a questão
       created_question = Question.create!(subject_id: question_data[0], description: question_data[1])

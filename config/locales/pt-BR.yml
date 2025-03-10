@@ -22,6 +22,8 @@ pt-BR:
     btn_new: Criando
     title_admin: Criar Administrador
     title_subjects: Criar Assuntos/Áreas
-    title_questions: Criar questões
+    title_questions: Criar Questões
   links:
     back: Voltar
+  form:
+    type_answer: Digite a resposta
