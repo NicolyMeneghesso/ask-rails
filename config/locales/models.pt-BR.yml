@@ -39,5 +39,6 @@
       answer:
         id: Código
         description: Descrição
+        correct: Correta
         created_at: Criando em
         updated_at: Atualizado em

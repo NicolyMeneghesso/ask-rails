@@ -35,7 +35,7 @@
                               <i class="fa-regular fa-user me-1"></i>
                               <%= t('navbar.profile')%>
                            <% end %>
-                           <%= link_to "", class:"dropdown-item" do %>
+                           <%= button_to destroy_user_session_path, method: :delete, class:"dropdown-item btn-logout" do %>
                               <i class="fa-regular fa-arrow-right-from-bracket me-1"></i>
                               <%= t('navbar.logout')%>
                            <% end %>
@@ -52,7 +52,7 @@
             </main>
 
             <footer>
-               <p>teste</p>
+               <p>Criado por Nicoly</p>
             </footer>
          </div>
       </div>
