@@ -9,8 +9,6 @@ namespace :dev do
       show_spinner("Apagando BD...") {%x(rails db:drop)}
       show_spinner("Criando BD...") {%x(rails db:create)}
       show_spinner("Migrando BD...") {%x(rails db:migrate)}
-      show_spinner("Cadastrando o administrador padrão...") {%x(rails dev:add_default_admin)}
-      show_spinner("Adicionando administradores extras...") {%x(rails dev:add_extra_admins)}
       show_spinner("Cadastrando o usuário padrão...") {%x(rails dev:add_default_user)}
       show_spinner("Cadastrando os assuntos padrões...") {%x(rails dev:add_subjects)}
       show_spinner("Cadastrando os perguntas e respostas...") {%x(rails dev:add_questions)}
@@ -19,40 +17,29 @@ namespace :dev do
     end
   end
 
-  desc "Adiciona o administrador padrão"
-  task add_default_admin: :environment do 
-    Admin.create!(
-      email: "admin@admin.com",
-      password: DEFAULT_PASSWORD,
-      password_confirmation: DEFAULT_PASSWORD
-    )
-  end
-
-  desc "Adiciona outros administradores extras"
-  task add_extra_admins: :environment do 
-    4.times do |i|
-      Admin.create!(
-        email: Faker::Internet.email,
-        password: DEFAULT_PASSWORD,
-        password_confirmation: DEFAULT_PASSWORD
-      )
-    end
-  end
-
-  desc "Adiciona username para os usuarios e administradores que não tem um definido"
-  task add_username_extra: :environment do 
-    Admin.all.each do |admin|
-      admin.update(username: Faker::Name.name)
-    end
-  end
-
   desc "Adiciona o usuário padrão"
   task add_default_user: :environment do 
+    # Criar um usuário administrador
     User.create!(
-      email: "user@user.com",
+      email: "user@admin.com",
+      is_admin: true,
       password: DEFAULT_PASSWORD,
-      password_confirmation: DEFAULT_PASSWORD
+      password_confirmation: DEFAULT_PASSWORD,
+      username: "Administrador Geral",
+      address: Faker::Address.full_address
     )
+    
+    # Criar 10 usuários fictícios
+    10.times do |i|
+      User.create!(
+        email: Faker::Internet.email,
+        is_admin: false,
+        password: DEFAULT_PASSWORD,
+        password_confirmation: DEFAULT_PASSWORD,
+        username: Faker::Name.name,
+        address: Faker::Address.full_address
+      )
+    end
   end
 
   desc "Adiciona os assuntos padrões"

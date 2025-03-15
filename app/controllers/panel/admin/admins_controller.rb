@@ -3,7 +3,7 @@ class Panel::Admin::AdminsController < PanelBaseController
   before_action :verify_password, only: [:update]
 
   def index
-    @admins = Admin.all.page(params[:page])
+    @admins = User.where(is_admin: true).page(params[:page])
   end
 
   def edit

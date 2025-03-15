@@ -14,7 +14,6 @@ Rails.application.routes.draw do
     end
   end
   
-  devise_for :admins
   devise_for :users
 
   get "site/home/index"
