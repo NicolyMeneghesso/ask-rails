@@ -1,25 +1,27 @@
 <%= form_with(model: [:panel, :admin, admin], local: true) do |form| %>
-   <div>
-      <%= form.label :username, style: "display: block", for: "exampleInputEmail1", class: "form-label mb-1" %>
-      <%= form.text_field :username, class: "form-control bg-light-subtle mb-2",  id: "exampleInputEmail1" %>
-   </div>
 
-   <div>
-      <%= form.label :email, style: "display: block", for: "exampleInputEmail1", class: "form-label mb-1" %>
-      <%= form.text_field :email, class: "form-control bg-light-subtle mb-2",  id: "exampleInputEmail1" %>
+   <div class="row g-3">
+      <div class="col-md-6">
+         <%= form.text_field :username, class: "form-control bg-light-subtle mb-2", placeholder: t('form.first_name'), aria: { label: t('form.first_name') } %>
+      </div>
+      <div class="col-md-6">
+         <%= form.text_field :username, class: "form-control bg-light-subtle mb-2", placeholder: t('form.last_name'), aria: { label: t('form.last_name') } %>
+      </div>
+      <div class="col-md-12">
+         <%= form.text_field :address, class: "form-control bg-light-subtle mb-2", placeholder: t('form.address'), aria: { label: t('form.address') } %>
+      </div>
+      <div class="col-md-12">
+         <%= form.text_field :email, class: "form-control bg-light-subtle mb-2", placeholder: t('form.email'), aria: { label: t('form.email') } %>
+      </div>
+      <div class="col-md-6">
+         <%= form.password_field :password, class: "form-control bg-light-subtle mb-2", placeholder: t('form.password'), aria: { label: t('form.password') } %>
+      </div>
+      <div class="col-md-6">
+         <%= form.password_field :password_confirmation, class: "form-control bg-light-subtle mb-3", 
+            placeholder: t('form.password_confirmation'), aria: { label: t('form.password_confirmation') } %>
+      </div>
+      <div>
+         <%= form.submit t(@admin.new_record? ? 'form.btn_new' : 'form.btn_edit'), class: "btn btn-card mb-2" %>
+      </div>
    </div>
-
-   <div>
-      <%= form.label :password, style: "display: block", for: "inputPassword4", class: "form-label mb-1" %>
-      <%= form.password_field :password, class: "form-control bg-light-subtle mb-2",  id: "inputPassword4" %>
-   </div>
-
-    <div>
-      <%= form.label :password_confirmation, style: "display: block", for: "inputPassword4", class: "form-label mb-1" %>
-      <%= form.password_field :password_confirmation, class: "form-control bg-light-subtle mb-3",  id: "inputPassword4" %>
-   </div>
-
-   <div class="d-flex flex-column align-items-center">
-      <%= form.submit nil, class: "btn btn-card mb-2" %>
-  </div>
 <% end %>

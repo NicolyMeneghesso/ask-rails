@@ -11,6 +11,7 @@
     attributes:
       user:
         id: Código
+        username: Nome
         email: E-mail
         created_at: Criando em
         updated_at: Atualizado em

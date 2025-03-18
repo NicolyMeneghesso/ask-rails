@@ -4,27 +4,33 @@ pt-BR:
     subhead: Páginas
     dashboard: Painel
     administrators: Administradores
-    subjects: Assuntos/Áreas
+    subjects: Assuntos
     questions: Questões
   navbar:
     profile: Perfil
     logout: Sair
   index:
-    title_admin: Lista de Administradores
-    title_subjects: Lista de Assuntos/Áreas
-    title_questions: Lista de Questões
+    title_admin: Lista de administradores
+    title_subjects: Lista de assuntos
+    title_questions: Lista de questões
   editing:
-    btn_edit: Editado
-    title_admin: Editado Administrador
-    title_subjects: Editado Assuntos/Áreas
-    title_questions: Editando Questões
+    title_admin: Editado administrador
+    title_subjects: Editado assuntos
+    title_questions: Editando questões
   new:
-    btn_new: Criando
-    title_admin: Criar Administrador
-    title_subjects: Criar Assuntos/Áreas
-    title_questions: Criar Questões
+    title_admin: Criar administrador
+    title_subjects: Criar assuntos
+    title_questions: Criar questões
   links:
     back: Voltar
   form:
+    first_name: Primeiro Nome 
+    last_name: Último Nome
+    address: Endereço completo
+    email: E-mail
+    password: Senha
+    password_confirmation: Confirmar senha
+    btn_new: Criar
+    btn_edit: Editar
     type_answer: Digite a resposta
-    add_answer: Adicionar Resposta
+    add_answer: Adicionar resposta

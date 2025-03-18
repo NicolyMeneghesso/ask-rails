@@ -19,21 +19,33 @@ namespace :dev do
 
   desc "Adiciona o usuário padrão"
   task add_default_user: :environment do 
-    # Criar um usuário administrador
+    # Criar um usuário admin geral
     User.create!(
-      email: "user@admin.com",
-      is_admin: true,
+      email: "superadmin@admin.com",
+      user_type: 2,
       password: DEFAULT_PASSWORD,
       password_confirmation: DEFAULT_PASSWORD,
       username: "Administrador Geral",
       address: Faker::Address.full_address
     )
-    
-    # Criar 10 usuários fictícios
-    10.times do |i|
+
+     # Criar 4 usuários admins
+     4.times do |i|
       User.create!(
         email: Faker::Internet.email,
-        is_admin: false,
+        user_type: 1,
+        password: DEFAULT_PASSWORD,
+        password_confirmation: DEFAULT_PASSWORD,
+        username: Faker::Name.name,
+        address: Faker::Address.full_address
+      )
+    end
+    
+    # Criar 20 usuários fictícios
+    20.times do |i|
+      User.create!(
+        email: Faker::Internet.email,
+        user_type: 0,
         password: DEFAULT_PASSWORD,
         password_confirmation: DEFAULT_PASSWORD,
         username: Faker::Name.name,

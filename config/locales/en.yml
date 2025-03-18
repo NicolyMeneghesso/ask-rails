@@ -4,27 +4,33 @@ en:
     subhead: Pages
     dashboard: Dashboard
     administrators: Administrators
-    subjects: Subjects/Areas
+    subjects: Subjects
     questions: Questions
   navbar:
     profile: Profile
     logout: Log out
   index:
-    title_admin: List of Administrators
-    title_subjects: List of Subjects/Areas
-    title_questions: Lista of Questions
-  editing:
-    btn_edit: Edited
-    title_admin: Editing Administrator
-    title_subjects: Editing Subjects/Areas
-    title_questions: Editando Questions
+    title_admin: List of administrators
+    title_subjects: List of subjects
+    title_questions: Lista of questions
+  editing: 
+    title_admin: Editing administrator
+    title_subjects: Editing subjects
+    title_questions: Editando questions
   new:
-    btn_new: Creating
-    title_admin: Create Administrator
-    title_subjects: Create Subjects/Areas
-    title_questions: Create Questions
+    title_admin: Create administrator
+    title_subjects: Create subjects
+    title_questions: Create questions
   links:
     back: Back
   form:
+    first_name: First Name 
+    last_name: Last name
+    address: Full address
+    email: E-mail
+    password: Password
+    password_confirmation: Password confirmation
+    btn_new: Create
+    btn_edit: Edited
     type_answers: Type the answer
-    add_answer: Add Reply
+    add_answer: Add reply

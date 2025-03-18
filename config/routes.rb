@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
     namespace :admin do
       resources :admins
+      resources :users
       resources :subjects
       resources :questions
     end

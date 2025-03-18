@@ -42,7 +42,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_02_20_211531) do
     t.datetime "remember_created_at"
     t.string "username"
     t.string "address"
-    t.boolean "is_admin", default: false
+    t.integer "user_type", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true

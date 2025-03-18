@@ -3,18 +3,18 @@ class Panel::Admin::AdminsController < PanelBaseController
   before_action :verify_password, only: [:update]
 
   def index
-    @admins = User.where(is_admin: true).page(params[:page])
+    @admins = User.where(user_type: [1,2]).page(params[:page])
   end
 
   def edit
   end
 
   def new
-    @admin = Admin.new
+    @admin = User.new
   end
 
   def create
-    @admin = Admin.new(params_admin)
+    @admin = User.new(params_admin)
     if @admin.save
       redirect_to panel_admin_admins_path, notice: "Administrador cadastrado com sucesso"
     else
@@ -40,16 +40,16 @@ class Panel::Admin::AdminsController < PanelBaseController
 
   private
     def params_admin
-      params.require(:admin).permit(:username, :email, :password, :password_confirmation)
+      params.require(:user).permit(:username, :address, :email, :password, :password_confirmation)
     end
 
     def set_admin
-      @admin = Admin.find(params[:id])
+      @admin = User.find(params[:id])
     end
 
     def verify_password
-      if params[:admin][:password].blank? && params[:admin][:password_confirmation].blank?
-        params[:admin].extract!(:password, :password_confirmation) 
+      if params[:user][:password].blank? && params[:user][:password_confirmation].blank?
+        params[:user].extract!(:password, :password_confirmation) 
       end
     end
 end
