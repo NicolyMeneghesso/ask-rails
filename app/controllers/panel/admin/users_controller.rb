@@ -1,5 +1,7 @@
 class Panel::Admin::UsersController < PanelBaseController
   before_action :set_user, only: [:edit, :update, :destroy]
+  before_action :verify_password, only: [:update]
+  before_action :authorize_admin_access
   
   def index
     @users = User.where(user_type: [0]).page(params[:page])
@@ -9,7 +11,7 @@ class Panel::Admin::UsersController < PanelBaseController
   end
   
   def update
-    if @user.update(params_user)
+    if @user.update(permitted_user_params)
       redirect_to panel_admin_user_path, notice: "Úsuario atualizado com sucesso"
     else
       render :edit
@@ -25,10 +27,6 @@ class Panel::Admin::UsersController < PanelBaseController
   end
   
   private
-    def params_user
-      params.require(:user).permit(:username, :address, :email, :password, :password_confirmation)
-    end
-
     def set_user
       @user = User.find(params[:id])
     end

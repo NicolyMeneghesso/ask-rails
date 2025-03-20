@@ -14,11 +14,11 @@
       <h5 class="form-label mb-0"><%= t('form.user_type') %></h5>
       <div class="col-md-12 d-flex justify-content-around">
          <div class="form-check">
-            <%= form.radio_button :user_type, 0, class: "form-check-input", id: "user_type_0" %>
+            <%= form.radio_button :user_type, 0, class: "form-check-input", id: "user_type_0", disabled: current_user.user_type != 2 %>
             <%= form.label :user_type_0, t('form.user_type_0'), class: "form-label", style: "font-weight: 500" %>
          </div>
          <div class="form-check">
-            <%= form.radio_button :user_type, 1, class: "form-check-input", id: "user_type_1" %>
+            <%= form.radio_button :user_type, 1, class: "form-check-input", id: "user_type_1", disabled: current_user.user_type != 2 %>
             <%= form.label :user_type_1, t('form.user_type_1'), class: "form-label", style: "font-weight: 500" %>
          </div>
          <div class="form-check">

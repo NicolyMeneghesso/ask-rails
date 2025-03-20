@@ -1,12 +1,73 @@
-<div>
-    <h1>AdminsBackoffice::Home#index</h1>
-    <p>Find me in app/views/admins_backoffice/home/index.html.erb</p>
+<div class="row gx-4 d-flex justify-content-center">
+   <div class="col-5">
+      <div class="card flex-fill w-100">
+         <div class="card-header">
+            <h5 class="card-title mb-0">Browser Usage</h5>
+         </div>
+         <div class="card-body d-flex">
+            <div class="align-self-center w-100">
+               <div class="card-body">
+                  <div class="chart chart-sm"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+                     <canvas id="chartjs-pie" width="421" height="312" style="display: block; height: 250px; width: 337px;" class="chartjs-render-monitor"></canvas>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
 
-
-<div>
-    <h1>UsersBackoffice::Home#index</h1>
-    <p>Find me in app/views/users_backoffice/home/index.html.erb</p>
-
-
-    <%= button_to "Logoff", destroy_user_session_path, method: :delete, data: { turbo: false }, class: "btn btn-danger" %>
+   <div class="col-5">
+      <div class="card flex-fill">
+         <div class="card-header">
+            <h5 class="card-title mb-0">Calendar</h5>
+         </div>
+         <div class="card-body d-flex">
+            <div class="align-self-center w-100">
+               <div class="chart">
+					   <div id="datetimepicker-dashboard" class="flatpickr-input" readonly="readonly"></div>
+                     <div class="flatpickr-calendar animate inline" tabindex="-1"></div>
+                  </div>
+               </div>
+            </div>
+         </div>
 </div>
+
+<script>
+		document.addEventListener("DOMContentLoaded", function() {
+			// Pie chart
+			new Chart(document.getElementById("chartjs-pie"), {
+				type: "pie",
+				data: {
+					labels: ["Social", "Search Engines", "Direct", "Other"],
+					datasets: [{
+						data: [260, 125, 54, 146],
+						backgroundColor: [
+							window.theme.primary,
+							window.theme.warning,
+							window.theme.danger,
+							"#dee2e6"
+						],
+						borderColor: "transparent"
+					}]
+				},
+				options: {
+					maintainAspectRatio: false,
+					legend: {
+						display: false
+					}
+				}
+			});
+		});
+      
+   document.addEventListener("DOMContentLoaded", function() {
+      var date = new Date(Date.now() - 5 * 24 * 60 * 60 * 1000);
+      var defaultDate = date.getUTCFullYear() + "-" + (date.getUTCMonth() + 1) + "-" + date.getUTCDate();
+      document.getElementById("datetimepicker-dashboard").flatpickr({
+         inline: true,
+         prevArrow: "<span class=\"fas fa-chevron-left\" title=\"Previous month\"></span>",
+         nextArrow: "<span class=\"fas fa-chevron-right\" title=\"Next month\"></span>",
+         defaultDate: defaultDate
+      });
+   });
+	
+</script>

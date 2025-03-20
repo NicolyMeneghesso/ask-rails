@@ -25,11 +25,11 @@
             toast: true,
             position: "top-end",
             showConfirmButton: false,
-            timer: 3000,
+            timer: 5000,
          });
          Toast.fire({
-            icon: "success",
-            title: "<%= j flash[:notice] %>"
+            icon: "<%= flash[:alert] ? 'warning' : 'success' %>",
+            title: "<%= j flash[:alert] || flash[:notice] %>"   
          });
       <% end %>
    <% end %>
