@@ -17,6 +17,12 @@
             <% end %>
          </li>
          <li class="sidebar-item active">
+            <%= link_to panel_admin_users_path, class:"sidebar-link" do %>
+               <i class="fa-light fa-user-group align-middle"></i>
+               <span class="align-middle"><%= t('sidebar.users') %></span>
+            <% end %>
+         </li>
+         <li class="sidebar-item active">
             <%= link_to panel_admin_subjects_path, class:"sidebar-link" do %>
                <i class="fa-light fa-memo-pad align-middle"></i>
                <span class="align-middle"><%= t('sidebar.subjects') %></span>

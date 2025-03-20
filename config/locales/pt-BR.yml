@@ -4,17 +4,19 @@ pt-BR:
     subhead: Páginas
     dashboard: Painel
     administrators: Administradores
+    users: Usuários
     subjects: Assuntos
     questions: Questões
   navbar:
-    profile: Perfil
     logout: Sair
   index:
     title_admin: Lista de administradores
+    title_user: Lista de usuários
     title_subjects: Lista de assuntos
     title_questions: Lista de questões
   editing:
     title_admin: Editado administrador
+    title_user: Editando usuários
     title_subjects: Editado assuntos
     title_questions: Editando questões
   new:
@@ -24,8 +26,7 @@ pt-BR:
   links:
     back: Voltar
   form:
-    first_name: Primeiro Nome 
-    last_name: Último Nome
+    name: Nome completo
     address: Endereço completo
     email: E-mail
     password: Senha
@@ -34,3 +35,7 @@ pt-BR:
     btn_edit: Editar
     type_answer: Digite a resposta
     add_answer: Adicionar resposta
+    user_type: Tipo de usuário
+    user_type_0: Usuário Padrão
+    user_type_1: Administrador
+    user_type_2: Administrador Geral

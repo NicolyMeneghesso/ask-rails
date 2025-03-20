@@ -31,10 +31,6 @@
                            <%= current_user.email %>
                          </span>
                         <div class="dropdown-menu dropdown-menu-end">
-                           <%= link_to "", class:"dropdown-item" do %>
-                              <i class="fa-regular fa-user me-1"></i>
-                              <%= t('navbar.profile')%>
-                           <% end %>
                            <%= button_to destroy_user_session_path, method: :delete, class:"dropdown-item btn-logout" do %>
                               <i class="fa-regular fa-arrow-right-from-bracket me-1"></i>
                               <%= t('navbar.logout')%>

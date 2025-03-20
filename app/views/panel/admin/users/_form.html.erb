@@ -1,22 +1,16 @@
-<%= form_with(model: [:panel, :admin, admin], local: true) do |form| %>
+<%= form_with(model: [:panel, :admin, user], local: true) do |form| %>
 
    <div class="row g-3">
       <div class="col-md-12">
-         <%= form.text_field :username, class: "form-control bg-light-subtle mb-2", placeholder: t('form.name'), aria: { label: t('form.first_name') } %>
+         <%= form.text_field :username, class: "form-control bg-light-subtle mb-2", placeholder: t('form.name'), disabled: true, aria: { label: t('form.first_name') } %>
       </div>
       <div class="col-md-12">
-         <%= form.text_field :address, class: "form-control bg-light-subtle mb-2", placeholder: t('form.address'), aria: { label: t('form.address') } %>
+         <%= form.text_field :address, class: "form-control bg-light-subtle mb-2", placeholder: t('form.address'), disabled: true, aria: { label: t('form.address') } %>
       </div>
       <div class="col-md-12">
-         <%= form.text_field :email, class: "form-control bg-light-subtle mb-2", placeholder: t('form.email'), aria: { label: t('form.email') } %>
+         <%= form.text_field :email, class: "form-control bg-light-subtle mb-2", placeholder: t('form.email'), disabled: true, aria: { label: t('form.email') } %>
       </div>
-      <div class="col-md-6">
-         <%= form.password_field :password, class: "form-control bg-light-subtle mb-2", placeholder: t('form.password'), aria: { label: t('form.password') } %>
-      </div>
-      <div class="col-md-6">
-         <%= form.password_field :password_confirmation, class: "form-control bg-light-subtle mb-2", 
-            placeholder: t('form.password_confirmation'), aria: { label: t('form.password_confirmation') } %>
-      </div>
+      
       <h5 class="form-label mb-0"><%= t('form.user_type') %></h5>
       <div class="col-md-12 d-flex justify-content-around">
          <div class="form-check">
@@ -33,7 +27,7 @@
          </div>
       </div>
       <div>
-         <%= form.submit t(@admin.new_record? ? 'form.btn_new' : 'form.btn_edit'), class: "btn btn-card mb-2" %>
+         <%= form.submit t(@user.new_record? ? 'form.btn_new' : 'form.btn_edit'), class: "btn btn-card mb-2" %>
       </div>
    </div>
 <% end %>

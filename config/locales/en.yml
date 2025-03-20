@@ -4,13 +4,14 @@ en:
     subhead: Pages
     dashboard: Dashboard
     administrators: Administrators
+    users: Users
     subjects: Subjects
     questions: Questions
   navbar:
-    profile: Profile
     logout: Log out
   index:
     title_admin: List of administrators
+    title_user: Lista de users
     title_subjects: List of subjects
     title_questions: Lista of questions
   editing: 
@@ -24,8 +25,7 @@ en:
   links:
     back: Back
   form:
-    first_name: First Name 
-    last_name: Last name
+    name: Full Name
     address: Full address
     email: E-mail
     password: Password
@@ -34,3 +34,7 @@ en:
     btn_edit: Edited
     type_answers: Type the answer
     add_answer: Add reply
+    user_type: User Type
+    user_type_0: Standard User
+    user_type_1: Aministrator
+    user_type_2: General Administrator

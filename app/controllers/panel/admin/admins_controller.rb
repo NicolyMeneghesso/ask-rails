@@ -40,7 +40,12 @@ class Panel::Admin::AdminsController < PanelBaseController
 
   private
     def params_admin
-      params.require(:user).permit(:username, :address, :email, :password, :password_confirmation)
+      # é um array contendo os campos que podem ser alterados no formulário
+      permitted_params = [:username, :address, :email, :password, :password_confirmation]
+      # Apenas Super Admins (user_type == 2) podem alterar `user_type`
+      permitted_params << :user_type if current_user.user_type == 2
+
+      params.require(:user).permit(permitted_params)      
     end
 
     def set_admin
