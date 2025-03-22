@@ -47,6 +47,14 @@ pt-BR:
       signed_in: "Logado com sucesso."
       signed_out: "Até breve!."
       already_signed_out: "Até breve!"
+      title_login: Bem-Vindo de volta!
+      text_login: Entre na sua conta para continuar
+      text_signup: Não tem uma conta?
+      remember: Lembrar-me
+      btn_login: Conecte-se
+    shared:
+      signup_link: Inscrever-se
+      forgot_password: Esqueceu sua senha?
     unlocks:
       send_instructions: "Você receberá um e-mail com instruções sobre como desbloquear a sua conta em alguns minutos."
       send_paranoid_instructions: "Se o seu e-mail existir em nossa base de dados, você receberá um e-mail com instruções sobre como desbloquear a sua conta em alguns minutos."

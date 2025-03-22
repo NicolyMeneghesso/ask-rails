@@ -1,0 +1,31 @@
+.login-link {
+    color: rgb(5, 70, 248);
+    text-decoration: none
+}
+
+.login-link:hover, .login-link2:hover {
+    color: black;
+}
+
+.login-link2 {
+    color: white;
+    text-decoration: none;
+}
+
+.btn-card-login {
+    height: 38px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    background-color: rgb(89, 96, 166);
+    color: rgb(231, 231, 236);
+    border: solid 1px rgb(89, 96, 166);
+}
+
+.btn-card-login:hover {
+    background-color: rgb(89, 96, 166); 
+    color: rgb(231, 231, 236);         
+    border: solid 1px rgb(89, 96, 166);
+}
