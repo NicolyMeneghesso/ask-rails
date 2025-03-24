@@ -1,24 +1,7 @@
-<div class="col-9 col-xl-6">
-   <div class="card bg-primary-subtle py-3 px-4">
-      <div class="card-header bg-primary-subtle d-flex justify-content-center pb-2">
-         <h1 class="title-edit"><%= t('editing.title_admin') %></h1>
-      </div>
-      <% if @admin.errors.any? %>
-         <div class="alert alert-danger alert-dismissible" role="alert">
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            <div class="alert-message">
-               <ul>
-                  <% @admin.errors.full_messages.each do |message|%>
-                     <li style="list-style: none;"> <%= message %> </li>
-                  <% end %>
-               </ul>
-            </div>
-         </div>
-      <% end %>
-      
-      <div class="card-body p-2">
-         <%= render "form", admin: @admin %>
-         <%= link_to t('links.back'), panel_admin_admins_path, class:"btn btn-card" %>
-      </div>
-   </div>
-</div>
+<%= render "panel/admin/shared/edit_card",
+           resource: @admin,
+           resource_name: :admin,
+           form_partial: "form",
+           title_key: "editing.title_admin",
+           back_link_key: "links.back",
+           back_path: panel_admin_admins_path %>

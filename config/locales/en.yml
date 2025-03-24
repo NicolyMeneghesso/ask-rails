@@ -16,6 +16,7 @@ en:
   editing: 
     title_admin: Editing administrator
     title_subjects: Editing subjects
+    title_user: Editing user
     title_questions: Editando questions
   new:
     title_admin: Create administrator

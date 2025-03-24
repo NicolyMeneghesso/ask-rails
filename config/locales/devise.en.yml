@@ -45,18 +45,24 @@ en:
       update_needs_confirmation: "You updated your account successfully, but we need to verify your new email address. Please check your email and follow the confirmation link to confirm your new email address."
       updated: "Your account has been updated successfully."
       updated_but_not_signed_in: "Your account has been updated successfully, but since your password was changed, you need to sign in again."
+      title_signup: Sign up
+      subtitle_signup: Start creating the best possible user experience
+      text_login: Already have an account?
+      btn_signup: Sign up
+      password_characters: characters minimum
     sessions:
       signed_in: "Signed in successfully."
       signed_out: "Signed out successfully."
       already_signed_out: "Signed out successfully."
       title_login: Welcome back!
-      text_login: Sign in to your account to continue
+      subtitle_login: Sign in to your account to continue
       text_signup: Don't have an account?
       remember: Remember Me
       btn_login: Log in
     shared:
       signup_link: Sign up
       forgot_password: Forgot your password?
+      login_link: Log in
     unlocks:
       send_instructions: "You will receive an email with instructions for how to unlock your account in a few minutes."
       send_paranoid_instructions: "If your account exists, you will receive an email with instructions for how to unlock it in a few minutes."

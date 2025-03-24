@@ -43,18 +43,24 @@ pt-BR:
       update_needs_confirmation: "Você atualiou a sua conta com sucesso, mas precisamos verificar o seu novo endereço de e-mail. Por favor, acesse o seu e-mail e siga as instruções de confirmação para confirmar o seu novo endereço de e-mail."
       updated: "Sua conta foi atualizada com sucesso."
       updated_but_not_signed_in: "Sua conta foi atualizada com sucesso, mas como a sua senha foi redefinida, você precisa logar novamente."
+      title_signup: Inscrever-se
+      subtitle_signup: Comece a criar a melhor experiência de usuário possível
+      text_login: Já tem conta?
+      btn_signup: Inscrever-se
+      password_characters: caracteres mínimos
     sessions:
       signed_in: "Logado com sucesso."
       signed_out: "Até breve!."
       already_signed_out: "Até breve!"
       title_login: Bem-Vindo de volta!
-      text_login: Entre na sua conta para continuar
-      text_signup: Não tem uma conta?
+      subtitle_login: Entre na sua conta para continuar
+      text_no_signup: Não tem uma conta?
       remember: Lembrar-me
       btn_login: Conecte-se
     shared:
       signup_link: Inscrever-se
       forgot_password: Esqueceu sua senha?
+      login_link: Entrar
     unlocks:
       send_instructions: "Você receberá um e-mail com instruções sobre como desbloquear a sua conta em alguns minutos."
       send_paranoid_instructions: "Se o seu e-mail existir em nossa base de dados, você receberá um e-mail com instruções sobre como desbloquear a sua conta em alguns minutos."

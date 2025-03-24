@@ -2,6 +2,7 @@
 
    <div class="row g-3">
       <div class="col-md-12">
+         <%= form.label :username, class: "form-label mb-1" %>
          <%= form.text_field :username, class: "form-control bg-light-subtle mb-2", placeholder: t('form.name'), disabled: true, aria: { label: t('form.first_name') } %>
       </div>
       <div class="col-md-12">
@@ -9,6 +10,13 @@
       </div>
       <div class="col-md-12">
          <%= form.text_field :email, class: "form-control bg-light-subtle mb-2", placeholder: t('form.email'), disabled: true, aria: { label: t('form.email') } %>
+      </div>
+      <div class="col-md-6">
+         <%= form.password_field :password, class: "form-control bg-light-subtle mb-2", placeholder: t('form.password'), aria: { label: t('form.password') } %>
+      </div>
+      <div class="col-md-6">
+         <%= form.password_field :password_confirmation, class: "form-control bg-light-subtle mb-2", 
+            placeholder: t('form.password_confirmation'), aria: { label: t('form.password_confirmation') } %>
       </div>
       
       <h5 class="form-label mb-0"><%= t('form.user_type') %></h5>
