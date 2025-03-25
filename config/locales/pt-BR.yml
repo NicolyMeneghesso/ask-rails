@@ -6,8 +6,10 @@ pt-BR:
     users: Usuários
     subjects: Assuntos
     questions: Questões
+    profile: Perfil
   navbar:
     logout: Sair
+    profile: Perfil
   index:
     title_admin: Lista de administradores
     title_user: Lista de usuários
@@ -20,6 +22,7 @@ pt-BR:
     title_questions: Editando questões
   new:
     title_admin: Criar administrador
+    title_admin: Criar usuário
     title_subjects: Criar assuntos
     title_questions: Criar questões
   links:

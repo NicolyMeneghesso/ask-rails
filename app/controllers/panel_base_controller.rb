@@ -12,6 +12,7 @@ class PanelBaseController < ApplicationController
     end
 
     def verify_password
+      # Remove os campos de senha e confirmação dos parâmetros se ambos estiverem em branco
       if params[:user][:password].blank? && params[:user][:password_confirmation].blank?
         params[:user].extract!(:password, :password_confirmation) 
       end

@@ -1,6 +1,27 @@
-body {
+body, html {
+    height: 100vh;
     overflow: auto;
+    overflow-x: hidden;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 0;
+}
+
+/* Personalização da barra de rolagem */
+body::-webkit-scrollbar, html::-webkit-scrollbar {
+    width: 12px;
+}
+
+body::-webkit-scrollbar-track, html::-webkit-scrollbar-track {
+    background: rgb(147, 155, 187);
+}
+
+body::-webkit-scrollbar-thumb, html::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, rgb(70, 76, 140) 0%, rgb(89, 96, 166) 50%, rgb(108, 115, 190) 100%);
+    border-radius: 6px;
+}
+
+body::-webkit-scrollbar-thumb:hover, html::-webkit-scrollbar-thumb:hover {
+    background: rgb(107, 126, 153);
 }
 
 .content, .navbar-light {

@@ -1,39 +1,7 @@
-<%= form_with(model: [:panel, :admin, admin], local: true) do |form| %>
-
-   <div class="row g-3">
-      <div class="col-md-12">
-         <%= form.text_field :username, class: "form-control bg-light-subtle mb-2", placeholder: t('form.name'), aria: { label: t('form.first_name') } %>
-      </div>
-      <div class="col-md-12">
-         <%= form.text_field :address, class: "form-control bg-light-subtle mb-2", placeholder: t('form.address'), aria: { label: t('form.address') } %>
-      </div>
-      <div class="col-md-12">
-         <%= form.text_field :email, class: "form-control bg-light-subtle mb-2", placeholder: t('form.email'), aria: { label: t('form.email') } %>
-      </div>
-      <div class="col-md-6">
-         <%= form.password_field :password, class: "form-control bg-light-subtle mb-2", placeholder: t('form.password'), aria: { label: t('form.password') } %>
-      </div>
-      <div class="col-md-6">
-         <%= form.password_field :password_confirmation, class: "form-control bg-light-subtle mb-2", 
-            placeholder: t('form.password_confirmation'), aria: { label: t('form.password_confirmation') } %>
-      </div>
-      <h5 class="form-label mb-0"><%= t('form.user_type') %></h5>
-      <div class="col-md-12 d-flex justify-content-around">
-         <div class="form-check">
-            <%= form.radio_button :user_type, 0, class: "form-check-input", id: "user_type_0", disabled: current_user.user_type != 2 %>
-            <%= form.label :user_type_0, t('form.user_type_0'), class: "form-label", style: "font-weight: 500" %>
-         </div>
-         <div class="form-check">
-            <%= form.radio_button :user_type, 1, class: "form-check-input", id: "user_type_1", disabled: current_user.user_type != 2 %>
-            <%= form.label :user_type_1, t('form.user_type_1'), class: "form-label", style: "font-weight: 500" %>
-         </div>
-         <div class="form-check">
-            <%= form.radio_button :user_type, 2, class: "form-check-input", id: "user_type_2" %>
-            <%= form.label :user_type_2, t('form.user_type_2'), class: "form-label", style: "font-weight: 500" %>
-         </div>
-      </div>
-      <div>
-         <%= form.submit t(@admin.new_record? ? 'form.btn_new' : 'form.btn_edit'), class: "btn btn-card mb-2" %>
-      </div>
-   </div>
-<% end %>
+<%= render "panel/admin/shared/form_users",
+         resource: @admin,
+         bd_name: :username,
+         bd_address: :address,
+         bd_email: :email,
+         bd_password: :password,
+         bd_password_confirmation: :password_confirmation %>

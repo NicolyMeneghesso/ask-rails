@@ -1,12 +1,6 @@
-<div class="col-9 col-xl-6">
-   <div class="card bg-primary-subtle py-3 px-4">
-      <div class="card-header bg-primary-subtle d-flex justify-content-center pb-2">
-         <h1 class="title-edit"><%= t('new.title_admin') %></h1>
-      </div>
-
-      <div class="card-body p-2">
-         <%= render "form", admin: @admin %>
-         <%= link_to t('links.back'), panel_admin_admins_path, class:"btn btn-card" %>
-      </div>
-   </div>
-</div>
+<%= render "panel/admin/shared/new_card",
+           resource: @admin,
+           resource_name: :admin,
+           form_partial: "form",
+           title_key: "new.title_admin",
+           back_path: panel_admin_admins_path %>

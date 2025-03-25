@@ -6,10 +6,15 @@ Rails.application.routes.draw do
   namespace :panel do
     get '/', to: "home#index"
     get "home/index" #dashboard
+    # get "admin/users/profile"
 
     namespace :admin do
       resources :admins
-      resources :users
+
+      resources :users do
+        get :profile
+      end
+
       resources :subjects
       resources :questions
     end

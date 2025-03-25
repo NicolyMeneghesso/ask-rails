@@ -28,9 +28,14 @@
                      <li class="nav-item dropdown">
                         <span class="nav-link dropdown-toggle d-none d-sm-inline-block" data-bs-toggle="dropdown">
                            <i class="fa-regular fa-user user-nav"></i>
-                           <%= current_user.email %>
+                           <%= current_user.username %>
                          </span>
                         <div class="dropdown-menu dropdown-menu-end">
+                           <%= link_to panel_admin_user_profile_path(current_user), class:"dropdown-item btn-logout" do %>
+                              <i class="fa-regular fa-user me-1"></i>
+                              <%= t('navbar.profile')%>
+                           <% end %>
+                           
                            <%= button_to destroy_user_session_path, method: :delete, class:"dropdown-item btn-logout" do %>
                               <i class="fa-regular fa-arrow-right-from-bracket me-1"></i>
                               <%= t('navbar.logout')%>

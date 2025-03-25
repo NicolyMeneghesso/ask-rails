@@ -6,8 +6,10 @@ en:
     users: Users
     subjects: Subjects
     questions: Questions
+    profile: Profile
   navbar:
     logout: Log out
+    profile: Profile
   index:
     title_admin: List of administrators
     title_user: Lista de users
@@ -20,6 +22,7 @@ en:
     title_questions: Editando questions
   new:
     title_admin: Create administrator
+    title_admin: Create user
     title_subjects: Create subjects
     title_questions: Create questions
   links:
