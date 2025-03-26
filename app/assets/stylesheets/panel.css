@@ -29,7 +29,7 @@ body::-webkit-scrollbar-thumb:hover, html::-webkit-scrollbar-thumb:hover {
 }
 
 /*MENU LATERAL*/
-.sidebar-content, footer, .sidebar-item, a.sidebar-link, .login-content {
+.sidebar-content, footer, .sidebar-item, a.sidebar-link {
     background-color: rgb(89, 96, 166);
     color: rgb(255, 255, 255);
 }

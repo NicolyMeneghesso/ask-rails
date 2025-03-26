@@ -1,15 +1,15 @@
 class Panel::Admin::QuestionsController < PanelBaseController
-  before_action :set_question, only: [:edit, :update, :destroy]
-  before_action :get_subjects, only: [:new, :edit]
-  
+  before_action :set_question, only: [ :edit, :update, :destroy ]
+  before_action :get_subjects, only: [ :new, :edit ]
+
   def index
       @questions = Question.includes(:subject).page(params[:page])
   end
-    
+
   def new
       @question = Question.new
   end
-  
+
   def create
     @question = Question.new(params_question)
     if @question.save
@@ -21,11 +21,11 @@ class Panel::Admin::QuestionsController < PanelBaseController
 
   def edit
   end
-  
+
   def update
     if @question.update(params_question)
-      if params[:question][:answers_attributes] #Verifica se há respostas sendo enviadas no params
-         # Encontra a resposta que foi marcada como correta
+      if params[:question][:answers_attributes] # Verifica se há respostas sendo enviadas no params
+        # Encontra a resposta que foi marcada como correta
         correct_answer_id = params[:question][:answers_attributes].values.find { |a| a["correct"] == "1" }&.dig("id")
         if correct_answer_id
           # Desmarca todas as respostas e marca apenas a escolhida como correta
@@ -38,7 +38,7 @@ class Panel::Admin::QuestionsController < PanelBaseController
       render :edit
     end
   end
-  
+
   def destroy
     if @question.destroy
       redirect_to panel_admin_questions_path, notice: "Pergunta excluído com sucesso"
@@ -46,11 +46,11 @@ class Panel::Admin::QuestionsController < PanelBaseController
       render :index
     end
   end
-  
+
   private
     def params_question
-      params.require(:question).permit(:description, :subject_id, 
-          answers_attributes: [:id, :description, :correct, :_destroy])
+      params.require(:question).permit(:description, :subject_id,
+          answers_attributes: [ :id, :description, :correct, :_destroy ])
     end
 
     def set_question
@@ -61,4 +61,3 @@ class Panel::Admin::QuestionsController < PanelBaseController
       @subjects = Subject.all
     end
 end
-      

@@ -5,47 +5,43 @@
     <%= stylesheet_link_tag "login", media: "all", "data-turbo-track": "reload" %>
   </head>
   <body>
-    <main class="login-content d-flex w-100 h-100">
-      <div class="container-fluid d-flex flex-column">
-        <div class="row vh-100">
-          <div class="col-4 mx-auto">
-            <div class="text-center mt-5">
-              <h1 class="title-edit"><%= t('devise.sessions.title_login') %></h1>
-              <p style="font-size: 18px"><%= t('devise.sessions.subtitle_login') %></p>
-            </div>
-            <div class="card bg-primary-subtle">
-              <div class="card-body m-sm-3">
-                <div class="row">
-                  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-                    <div class="col-md-12">
-                      <%= f.label :email, class: "mb-1"%>
-                      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control bg-light-subtle mb-3" %>
-                    </div>
-
-                    <div class="col-md-12 mb-2">
-                      <%= f.label t('form.password'), class: "mb-1" %>
-                      <%= f.password_field :password, autocomplete: "current-password", class: "form-control bg-light-subtle" %>
-                      <%= render "users/shared/forgot_password_link" %>
-                    </div>
-                        
-                    <% if devise_mapping.rememberable? %>
-                      <div class="field mb-3">
-                        <%= f.check_box :remember_me, class: "form-check-input" %>
-                        <%= f.label t('devise.sessions.remember')%>
-                      </div>
-                    <% end %>
-
-                      <div class="actions">
-                          <%= f.submit t('devise.sessions.btn_login'), class: "btn btn-card-login" %>
-                      </div>
-                  <% end %>
+    <main class="login-content d-flex align-items-center justify-content-center vh-100">
+      <div class="col-12 col-sm-8 col-md-6 col-lg-4">
+        <div class="text-center mb-4">
+          <h1 class="title-edit"><%= t('devise.sessions.title_login') %></h1>
+          <p style="font-size: 18px"><%= t('devise.sessions.subtitle_login') %></p>
+        </div>
+        <div class="card bg-primary-subtle">
+          <div class="card-body m-sm-3">
+            <div class="row">
+              <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                <div class="col-md-12">
+                  <%= f.label :email, class: "mb-1"%>
+                  <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control bg-light-subtle mb-3" %>
                 </div>
-              </div>
-            </div>
-            <div class="text-center mt-2">
-              <p style="font-size: 18px"><%= t('devise.sessions.text_no_signup') %><%= render "users/shared/sign_up_link" %></p>
+
+                <div class="col-md-12 mb-2">
+                  <%= f.label t('form.password'), class: "mb-1" %>
+                  <%= f.password_field :password, autocomplete: "current-password", class: "form-control bg-light-subtle" %>
+                  <%= render "users/shared/forgot_password_link" %>
+                </div>
+                    
+                <% if devise_mapping.rememberable? %>
+                  <div class="field mb-3">
+                    <%= f.check_box :remember_me, class: "form-check-input" %>
+                    <%= f.label t('devise.sessions.remember')%>
+                  </div>
+                <% end %>
+
+                  <div class="actions">
+                      <%= f.submit t('devise.sessions.btn_login'), class: "btn btn-card-login" %>
+                  </div>
+              <% end %>
             </div>
           </div>
+        </div>
+        <div class="text-center mt-2">
+          <p style="font-size: 18px"><%= t('devise.sessions.text_no_signup') %><%= render "users/shared/sign_up_link" %></p>
         </div>
       </div>
     </main>

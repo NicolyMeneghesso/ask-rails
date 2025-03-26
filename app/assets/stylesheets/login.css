@@ -3,6 +3,11 @@
     text-decoration: none
 }
 
+.login-content {
+    background-color: rgb(89, 96, 166);
+    color: rgb(255, 255, 255);
+}
+
 .login-link:hover, .login-link2:hover {
     color: black;
 }
