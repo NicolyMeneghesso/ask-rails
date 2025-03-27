@@ -1,12 +1,11 @@
 Rails.application.routes.draw do
   namespace :site do
-    get "home/index"
+    get :index
   end
 
   namespace :panel do
-    get '/', to: "home#index"
-    get "home/index" #dashboard
-    # get "admin/users/profile"
+    get "/", to: "home#index"
+    get "home/index" # dashboard
 
     namespace :admin do
       resources :admins
@@ -19,14 +18,13 @@ Rails.application.routes.draw do
       resources :questions
     end
   end
-  
+
   devise_for :users
 
-  get "site/home/index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  root to: "site/home#index"
-  
+  root to: "site#index"
+
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   get "up" => "rails/health#show", as: :rails_health_check

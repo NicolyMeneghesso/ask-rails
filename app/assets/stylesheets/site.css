@@ -1,0 +1,53 @@
+.home-wrapper {
+    background: linear-gradient(180deg, #4d569a, #3e4479);
+    color: #f4f4f8;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+  
+.home-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+  
+.title-edit {
+    font-size: 2.5rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+  
+.subtitle {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin: 5px 0;
+    text-align: justify;
+}
+  
+.btn-home {
+    margin-top: 30px;
+    height: 45px;
+    width: 60%;
+    font-size: 16px;
+    background-color: rgb(197, 208, 230);
+    color: rgb(40, 45, 65);
+    border: solid 1px rgb(89, 96, 166);
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+  
+.btn-home:hover {
+    background-color: rgb(220, 225, 240);
+    color: rgb(89, 96, 166);
+}
+  

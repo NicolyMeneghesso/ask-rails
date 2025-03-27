@@ -1,9 +1,9 @@
 pt-BR:
   site:
     title_home: Conecte-se com quem entende de código
-    text_home: Você tem uma dúvida sobre programação? Aqui é o lugar certo para perguntar, responder e evoluir.Nossa comunidade é feita por pessoas que respiram tecnologia — do front-end ao back-end, do iniciante ao sênior.
+    text_home: Você tem uma dúvida sobre programação? Aqui é o lugar certo para perguntar, responder e evoluir. Nossa comunidade é feita por pessoas que respiram tecnologia do front-end ao back-end, do iniciante ao sênior.
     text_home2: Troque conhecimento, compartilhe experiências e ajude outros devs a crescer.
-    btn_home: Acesse para explorar, colaborar e aprender.
+    btn_home: Acesse para explorar, colaborar e aprender
   sidebar:
     title_menu: Painel de Controle
     dashboard: Painel

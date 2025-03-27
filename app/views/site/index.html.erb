@@ -1,16 +1,14 @@
-<div class="d-flex align-items-center justify-content-center vh-100 login-content">
-  <div class="row w-100 align-items-center">
-    <div class="col-md-6 ps-5">
+<div class="row w-100 align-items-center px-5 home-wrapper">
+   <div class="col-md-7">
       <div class="text-home">
-        <h1 class="title-edit"><%= t('site.title_home') %></h1>
-        <p style="font-size: 18px"><%= t('site.text_home') %></p>
-        <p style="font-size: 18px"><%= t('site.text_home2') %></p>
-        <%= link_to t('site.btn_home'), user_session_path, class: "btn mb-5" %>
-      </div>
-    </div>
-    <div class="col-md-6 ps-5 text-center">
-      <%= image_tag "home.jpg", class: "img-fluid", style: "max-width: 200px;" %>
-    </div>
-  </div>
-</div>
+         <h1 class="title-edit">
+            <%= t('site.title_home') %>
+         </h1>
 
+         <p class="subtitle"><%= t('site.text_home') %></p>
+         <p class="subtitle"><%= t('site.text_home2') %></p>
+
+         <%= link_to t('site.btn_home'), user_session_path, class: "btn btn-home mt-4" %>
+      </div>
+   </div>
+</div>
