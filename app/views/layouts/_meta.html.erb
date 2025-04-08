@@ -13,24 +13,3 @@
 <%= csrf_meta_tags %>
 <%= csp_meta_tag %>
 <%= javascript_importmap_tags %>
-
-<!--Alert-->
-<%= stylesheet_link_tag "https://cdn.jsdelivr.net/npm/sweetalert2@11.17.2/dist/sweetalert2.min.css", rel: "stylesheet" %>
-<%= javascript_include_tag "https://cdn.jsdelivr.net/npm/sweetalert2@11.17.2/dist/sweetalert2.all.min.js" %>
-
-<body>
-   <% if flash[:notice] %>
-      <%= javascript_tag do %>
-         const Toast = Swal.mixin({
-            toast: true,
-            position: "top-end",
-            showConfirmButton: false,
-            timer: 5000,
-         });
-         Toast.fire({
-            icon: "<%= flash[:alert] ? 'warning' : 'success' %>",
-            title: "<%= j flash[:alert] || flash[:notice] %>"   
-         });
-      <% end %>
-   <% end %>
-</body>

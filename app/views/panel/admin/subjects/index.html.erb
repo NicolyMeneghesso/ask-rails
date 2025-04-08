@@ -20,15 +20,15 @@
                <tr>
                   <td><%= subject.id %></td>
                   <td><%= subject.description %></td>
-                    <td class="gap-1">         
-                     <%= link_to edit_panel_admin_subject_path(subject), class:"btn btn-primary" do %>
-                        <i class="fa-light fa-file-pen"></i>
-                     <% end %>
+                    <td class="gap-1">
+                        <%= link_to edit_panel_admin_subject_path(subject), class:"btn btn-primary" do %>
+                           <i class="fa-light fa-file-pen"></i>
+                        <% end %>
 
-                     <%= link_to panel_admin_subject_path(subject), method: :delete, data: { turbo_method: :delete, turbo_confirm: "Tem certeza?" }, class:"btn btn-danger" do %>
-                        <i class="fa-light fa-file-circle-xmark"></i>
-                     <%end%>
-                  </td>
+                        <%= link_to panel_admin_subject_path(subject), method: :delete, data: { turbo_method: :delete, turbo_confirm: "Tem certeza?" }, class:"btn btn-danger" do %>
+                           <i class="fa-light fa-file-circle-xmark"></i>
+                        <%end%>
+                     </td>
                </tr>
             <% end %>
          </tbody>

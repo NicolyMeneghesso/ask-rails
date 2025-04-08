@@ -1,6 +1,7 @@
 class Panel::Admin::QuestionsController < PanelBaseController
   before_action :set_question, only: [ :edit, :update, :destroy ]
   before_action :get_subjects, only: [ :new, :edit ]
+  before_action :authorize_admin!, only: [ :new, :create, :edit, :update, :destroy ]
 
   def index
       @questions = Question.includes(:subject).page(params[:page])
@@ -59,5 +60,11 @@ class Panel::Admin::QuestionsController < PanelBaseController
 
     def get_subjects
       @subjects = Subject.all
+    end
+
+    def authorize_admin!
+      unless current_user.user_type.in?([ 1, 2 ])
+        redirect_to root_path, alert: "Você não tem permissão para acessar esta página."
+      end
     end
 end

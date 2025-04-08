@@ -1,5 +1,6 @@
 class Panel::Admin::SubjectsController < PanelBaseController
-  before_action :set_subject, only: [:edit, :update, :destroy]
+  before_action :set_subject, only: [ :edit, :update, :destroy ]
+  before_action :authorize_admin!
 
   def index
     @subjects = Subject.all.page(params[:page])
@@ -17,7 +18,7 @@ class Panel::Admin::SubjectsController < PanelBaseController
       render :new
     end
   end
-  
+
   def edit
   end
 
@@ -44,5 +45,11 @@ class Panel::Admin::SubjectsController < PanelBaseController
 
     def set_subject
       @subject = Subject.find(params[:id])
+    end
+
+    def authorize_admin!
+      unless current_user.user_type.in?([ 1, 2 ])
+        redirect_to root_path, alert: "Você não tem permissão para acessar esta página."
+      end
     end
 end

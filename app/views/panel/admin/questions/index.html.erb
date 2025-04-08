@@ -9,8 +9,10 @@
                <th scope="col"><%= t('activerecord.attributes.question.description') %></th>
                <th scope="col"><%= t('activerecord.attributes.question.subject') %></th>
                <th scope="col">
-                  <%= link_to new_panel_admin_question_path, class:"btn btn-info" do %>
-                     <i class="fa-light fa-file-circle-plus"></i>
+                  <% if current_user.user_type.in?([1, 2]) %>
+                     <%= link_to new_panel_admin_question_path, class:"btn btn-info" do %>
+                        <i class="fa-light fa-file-circle-plus"></i>
+                     <% end %>
                   <% end %>
                </th>
             </tr>
@@ -20,13 +22,15 @@
                <tr>
                   <td><%= question.description %></td>
                   <td><%= question.subject.description %></td>
-                  <td class="gap-1">         
-                     <%= link_to edit_panel_admin_question_path(question), class:"btn btn-primary" do %>
-                        <i class="fa-light fa-file-pen"></i>
-                     <% end %>
+                  <td class="gap-1"> 
+                     <% if current_user.user_type.in?([1, 2]) %>        
+                        <%= link_to edit_panel_admin_question_path(question), class:"btn btn-primary" do %>
+                           <i class="fa-light fa-file-pen"></i>
+                        <% end %>
 
-                     <%= link_to panel_admin_question_path(question), method: :delete, data: { turbo_method: :delete, turbo_confirm: "Tem certeza?" }, class:"btn btn-danger" do %>
-                        <i class="fa-light fa-file-circle-xmark"></i>
+                        <%= link_to panel_admin_question_path(question), method: :delete, data: { turbo_method: :delete, turbo_confirm: "Tem certeza?" }, class:"btn btn-danger" do %>
+                           <i class="fa-light fa-file-circle-xmark"></i>
+                        <%end%>
                      <%end%>
                   </td>
                </tr>
