@@ -1,6 +1,6 @@
 class Panel::Admin::SubjectsController < PanelBaseController
   before_action :set_subject, only: [ :edit, :update, :destroy ]
-  before_action :authorize_admin!
+  before_action :authorize_admin_access, only: [ :new, :create, :edit, :update, :destroy ] # Apenas as ações que alteram dados (CRUD) são protegida
 
   def index
     @subjects = Subject.all.page(params[:page])
@@ -45,11 +45,5 @@ class Panel::Admin::SubjectsController < PanelBaseController
 
     def set_subject
       @subject = Subject.find(params[:id])
-    end
-
-    def authorize_admin!
-      unless current_user.user_type.in?([ 1, 2 ])
-        redirect_to root_path, alert: "Você não tem permissão para acessar esta página."
-      end
     end
 end

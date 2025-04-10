@@ -1,0 +1,38 @@
+<div class="col-6 col-xl-4 me-3">
+  <div class="card bg-primary-subtle py-3 px-4">
+    <div class="card-header bg-primary-subtle py-1">
+      <h1 class="title-edit"><%= t('index.title_subjects') %></h1>
+    </div>
+
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th scope="col"><%= t('activerecord.attributes.subject.description') %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @subjects.each do |subject| %>
+          <tr>
+            <td onclick="cardQuestion()"><%= subject.description %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <%= paginate @subjects %> 
+</div>
+
+<div class="col-6 col-xl-4" style="display: none" id="cardQuestion">
+  <div class="card bg-primary-subtle py-3 px-4">
+    <div class="card-header bg-primary-subtle py-1">
+      <h1 class="title-edit"><%= t('index.title_subjects') %></h1>
+    </div>
+  </div>
+</div>
+
+<script>
+    let cardQuestions = document.getElementById('cardQuestion')
+    function cardQuestion() {
+      cardQuestions.style.display = "block"
+    }
+</script>

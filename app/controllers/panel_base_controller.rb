@@ -23,16 +23,4 @@ class PanelBaseController < ApplicationController
         redirect_to panel_home_index_path
       end
     end
-
-    def verify_params_questions
-      params_questions = [ :description, :subject_id ]
-      params_questions << :user_type if current_user.user_type.in?([ 1, 2 ])
-      params.require(:question).permit(params_questions)
-    end
-
-    def verify_params_subjects
-      params_subjects = [ :description, :subject_id ]
-      params_subjects << :user_type if current_user.user_type.in?([ 1, 2 ])
-      params.require(:subject).permit(params_subjects)
-    end
 end

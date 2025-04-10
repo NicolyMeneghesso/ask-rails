@@ -1,7 +1,7 @@
 class Panel::Admin::UsersController < PanelBaseController
   before_action :set_user, only: [ :edit, :update, :destroy, :profile ]
   before_action :verify_password, only: [ :update ]
-  before_action :authorize_admin_access, except: [ :profile ]
+  before_action :authorize_admin_access, except: [ :profile, :answer ] # Todas as ações exigem ser admin, exceto profile e answer
   before_action :authorize_profile_admin, only: [ :profile ]
 
   def index
@@ -32,6 +32,10 @@ class Panel::Admin::UsersController < PanelBaseController
   end
 
   def profile
+  end
+
+  def answer
+    @subjects = Subject.all.page(params[:page])
   end
 
   private
