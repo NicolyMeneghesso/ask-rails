@@ -13,7 +13,7 @@
       <tbody>
         <% @subjects.each do |subject| %>
           <tr>
-            <td onclick="cardQuestion()"><%= subject.description %></td>
+            <td onclick="LoadCardQuestion(<%= subject.id %>)"><%= subject.description %></td>
           </tr>
         <% end %>
       </tbody>
@@ -27,12 +27,8 @@
     <div class="card-header bg-primary-subtle py-1">
       <h1 class="title-edit"><%= t('index.title_subjects') %></h1>
     </div>
+    <div id="questions">
+
+    </div>
   </div>
 </div>
-
-<script>
-    let cardQuestions = document.getElementById('cardQuestion')
-    function cardQuestion() {
-      cardQuestions.style.display = "block"
-    }
-</script>

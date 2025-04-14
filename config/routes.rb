@@ -3,6 +3,12 @@ Rails.application.routes.draw do
     get :index
   end
 
+  namespace :api do
+    namespace :questions do
+      get "/", action: :index
+    end
+  end
+
   namespace :panel do
     get "/", to: "home#index"
     get "home/index" # dashboard

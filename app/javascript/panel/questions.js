@@ -1,3 +1,5 @@
+//JS do form de questions, onde define a quantidade de respostas pode ter cada pergunta
+
 document.addEventListener("DOMContentLoaded", function () {
     const container = document.getElementById("answers-container");
     const addAnswerBtn = document.getElementById("add-answer-btn");
@@ -20,4 +22,4 @@ document.addEventListener("DOMContentLoaded", function () {
          answerCount--;
       }
     });
- });
+});

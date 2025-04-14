@@ -14,7 +14,6 @@
    <!-- Respostas Existentes no Banco -->
    <div class="mb-3">
       <%= form.label :answers, style: "display: block", for: "exampleInputEmail1", class: "form-label mb-1" %>
-
       <div id="answers-container">
          <%= form.fields_for :answers do |answer_form| %>
             <div class="nested-answer mb-3">
