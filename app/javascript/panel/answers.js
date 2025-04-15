@@ -12,9 +12,17 @@ async function loadData(subject_id) {
       const questions = await fetch(`/api/questions?subject_id=${subject_id}`) // ele chama a requisição
       if (!questions.ok) throw new Error('Erro na API');
 
-      const data = await answer.json() // ele pega a requisição e transforma em json
-      document.getElementById('questions').innerText = data
-      //console.log(data); // aqui você atualiza a UI, por exemplo
+      const data = await questions.json() // ele pega a requisição e transforma em json
+
+      let container = document.getElementById('questions')
+      container.innerHTML = ''  // limpa conteúdo anterior
+
+      data.forEach(questionAndAnswer => {
+         let p = document.createElement('p')
+         p.textContent = questionAndAnswer.description
+         container.appendChild(p)
+      });
+
    } catch (erro) {
       console.error('Erro ao buscar os dados:', erro);
    }
