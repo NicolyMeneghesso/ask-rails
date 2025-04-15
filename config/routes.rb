@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :questions do
       get "/", action: :index
+      get "/answers", action: :answers
     end
   end
 
