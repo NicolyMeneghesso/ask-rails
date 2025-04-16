@@ -6,7 +6,12 @@ class Api::QuestionsController < ApplicationController
     end
 
     def answers
+      if params[:question_id].blank?
+        render json: { error: "Parâmetro question_id ausente" }, status: :bad_request
+        return
+      end
+
       answers = Answer.where(question_id: params[:question_id])
-      render json: answers.to_json
+      render json: answers
     end
 end

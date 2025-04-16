@@ -4,9 +4,8 @@ Rails.application.routes.draw do
   end
 
   namespace :api do
-    namespace :questions do
-      get "/", action: :index
-      get "/answers", action: :answers
+    resources :questions, only: [ :index ] do
+      get "answers", on: :collection
     end
   end
 
