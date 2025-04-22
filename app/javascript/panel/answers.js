@@ -14,8 +14,8 @@ async function loadDataQuestion(subject_id) {
 
       const dataQuestion = await questions.json() // ele pega a requisição e transforma em json
 
-      let tableBody = document.getElementById('tableQuestions')
-      tableBody.innerHTML = ''  // limpa conteúdo anterior
+      let tableBodyQuestions = document.getElementById('tableQuestions')
+      tableBodyQuestions.innerHTML = ''  // limpa conteúdo anterior
 
       dataQuestion.forEach(question => { //pega a array e percorre ela, e a variavel question representa uma pergunta
          const tr = document.createElement('tr')
@@ -23,12 +23,12 @@ async function loadDataQuestion(subject_id) {
 
          td.textContent = question.description // textContent insere texto puro,
          td.style.cursor = 'pointer'
-
+      
          // Chamada ao clicar na pergunta
          td.onclick = () => loadCardAnswer(question.id)
 
          tr.appendChild(td); //Adiciona a célula (<td>) criada à linha (<tr>) da tabela.
-         tableBody.appendChild(tr); //Adiciona a nova linha (<tr>) com a pergunta na tabela visível da página, momento em que o conteúdo realmente é inserido no HTML
+         tableBodyQuestions.appendChild(tr); //Adiciona a nova linha (<tr>) com a pergunta na tabela visível da página, momento em que o conteúdo realmente é inserido no HTML
       });
       
    } catch (erro) {
@@ -39,30 +39,26 @@ async function loadDataQuestion(subject_id) {
 window.loadCardAnswer = async function(question_id) {
    try {
       const answers = await fetch(`/api/questions/answers?question_id=${question_id}`) // ele chama a requisição
-      if (!questions.ok) throw new Error('Erro na API')
+      if (!answers.ok) throw new Error('Erro na API')
 
       const dataAnswer = await answers.json()
 
-      let cardAnswer = document.getElementById('cardAnswer')
-      let listAnswer = document.getElementById('listAnswers')
-      listAnswer.innerHTML = ''
+      // Aqui você acessa os elementos do DOM
+      const cardAnswer = document.getElementById('cardAnswer')  // Div da resposta
+      const list = document.getElementById('listAnswers')
+      list.innerHTML = '' // limpa respostas anteriores
 
-      dataQuestion.forEach(answer => { 
+      // Aqui preenche com as novas respostas
+      dataAnswer.forEach(answer => { 
          const li = document.createElement('li')
-         li.className = 'list-group-item d-flex justify-content-between align-items-center';
-         li.textContent = answer.description
+         li.className = 'list-group-item'
 
-         if (answer.correct) {
-            const badge = document.createElement('span');
-            badge.className = 'badge bg-success';
-            badge.textContent = '✔';
-            li.appendChild(badge);
-         }
-    
-         list.appendChild(li);
+         // Usa innerText ou innerHTML com <br> se tiver \n
+         li.innerText = answer.description
+         list.appendChild(li)
       });
     
-      card.style.display = 'block';
+      cardAnswer.style.display = 'block'; // Mostra o card de respostas
     
    } catch (error) {
       console.error('Erro ao buscar as respostas:', error);
