@@ -8,7 +8,9 @@
       <tbody>
         <% @subjects.each do |subject| %>
           <tr>
-            <td onclick="loadCardQuestion(<%= subject.id %>)"><%= subject.description %></td>
+            <td data-id="<%= subject.id %>" onclick="OnClickSubject(event)">
+              <%= subject.description %>
+            </td>
           </tr>
         <% end %>
       </tbody>
@@ -18,7 +20,7 @@
 </div>
 
 <div class="d-flex flex-column gap-3">
-  <div class="col-11 col-xl-11" style="display:none" id="cardQuestion">
+  <div class="col-12 col-xl-12" style="display:none" id="cardQuestion">
     <div class="card bg-primary-subtle py-3 px-4">
       <div class="card-header bg-primary-subtle py-2">
         <h1 class="title-edit"><%= t('index.title_questions') %></h1>
@@ -32,7 +34,7 @@
   </div>
 
   <!-- Card das Respostas -->
-  <div class="col-11" style="display:none" id="cardAnswer">
+  <div class="col-11 col-xl-12" style="display:none" id="cardAnswer">
     <div class="card bg-primary-subtle py-3 px-4">
       <div class="card-header bg-primary-subtle py-2">
         <h1 class="title-edit"><%= t('index.title_questions') %></h1>
@@ -43,3 +45,11 @@
     </div>
   </div>
 </div>
+
+<style>
+  .td-selected {
+    --bs-table-bg-type: rgba(94, 110, 136, 0.83) !important;
+    background-color: rgba(94, 110, 136, 0.83) !important;
+    color: white !important;
+  }
+</style>

@@ -1,11 +1,21 @@
 //JS do answer, onde tem um api para buscar as questions, e a função de clicar e abrir o card com as peruntas
 
-// Declaramos a função no objeto global 'window' para que possa ser acessada pelo HTML inline (ex: onclick="LoadCardQuestion(...)")
-window.loadCardQuestion = function(id) { 
-   let cardQuestions = document.getElementById('cardQuestion')
-   cardQuestions.style.display = "block"
-   loadDataQuestion(id)
-};
+document.addEventListener("DOMContentLoaded", function() {
+   window.OnClickSubject = function(event) {
+      const td = event.target
+      const cardQuestions = document.getElementById('cardQuestion');
+      cardQuestions.style.display = "block";
+      loadDataQuestion(td.dataset.id);
+
+      // Limpa todos os td
+      document.querySelectorAll('td').forEach(tdr => {
+         tdr.classList.remove("td-selected");
+      });
+
+      td.classList.add("td-selected");
+   }
+   
+});
 
 async function loadDataQuestion(subject_id) {
    try {
