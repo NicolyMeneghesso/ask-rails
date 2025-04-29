@@ -1,7 +1,7 @@
-<div class="col-6 col-xl-4 me-3">
+<div class="col-6 col-xl-4 me-4 ms-4">
   <div class="card bg-primary-subtle py-3 px-4">
     <div class="card-header bg-primary-subtle py-2">
-      <h1 class="title-edit"><%= t('index.title_subjects') %></h1>
+      <h1 class="title-edit"><%= t('answer.title_subjects') %></h1>
     </div>
 
     <table class="table table-striped table-hover">
@@ -19,11 +19,11 @@
   <%= paginate @subjects %> 
 </div>
 
-<div class="d-flex flex-column gap-3">
-  <div class="col-12 col-xl-12" style="display:none" id="cardQuestion">
+<div class="d-flex flex-column me-4 cardMain align-items-center">
+  <div id="cardQuestion">
     <div class="card bg-primary-subtle py-3 px-4">
       <div class="card-header bg-primary-subtle py-2">
-        <h1 class="title-edit"><%= t('index.title_questions') %></h1>
+        <h1 class="title-edit"><%= t('answer.title_questions') %></h1>
       </div>
       <div id="questions">
         <table class="table table-striped table-hover">
@@ -34,10 +34,10 @@
   </div>
 
   <!-- Card das Respostas -->
-  <div class="col-11 col-xl-12" style="display:none" id="cardAnswer">
+  <div class="mt-2" id="cardAnswer">
     <div class="card bg-primary-subtle py-3 px-4">
       <div class="card-header bg-primary-subtle py-2">
-        <h1 class="title-edit"><%= t('index.title_questions') %></h1>
+        <h1 class="title-edit"><%= t('answer.title_answers') %></h1>
       </div>
       <div id="answers">
         <ul class="list-group" id="listAnswers"></ul>
@@ -45,11 +45,3 @@
     </div>
   </div>
 </div>
-
-<style>
-  .td-selected {
-    --bs-table-bg-type: rgba(94, 110, 136, 0.83) !important;
-    background-color: rgba(94, 110, 136, 0.83) !important;
-    color: white !important;
-  }
-</style>

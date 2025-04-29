@@ -17,17 +17,18 @@ document.addEventListener("DOMContentLoaded", function() {
    
 });
 
+//esta funcao carrega mesmo antes do evento de pintar o td
 async function loadDataQuestion(subject_id) {
    try {
       const questions = await fetch(`/api/questions?subject_id=${subject_id}`) // ele chama a requisição
       if (!questions.ok) throw new Error('Erro na API')
 
-      const dataQuestion = await questions.json() // ele pega a requisição e transforma em json
+      const dataQuestions = await questions.json() // ele pega a requisição e transforma em json
 
       let tableBodyQuestions = document.getElementById('tableQuestions')
       tableBodyQuestions.innerHTML = ''  // limpa conteúdo anterior
 
-      dataQuestion.forEach(question => { //pega a array e percorre ela, e a variavel question representa uma pergunta
+      dataQuestions.forEach(question => { //pega a array e percorre ela, e a variavel question representa uma pergunta
          const tr = document.createElement('tr')
          const td = document.createElement('td')
 
@@ -35,7 +36,7 @@ async function loadDataQuestion(subject_id) {
          td.style.cursor = 'pointer'
       
          // Chamada ao clicar na pergunta
-         td.onclick = () => loadCardAnswer(question.id)
+         td.onclick = (event) => loadCardAnswer(event, question.id)
 
          tr.appendChild(td); //Adiciona a célula (<td>) criada à linha (<tr>) da tabela.
          tableBodyQuestions.appendChild(tr); //Adiciona a nova linha (<tr>) com a pergunta na tabela visível da página, momento em que o conteúdo realmente é inserido no HTML
@@ -46,7 +47,18 @@ async function loadDataQuestion(subject_id) {
    }
 }
 
-window.loadCardAnswer = async function(question_id) {
+window.loadCardAnswer = async function(event, question_id) {
+
+   const tdQuestion = event.target
+   const tableBodyQuestions = document.getElementById('tableQuestions')
+
+   // Limpa todos os td
+   tableBodyQuestions.querySelectorAll('td').forEach(tdre => {
+      tdre.classList.remove("td-selected");
+   });
+
+   tdQuestion.classList.add("td-selected");
+
    try {
       const answers = await fetch(`/api/questions/answers?question_id=${question_id}`) // ele chama a requisição
       if (!answers.ok) throw new Error('Erro na API')

@@ -45,3 +45,7 @@ en:
     user_type_0: Standard User
     user_type_1: Aministrator
     user_type_2: General Administrator
+  answer:
+    title_subjects: Subjects
+    title_questions: Questions
+    title_answers: Answers

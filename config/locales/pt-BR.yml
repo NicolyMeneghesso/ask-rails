@@ -46,3 +46,7 @@ pt-BR:
     user_type_0: Usuário Padrão
     user_type_1: Administrador
     user_type_2: Administrador Geral
+  answer:
+    title_subjects: Assuntos
+    title_questions: Questões
+    title_answers: Respostas

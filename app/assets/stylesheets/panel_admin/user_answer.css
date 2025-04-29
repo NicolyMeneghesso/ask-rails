@@ -1,0 +1,20 @@
+.td-selected {
+    --bs-table-bg-type: rgba(94, 110, 136, 0.83) !important;
+    background-color: rgba(94, 110, 136, 0.83) !important;
+    color: white !important;
+}
+
+.cardMain {
+    max-width: 600px !important;
+}
+
+#cardQuestion {
+    display: none;
+    width: 100% !important;
+    min-width: 550px !important;
+}
+
+#cardAnswer {
+    display: none;
+    width: 100%;
+}
