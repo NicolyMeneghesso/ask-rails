@@ -18,3 +18,13 @@
     display: none;
     width: 100%;
 }
+
+#listAnswers li:nth-child(odd) {
+    background-color: var(--bs-body-bg); /* cor base */
+    border-color: rgb(109, 109, 110) !important;
+  }
+  
+#listAnswers li:nth-child(even) {
+    background-color: var(--bs-body-tertiary); /* listrado */
+    border-color: rgb(109, 109, 110) !important;
+}

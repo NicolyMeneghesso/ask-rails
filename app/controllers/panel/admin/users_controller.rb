@@ -35,7 +35,7 @@ class Panel::Admin::UsersController < PanelBaseController
   end
 
   def answer
-    @subjects = Subject.all.page(params[:page])
+    @subjects = Subject.where("description LIKE ?", "%#{params[:term]}%").page(params[:page])
   end
 
   private

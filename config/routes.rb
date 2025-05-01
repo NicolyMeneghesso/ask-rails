@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   namespace :api do
     resources :questions, only: [ :index ] do
       get "answers", on: :collection
+      get "answer_check", on: :collection, action: :answer_check
     end
   end
 

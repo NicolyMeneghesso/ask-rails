@@ -73,11 +73,24 @@ window.loadCardAnswer = async function(event, question_id) {
       // Aqui preenche com as novas respostas
       dataAnswer.forEach(answer => { 
          const li = document.createElement('li')
-         li.className = 'list-group-item'
+         li.className = 'list-group-item d-flex align-items-center'
 
-         // Usa innerText ou innerHTML com <br> se tiver \n
-         li.innerText = answer.description
+         // Cria o checkbox
+         const checkbox = document.createElement('input')
+         checkbox.type = 'radio'
+         checkbox.name = 'answer'
+         checkbox.className = 'form-check-input me-2'
+         checkbox.value = answer.id
+         
+         // Cria o texto da resposta
+         const span = document.createElement('span')
+         span.innerText = answer.description //Usa innerText ou innerHTML com <br> se tiver \n
+
+         // Junta no item da lista
+         li.appendChild(checkbox) //Add o checkbox dentro do <li>.
+         li.appendChild(span) //add o texto da resposta depois do checkbox
          list.appendChild(li)
+        
       });
     
       cardAnswer.style.display = 'block'; // Mostra o card de respostas
@@ -85,4 +98,28 @@ window.loadCardAnswer = async function(event, question_id) {
    } catch (error) {
       console.error('Erro ao buscar as respostas:', error);
    }
+}
+
+window.SubmitAnswer = async function() {
+   const list = document.getElementById('listAnswers')
+   let answerId = 0;
+
+   list.querySelectorAll('input').forEach(inp => {
+      if (inp.checked) //verifica se esta marcado
+         answerId = inp.value; //se estiver marcado, guarda o valor
+   });
+
+   if (answerId == 0) { 
+      return;
+   }
+
+   const answer = await fetch(`/api/questions/answer_check?answer_id=${answerId}`) // ele chama a requisição
+   if (!answer.ok) throw new Error('Erro na API')
+
+   const dataAnswer = await answer.json()
+
+   if (dataAnswer.correct) {
+      console.log(" certo ")
+   }else 
+      console.log(" errado ")
 }

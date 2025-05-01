@@ -1,9 +1,16 @@
-<div class="col-6 col-xl-4 me-4 ms-4">
+<div class="col-6 col-xl-5 me-4 ms-4">
   <div class="card bg-primary-subtle py-3 px-4">
-    <div class="card-header bg-primary-subtle py-2">
-      <h1 class="title-edit"><%= t('answer.title_subjects') %></h1>
-    </div>
-
+    <nav class="navbar bg-primary-subtle border-bottom border-body py-3 px-0" data-bs-theme="light">
+      <div class="container-fluid">
+        <h1 class="title-edit"><%= t('answer.title_subjects') %></h1>
+        <%= form_with(url: panel_admin_answer_path, local: true, method: :get, class: "d-flex") do |form| %>
+            <%= form.text_field :term, class:"form-control me-2", placeholder: t('answer.search') %>
+            <%= button_tag type: "submit", class:"btn btn-outline-primary" do %>
+              <i class="fa-regular fa-magnifying-glass"></i>
+            <% end %>
+        <% end %>
+      </div>
+    </nav>
     <table class="table table-striped table-hover">
       <tbody>
         <% @subjects.each do |subject| %>
@@ -39,8 +46,12 @@
       <div class="card-header bg-primary-subtle py-2">
         <h1 class="title-edit"><%= t('answer.title_answers') %></h1>
       </div>
-      <div id="answers">
-        <ul class="list-group" id="listAnswers"></ul>
+      <div>
+        <div class="alert alert-danger text-center" style="display: none;">
+          Resposta errada
+        </div>
+        <ul class="list-group list-group-flush" id="listAnswers"></ul>
+        <button onclick="SubmitAnswer()" >Responder</button>
       </div>
     </div>
   </div>
