@@ -34,7 +34,7 @@ class Panel::Admin::UsersController < PanelBaseController
   def profile
   end
 
-  def answer
+  def answer # Realiza a busca de assuntos pela descrição na interface de usuários padrão (página de questões)
     @subjects = Subject.where("description LIKE ?", "%#{params[:term]}%").page(params[:page])
   end
 

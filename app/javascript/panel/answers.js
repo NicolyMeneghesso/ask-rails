@@ -1,13 +1,12 @@
-//JS do answer, onde tem um api para buscar as questions, e a função de clicar e abrir o card com as peruntas
-
 document.addEventListener("DOMContentLoaded", function() {
-   window.OnClickSubject = function(event) {
-      const td = event.target
+   // Função chamada ao clicar em um assunto. Mostra o card de perguntas e carrega as perguntas do assunto selecionado
+   window.OnClickSubject = function(event) { //define uma função anônima que recebe o evento de clique como parâmetro.
+      const td = event.target 
       const cardQuestions = document.getElementById('cardQuestion');
       cardQuestions.style.display = "block";
-      loadDataQuestion(td.dataset.id);
+      loadDataQuestion(td.dataset.id); // Chama a API para buscar as perguntas do assunto
 
-      // Limpa todos os td
+      // Remove a seleção anterior e aplica estilo no item clicado
       document.querySelectorAll('td').forEach(tdr => {
          tdr.classList.remove("td-selected");
       });
@@ -17,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function() {
    
 });
 
-//esta funcao carrega mesmo antes do evento de pintar o td
+// esta funcao: Busca as perguntas relacionadas ao assunto e preenche a tabela dinamicamente
 async function loadDataQuestion(subject_id) {
    try {
       const questions = await fetch(`/api/questions?subject_id=${subject_id}`) // ele chama a requisição
@@ -28,14 +27,14 @@ async function loadDataQuestion(subject_id) {
       let tableBodyQuestions = document.getElementById('tableQuestions')
       tableBodyQuestions.innerHTML = ''  // limpa conteúdo anterior
 
-      dataQuestions.forEach(question => { //pega a array e percorre ela, e a variavel question representa uma pergunta
-         const tr = document.createElement('tr')
+      dataQuestions.forEach(question => { // Array percorre cada dataQuestion, e a variavel question representa uma pergunta
+         const tr = document.createElement('tr') // Cria as linhas da tabela para cada pergunta
          const td = document.createElement('td')
 
          td.textContent = question.description // textContent insere texto puro,
          td.style.cursor = 'pointer'
       
-         // Chamada ao clicar na pergunta
+         // Chamada as respostas ao clicar na pergunta
          td.onclick = (event) => loadCardAnswer(event, question.id)
 
          tr.appendChild(td); //Adiciona a célula (<td>) criada à linha (<tr>) da tabela.
@@ -47,8 +46,10 @@ async function loadDataQuestion(subject_id) {
    }
 }
 
+// Carrega e exibe as respostas da pergunta selecionada
 window.loadCardAnswer = async function(event, question_id) {
 
+   // Remove seleção anterior e destaca pergunta clicada
    const tdQuestion = event.target
    const tableBodyQuestions = document.getElementById('tableQuestions')
 
@@ -67,7 +68,7 @@ window.loadCardAnswer = async function(event, question_id) {
 
       // Aqui você acessa os elementos do DOM
       const cardAnswer = document.getElementById('cardAnswer')  // Div da resposta
-      const list = document.getElementById('listAnswers')
+      const list = document.getElementById('listAnswers') // ul da resposta
       list.innerHTML = '' // limpa respostas anteriores
 
       // Aqui preenche com as novas respostas
@@ -84,7 +85,7 @@ window.loadCardAnswer = async function(event, question_id) {
          
          // Cria o texto da resposta
          const span = document.createElement('span')
-         span.innerText = answer.description //Usa innerText ou innerHTML com <br> se tiver \n
+         span.innerText = answer.description //Usa innerText
 
          // Junta no item da lista
          li.appendChild(checkbox) //Add o checkbox dentro do <li>.
@@ -100,16 +101,18 @@ window.loadCardAnswer = async function(event, question_id) {
    }
 }
 
+// Envia a resposta selecionada e exibe se está certa ou errada
 window.SubmitAnswer = async function() {
    const list = document.getElementById('listAnswers')
    let answerId = 0;
 
+   // Encontra a resposta marcada
    list.querySelectorAll('input').forEach(inp => {
       if (inp.checked) //verifica se esta marcado
          answerId = inp.value; //se estiver marcado, guarda o valor
    });
 
-   if (answerId == 0) { 
+   if (answerId == 0) { // Se nenhuma resposta foi marcada, não faz nada
       return;
    }
 
@@ -117,9 +120,16 @@ window.SubmitAnswer = async function() {
    if (!answer.ok) throw new Error('Erro na API')
 
    const dataAnswer = await answer.json()
+   
+   const answerCorrect = document.getElementById('answerCorrect');
+   const answerWrong = document.getElementById('answerWrong');
+
+   answerCorrect.style.display = "none";
+   answerWrong.style.display = "none";
 
    if (dataAnswer.correct) {
-      console.log(" certo ")
-   }else 
-      console.log(" errado ")
+      answerCorrect.style.display = "block";
+   } else 
+      answerWrong.style.display = "block";
+
 }
