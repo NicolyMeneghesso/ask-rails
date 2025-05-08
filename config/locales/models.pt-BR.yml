@@ -18,6 +18,7 @@
       subject:
         id: Código
         description: Descrição
+        quantity_answer: Qtd. Perguntas 
         created_at: Criando em
         updated_at: Atualizado em
       question:
