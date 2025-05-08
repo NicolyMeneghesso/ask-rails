@@ -6,7 +6,7 @@ class PanelBaseController < ApplicationController
     def permitted_user_params
       # é um array contendo os campos que podem ser alterados no formulário
       permitted_params = [ :username, :address, :email, :password, :password_confirmation ]
-      permitted_params << :user_type if current_user.user_type == 2 # Apenas Super Admins podem editar
+      permitted_params << :user_type if current_user.user_type == 2 # Apenas Super Admins podem editar o tipo do usuario
 
       params.require(:user).permit(permitted_params)
     end
