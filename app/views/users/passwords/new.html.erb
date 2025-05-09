@@ -1,16 +1,33 @@
-<h2>Forgot your password?</h2>
+<%= render "layouts/meta" %>
+<%= stylesheet_link_tag "panel", media: "all", "data-turbo-track": "reload" %>
+<%= stylesheet_link_tag "site_login/login", media: "all", "data-turbo-track": "reload" %>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "users/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<main class="login-content d-flex align-items-center justify-content-center vh-100">
+  <div class="card-alert-login mt-3 px-3">
+    <%= render "users/shared/error_messages", resource: resource %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
-  </div>
-<% end %>
+  <div class="row">
+    <div class="col-12">
+      <div class="text-center mb-4">
+        <h2 class="title-edit"><%= t('devise.passwords.title_forgotPassword') %></h2>
+      </div>
+      <div class="card bg-primary-subtle">
+        <div class="card-body m-sm-3">
+          <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+              <div class="col-md-12">
+                <%= f.label :email, class: "mb-1" %>
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control bg-light-subtle mb-3" %>
+              </div>
 
-<%= render "users/shared/links" %>
+              <div class="actions">
+                <%= f.submit t('devise.passwords.btn_resetPassword'), class: "btn btn-card-login" %>
+              </div>
+          <% end %>
+
+          <%= render "users/shared/links" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

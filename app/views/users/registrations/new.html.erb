@@ -1,53 +1,7 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <%= render "layouts/meta" %>
-    <%= stylesheet_link_tag "panel", media: "all", "data-turbo-track": "reload" %>
-    <%= stylesheet_link_tag "site_login/login", media: "all", "data-turbo-track": "reload" %>
-  </head>
-  <body>
-    <main class="login-content d-flex align-items-center justify-content-center vh-100">
-      <div class="card-alert-login mt-3 px-3">
-        <%= render "users/shared/error_messages", resource: resource %>
-      </div>
-      <div class="col-12 col-sm-8 col-md-6 col-lg-4">
-        <div class="text-center mb-4">
-          <h1 class="title-edit"><%= t('devise.registrations.title_signup') %></h1>
-          <p style="font-size: 18px"><%= t('devise.registrations.subtitle_signup') %></p>
-        </div>
-        <div class="card bg-primary-subtle">
-          <div class="card-body m-sm-3">
-            <div class="row">
-              <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { data: { turbo: false } }) do |f| %>
-                <div class="col-md-12">
-                  <%= f.label :email, class: "mb-1" %>
-                  <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control bg-light-subtle mb-3" %>
-                </div>
-
-                <div class="col-md-12 mb-2">
-                  <%= f.label t('form.password'), class: "mb-1" %>
-                  <% if @minimum_password_length %>
-                    <em>(<%= @minimum_password_length %> <%= t('devise.registrations.password_characters') %>)</em>
-                  <% end %>
-                  <%= f.password_field :password, autocomplete: "new-password", class: "form-control bg-light-subtle"  %>
-                </div>
-
-                <div class="col-md-12 mb-2">
-                  <%= f.label t('form.password_confirmation'), class: "mb-1" %>
-                  <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control bg-light-subtle" %>
-                </div>
-
-                <div class="actions">
-                  <%= f.submit t('devise.registrations.btn_signup'), class: "btn btn-card-login" %>
-                </div>
-              <% end %>
-            </div>
-          </div>
-        </div>
-        <div class="text-center mt-2">
-          <p style="font-size: 18px"><%= t('devise.registrations.text_login') %><%= render "users/shared/log_in_link" %></p>
-        </div>
-      </div>
-    </main>
-  </body>
-</html>
+<%= render "layouts/meta" %>
+<%= stylesheet_link_tag "panel", media: "all", "data-turbo-track": "reload" %>
+<%= stylesheet_link_tag "site_login/login", media: "all", "data-turbo-track": "reload" %>
+  
+<body>
+  <%= render "users/shared/form" %>
+</body>

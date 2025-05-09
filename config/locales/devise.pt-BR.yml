@@ -34,6 +34,8 @@ pt-BR:
       send_paranoid_instructions: "Se o seu endereço de e-mail existir em nossa base de dados, você receberá um link de recuperação de senha em alguns minutos."
       updated: "Sua senha foi redefinida com sucesso. Você agora está conectado."
       updated_not_active: "Sua senha foi redefinida com sucesso."
+      title_forgotPassword: "Esqueceu sua senha?"
+      btn_resetPassword: "Redefinir a senha"
     registrations:
       destroyed: "Até a próxima! Sua conta foi cancelada com sucesso. Esperamos te ver de volta logo."
       signed_up: "Bem vindo! Você se registrou com sucesso."
