@@ -13,6 +13,8 @@
         id: Código
         username: Nome
         email: E-mail
+        password: <strong>Senha</strong>
+        password_confirmation: <strong>Confirmar senha</strong>
         created_at: Criando em
         updated_at: Atualizado em
       subject:
@@ -34,3 +36,10 @@
         correct: Correta
         created_at: Criando em
         updated_at: Atualizado em
+  errors:
+    format: "%{attribute} %{message}"
+    messages:
+      confirmation: ": não confere com a senha informada"
+      too_short:
+        one: ": é muito curto (mínimo: %{count} caractere)"
+        other: ": é muito curto (mínimo: %{count} caracteres)"

@@ -35,4 +35,14 @@
     border: solid 1px rgb(89, 96, 166);
 }
 
+/*alerta de erro de login*/
+.card-alert-login {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(40%);
+}
 
+.alert-login {
+    width: 100%;
+}
