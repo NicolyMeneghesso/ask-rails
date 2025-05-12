@@ -1,7 +1,12 @@
 <%= render "panel/admin/shared/form_users",
-         resource: @admin,
-         bd_name: :username,
-         bd_address: :address,
-         bd_email: :email,
-         bd_password: :password,
-         bd_password_confirmation: :password_confirmation %>
+    resource: @admin,
+    bd_first_name: :first_name,
+    bd_last_name: :laste_name,
+    bd_address_street: :address_street,
+    bd_address_building_number: :address_building_number,
+    bd_address_city: :address_city,
+    bd_address_state: :address_state,
+    bd_address_country: :address_country,
+    bd_email: :email,
+    bd_password: :password,
+    bd_password_confirmation: :password_confirmation %>

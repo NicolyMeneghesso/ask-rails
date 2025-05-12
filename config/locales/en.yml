@@ -32,8 +32,13 @@ en:
   links:
     back: Back
   form:
-    name: Full Name
-    address: Full address
+    first_name: First Name
+    last_name: Last Name
+    address_street: Address
+    address_building_number: Number
+    address_city: City
+    address_state: State
+    address_country: Country
     email: E-mail
     password: Password
     password_confirmation: Password confirmation
@@ -43,7 +48,7 @@ en:
     add_answer: Add reply
     user_type: User Type
     user_type_0: Standard User
-    user_type_1: Aministrator
+    user_type_1: Administrator
     user_type_2: General Administrator
   answer:
     title_subjects: Subjects

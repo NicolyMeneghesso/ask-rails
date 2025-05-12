@@ -88,3 +88,26 @@ body::-webkit-scrollbar-thumb:hover, html::-webkit-scrollbar-thumb:hover {
     background-color: rgb(89, 96, 166);
     color: rgb(5, 5, 5);
 }
+
+/*flash*/
+
+.flash_error {
+    position: fixed;
+    top: 55px;
+    right: 25px;
+    z-index: 1050;
+}
+
+.flash_error .alert {
+    min-width: 290px;
+    max-width: 350px; 
+    height: auto;
+    padding: 12px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+.btn-close {
+    right: 0 !important;
+}

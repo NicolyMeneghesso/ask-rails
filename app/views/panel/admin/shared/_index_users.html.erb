@@ -6,7 +6,7 @@
     <table class="table table-striped table-hover">
       <thead>
         <tr>
-          <th scope="col"><%= t('activerecord.attributes.user.username') %></th>
+          <th scope="col"><%= t('activerecord.attributes.user.first_name') %></th>
           <th scope="col"><%= t('activerecord.attributes.user.email') %></th>
           <th scope="col">
             <%= link_to btn_link_new, class:"btn btn-info" do %>
@@ -18,7 +18,7 @@
       <tbody>
         <% resource.each do |resource_parameters| %>
           <tr>
-            <td><%= resource_parameters.username %></td>
+            <td><%= resource_parameters.first_name %></td>
             <td><%= resource_parameters.email %></td>
             <td class="gap-1">         
               <%= link_to [:edit, :panel, :admin, resource_parameters], class:"btn btn-primary" do %>

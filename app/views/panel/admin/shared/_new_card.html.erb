@@ -1,9 +1,5 @@
 <div class="col-8 col-xl-6">
    <div class="card bg-primary-subtle py-3 px-4">
-      <div class="card-header bg-primary-subtle d-flex justify-content-center pb-2">
-         <h1 class="title-edit"><%= t(title_key) %></h1>
-      </div>
-    
       <div class="card-body p-2">
          <%= render partial: form_partial, locals: { resource_name => resource } %>
          <%= link_to t('links.back'), back_path, class:"btn btn-card" %>

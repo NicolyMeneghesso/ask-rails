@@ -11,22 +11,39 @@ class Panel::Admin::UsersController < PanelBaseController
   def edit
   end
 
+  # Método que exibe o formulário
   def new
-    @users = User.new
+    @user = User.new
+  end
+
+  # Método que processa a submissão do formulário
+  def create
+    @user = User.new(user_params)
+    if @user.save
+      flash[:notice] = "Usuário criado com sucesso."
+      redirect_to user_path(@user)
+    else
+      flash.now[:alert] = "Erro ao criar usuário."
+      render :new
+    end
   end
 
   def update
     if @user.update(permitted_user_params)
-      redirect_to panel_admin_user_profile_path(@user), notice: "Úsuario atualizado com sucesso"
+      flash[:notice] = "Usuário atualizado com sucesso."
+      redirect_to panel_admin_user_profile_path(@user)
     else
+      flash.now[:alert] = "Erro ao atualizar o usuário."
       render :edit
     end
   end
 
   def destroy
     if @user.destroy
+      flash[:notice] = "Úsuario excluído com sucesso"
       redirect_to panel_admin_user_path, notice: "Úsuario excluído com sucesso"
     else
+      flash.now[:alert] = "Erro ao excluir o usuário."
       render :index
     end
   end

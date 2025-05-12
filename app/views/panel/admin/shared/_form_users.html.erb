@@ -1,13 +1,37 @@
-<%= form_with(model: [:panel, :admin, resource], local: true) do |form| %>
+<%= form_with(model: [:panel, :admin, resource], local: true, data: { turbo: false }) do |form| %>
   <div class="row g-3">
-    <div class="col-md-12">
-      <%= form.label t('form.name'), class: "form-label mb-1 ps-1" %>
-      <%= form.text_field bd_name, class: "form-control bg-light-subtle", aria: { label: t('form.first_name') } %>
+    <!--CAMPO DO NOME-->
+    <div class="col-md-6">
+      <%= form.label t('form.first_name'), class: "form-label mb-1 ps-1" %>
+      <%= form.text_field bd_first_name, class: "form-control bg-light-subtle" %> 
+      <!--bd_first_name = variavel de instancia declarada no users/form -->
     </div>
-    <div class="col-md-12">
-      <%= form.label t('form.address'), class: "form-label mb-1 ps-1" %>
-      <%= form.text_field bd_address, class: "form-control bg-light-subtle" %>
+    <div class="col-md-6">
+      <%= form.label t('form.last_name'), class: "form-label mb-1 ps-1" %>
+      <%= form.text_field bd_last_name, class: "form-control bg-light-subtle" %>
     </div>
+    <!--CAMPO DO ENDERECO-->
+    <div class="col-md-8">
+      <%= form.label t('form.address_street'), class: "form-label mb-1 ps-1" %>
+      <%= form.text_field bd_address_street, class: "form-control bg-light-subtle" %>
+    </div>
+     <div class="col-md-4">
+      <%= form.label t('form.address_building_number'), class: "form-label mb-1 ps-1" %>
+      <%= form.text_field bd_address_building_number, class: "form-control bg-light-subtle" %>
+    </div>
+    <div class="col-md-5">
+      <%= form.label t('form.address_city'), class: "form-label mb-1 ps-1" %>
+      <%= form.text_field bd_address_city, class: "form-control bg-light-subtle" %>
+    </div>
+    <div class="col-md-4">
+      <%= form.label t('form.address_state'), class: "form-label mb-1 ps-1" %>
+      <%= form.text_field bd_address_state, class: "form-control bg-light-subtle" %>
+    </div>
+    <div class="col-md-3">
+      <%= form.label t('form.address_country'), class: "form-label mb-1 ps-1" %>
+      <%= form.text_field bd_address_country, class: "form-control bg-light-subtle" %>
+    </div>
+    <!--CAMPO DO EMAIL-->
     <div class="col-md-12">
       <%= form.label t('form.email'), class: "form-label mb-1 ps-1" %>
       <%= form.text_field bd_email, class: "form-control bg-light-subtle", disabled: true %>

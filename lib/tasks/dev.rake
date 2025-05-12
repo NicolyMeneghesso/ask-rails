@@ -18,37 +18,55 @@ namespace :dev do
 
   desc "Adiciona o usuário padrão"
   task add_default_user: :environment do
+    User.delete_all
+    ActiveRecord::Base.connection.execute("DELETE FROM sqlite_sequence WHERE name = 'users'")
+
     # Criar um usuário admin geral
     User.create!(
-      email: "superadmin@admin.com",
+      email: "superadmin@superadmin.com",
       user_type: 2,
       password: DEFAULT_PASSWORD,
       password_confirmation: DEFAULT_PASSWORD,
-      username: "Administrador Geral",
-      address: Faker::Address.full_address
+      first_name: Faker::Name.first_name,
+      last_name: Faker::Name.last_name,
+      address_street: Faker::Address.street_name,
+      address_building_number: Faker::Address.building_number,
+      address_city: Faker::Address.city,
+      address_state: Faker::Address.state,
+      address_country: Faker::Address.country_code_long
     )
 
      # Criar 4 usuários admins
      4.times do |i|
       User.create!(
-        email: Faker::Internet.email,
+        email: Faker::Internet.email(domain: "admin.com"),
         user_type: 1,
         password: DEFAULT_PASSWORD,
         password_confirmation: DEFAULT_PASSWORD,
-        username: Faker::Name.name,
-        address: Faker::Address.full_address
+        first_name: Faker::Name.first_name,
+        last_name: Faker::Name.last_name,
+        address_street: Faker::Address.street_name,
+        address_building_number: Faker::Address.building_number,
+        address_city: Faker::Address.city,
+        address_state: Faker::Address.state,
+        address_country: Faker::Address.country_code_long
       )
     end
 
-    # Criar 20 usuários fictícios
-    20.times do |i|
+    # Criar usuários fictícios
+    10.times do |i|
       User.create!(
-        email: Faker::Internet.email,
+        email: Faker::Internet.email(domain: "user.com"),
         user_type: 0,
         password: DEFAULT_PASSWORD,
         password_confirmation: DEFAULT_PASSWORD,
-        username: Faker::Name.name,
-        address: Faker::Address.full_address
+        first_name: Faker::Name.first_name,
+        last_name: Faker::Name.last_name,
+        address_street: Faker::Address.street_name,
+        address_building_number: Faker::Address.building_number,
+        address_city: Faker::Address.city,
+        address_state: Faker::Address.state,
+        address_country: Faker::Address.country_code_long
       )
     end
   end

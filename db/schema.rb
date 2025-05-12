@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_05_07_233035) do
+ActiveRecord::Schema[8.0].define(version: 2025_05_12_220228) do
   create_table "answers", force: :cascade do |t|
     t.text "description", null: false
     t.integer "question_id", null: false
@@ -41,11 +41,16 @@ ActiveRecord::Schema[8.0].define(version: 2025_05_07_233035) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string "username"
-    t.string "address"
     t.integer "user_type", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.string "address_street"
+    t.string "address_building_number"
+    t.string "address_city"
+    t.string "address_state"
+    t.string "address_country"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

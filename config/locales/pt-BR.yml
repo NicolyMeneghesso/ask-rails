@@ -33,8 +33,13 @@ pt-BR:
   links:
     back: Voltar
   form:
-    name: Nome completo
-    address: Endereço completo
+    first_name: Primeiro nome
+    last_name: Último nome
+    address_street: Endereço
+    address_building_number: Número
+    address_city: Cidade
+    address_state: Estado
+    address_country: País
     email: E-mail
     password: Senha
     password_confirmation: Confirmar senha
