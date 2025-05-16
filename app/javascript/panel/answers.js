@@ -103,14 +103,26 @@ window.loadCardAnswer = async function(event, question_id) {
 
 // Função global: esconde os alerts
 function hideAlerts() {
-   ["answerCorrect", "answerWrong"].forEach(id => {
-     const el = document.getElementById(id);
-     if (!el) return;
+   //um array com os dois IDs e usando .forEach para executar uma função para cada um deles.
+   ["answerCorrect", "answerWrong"].forEach(id => { 
+     const el = document.getElementById(id); //document.getElementById('answerCorrect') retorna o div.alert
+     if (!el) return; //Se o elemento não existir no DOM, o código pula para o próximo ID sem dar erro
  
      el.classList.remove("show", "fade");
      el.classList.add("d-none");
      el.setAttribute("style", "");
    });
+}
+
+// Função global: mostra um alert e esconde depois de 5s
+function showAlert(el) {
+   el.classList.remove("d-none");
+   el.classList.add("fade", "show");
+ 
+   setTimeout(() => {
+     el.classList.remove("show");
+     el.classList.add("d-none");
+   }, 5000);
 }
 
 // Envia a resposta selecionada e exibe se está certa ou errada
@@ -137,11 +149,10 @@ window.SubmitAnswer = async function() {
    const answerCorrect = document.getElementById('answerCorrect');
    const answerWrong = document.getElementById('answerWrong');
 
+   // Usa a função global
    if (dataAnswer.correct) {
-      answerCorrect.classList.remove("d-none");
-      answerCorrect.classList.add("fade","show");
+      showAlert(answerCorrect);
    } else {
-      answerWrong.classList.remove("d-none");
-      answerWrong.classList.add("fade","show");
+      showAlert(answerWrong);
    }
 }

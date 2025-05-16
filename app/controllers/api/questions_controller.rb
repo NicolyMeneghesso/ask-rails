@@ -22,5 +22,18 @@ class Api::QuestionsController < ApplicationController
     # Busca a resposta pelo ID e retorna true/false com base no atributo `correct`
     answer_response = Answer.find(params[:answer_id])&.correct || false
     render json: { correct: answer_response }
+
+    set_user_statistic(answer_response)
+  end
+
+  private
+  # Atualiza as estatísticas do usuário com base na resposta enviada.
+  def set_user_statistic(answer_response)
+    user_statistic = UserStatistic.find_or_create_by(user: current_user) # Procura no banco uma estatística vinculada ao usuário logado
+    if answer_response
+      user_statistic.increment!(:right_questions)
+    else
+      user_statistic.increment!(:wrong_questions)
+    end
   end
 end

@@ -67,11 +67,6 @@ th {
     padding: 10px !important;
 }
 
-.alert-dismissible .btn-close {
-    position: absolute;
-    padding: 14px;
-}
-
 /*pagination*/
 .page-link {
     background-color: rgb(216, 229, 248);
