@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_05_12_220228) do
+ActiveRecord::Schema[8.0].define(version: 2025_05_15_223234) do
   create_table "answers", force: :cascade do |t|
     t.text "description", null: false
     t.integer "question_id", null: false
@@ -35,6 +35,15 @@ ActiveRecord::Schema[8.0].define(version: 2025_05_12_220228) do
     t.integer "questions_count"
   end
 
+  create_table "user_statistics", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "right_questions", default: 0
+    t.integer "wrong_questions", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_user_statistics_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -57,4 +66,5 @@ ActiveRecord::Schema[8.0].define(version: 2025_05_12_220228) do
 
   add_foreign_key "answers", "questions"
   add_foreign_key "questions", "subjects"
+  add_foreign_key "user_statistics", "users"
 end

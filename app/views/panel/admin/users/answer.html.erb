@@ -49,8 +49,14 @@
       </div>
       <div>
         <div>
-          <div class="alert alert-danger fw-semibold text-center" style="display: none;" id="answerWrong"><%= t('answer.answer_wrong') %></div>
-          <div class="alert alert-success bg-success fw-semibold text-center py-2" style="display: none;" id="answerCorrect"><%= t('answer.answer_correct') %></div>
+          <div class="alert alert-danger alert-dismissible fade d-none fw-semibold text-center" role="alert" id="answerWrong">
+            <%= t('answer.answer_wrong') %>
+            <button type="button" class="btn-close" onclick="hideAlerts()" aria-label="Fechar"></button>  
+          </div>
+          <div class="alert alert-success bg-success alert-dismissible fade d-none fw-semibold text-center" role="alert" id="answerCorrect">
+            <%= t('answer.answer_correct') %>
+            <button type="button" class="btn-close" onclick="hideAlerts()" aria-label="Fechar"></button>  
+          </div>
         </div>
         <ul class="list-group list-group-flush" id="listAnswers"></ul>
         <%= button_tag t('answer.button_answers'), type: 'button', onclick: 'SubmitAnswer()', class:"btn btn-card my-3" %>

@@ -59,13 +59,17 @@ th {
 .alert-danger {
     background: #c41224b9;
     color: black;
-    height: 40px;
     padding: 10px;
+}
+
+.alert-success {
+    height: 44px !important;
+    padding: 10px !important;
 }
 
 .alert-dismissible .btn-close {
     position: absolute;
-    right: 35px;
+    padding: 14px;
 }
 
 /*pagination*/

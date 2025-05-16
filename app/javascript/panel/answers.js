@@ -101,8 +101,21 @@ window.loadCardAnswer = async function(event, question_id) {
    }
 }
 
+// Função global: esconde os alerts
+function hideAlerts() {
+   ["answerCorrect", "answerWrong"].forEach(id => {
+     const el = document.getElementById(id);
+     if (!el) return;
+ 
+     el.classList.remove("show", "fade");
+     el.classList.add("d-none");
+     el.setAttribute("style", "");
+   });
+}
+
 // Envia a resposta selecionada e exibe se está certa ou errada
 window.SubmitAnswer = async function() {
+   hideAlerts(); 
    const list = document.getElementById('listAnswers')
    let answerId = 0;
 
@@ -124,12 +137,11 @@ window.SubmitAnswer = async function() {
    const answerCorrect = document.getElementById('answerCorrect');
    const answerWrong = document.getElementById('answerWrong');
 
-   answerCorrect.style.display = "none";
-   answerWrong.style.display = "none";
-
    if (dataAnswer.correct) {
-      answerCorrect.style.display = "block";
-   } else 
-      answerWrong.style.display = "block";
-
+      answerCorrect.classList.remove("d-none");
+      answerCorrect.classList.add("fade","show");
+   } else {
+      answerWrong.classList.remove("d-none");
+      answerWrong.classList.add("fade","show");
+   }
 }
