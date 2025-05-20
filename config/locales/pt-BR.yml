@@ -59,3 +59,13 @@ pt-BR:
     button_answers: Responder
     answer_wrong: Resposta Errada
     answer_correct: Resposta Correta
+  statistics:
+    total_questions: "Total de Questões"
+    right_questions: "Total de Respostas Corretas"
+    wrong_questions: "Total de Respostas Erradas"
+    label:
+      questions: "Percentual respondido:"
+      right: "Percentual correto:"
+      wrong: "Percentual errado:"
+    labelQuestions:
+      total_questions_site: "Total de questões:"

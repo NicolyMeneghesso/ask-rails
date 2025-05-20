@@ -58,3 +58,13 @@ en:
     button_answers: To Respond
     answer_wrong: Answer Wrong
     answer_correct: Answer Correct
+  statistics:
+    total_questions: "Total Questions"
+    right_questions: "Total Correct Answers"
+    wrong_questions: "Total Wrong Answers"
+    label:
+      total: "Percentage responded"
+      right: "Percentage correct"
+      wrong: "Wrong percentage"
+    labelQuestions:
+      total_questions_site: "Total Questions:"

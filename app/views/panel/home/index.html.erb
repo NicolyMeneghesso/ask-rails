@@ -1,68 +1,45 @@
+ <!--Calculo da porcentagem do total de perguntas-->
+<% total_site = @total_questions_count %>
+<% total_user = @user_statistic.total_questions %>
+<% percent_total_questions = total_site > 0 ? (total_user.to_f / total_site * 100).round(1) : 0 %>
+
+<!--Calculo da porcentagem do total de respostas certas-->
+<% total_user_right = @user_statistic.right_questions %>
+<% percent_answers_right = total_site > 0 ? (total_user_right.to_f / total_site * 100).round(1) : 0 %>
+
+<!--Calculo da porcentagem do total de respostas certas-->
+<% total_user_wrong = @user_statistic.wrong_questions %>
+<% percent_answers_wrong = total_site > 0 ? (total_user_wrong.to_f / total_site * 100).round(1) : 0 %>
+
 <div class="row w-100 justify-content-center">
   <!-- Coluna da esquerda -->
   <div class="col-md-8">
     <div class="row g-4">
-      <!-- Total -->
-      <div class="col-md-6">
-        <div class="card h-100">
-          <div class="card-body">
-            <div class="d-flex justify-content-between align-items-center">
-              <h5 class="card-title">Total de Perguntas</h5>
-              <div class="stat text-primary">
-                <i class="fa-light fa-comments-question"></i>
-              </div>
-            </div>
-            <h1 class="mt-3 mb-3"><%= @user_statistic.total_questions %></h1>
-            <div>
-              <span class="badge badge-success-light" style="color: black"><%= @total_questions_count %></span>
-              <span class="text-muted">Total</span>
-              <!--Calculo da porcentagem-->
-              <% total_site = @total_questions_count %>
-              <% total_user = @user_statistic.total_questions %>
-              <% percent = total_site > 0 ? (total_user.to_f / total_site * 100).round(1) : 0 %>
-              <span class="badge badge-success-light" style="color: black"><%= "#{percent}%" %></span>
-              <span class="text-muted">Total</span>
-            </div>
-          </div>
-        </div>
-      </div>
       <!-- Certo -->
-      <div class="col-md-6">
-        <div class="card h-100">
-          <div class="card-body">
-            <div class="d-flex justify-content-between align-items-center">
-              <h5 class="card-title">Total de Respostas Corretas</h5>
-              <div class="stat text-primary">
-                <i class="fa-light fa-comment-check"></i>
-              </div>
-            </div>
-            <h1 class="mt-3 mb-3"><%= @user_statistic.right_questions %></h1>
-            <div>
-              <span class="badge badge-danger-light" style="color: black">-5.25%</span>
-              <span class="text-muted">Certo</span>
-            </div>
-          </div>
-        </div>
-      </div>
+      <%= render "panel/home/shared/stat_card",
+          title: t("statistics.right_questions"),
+          icon_class: "fa-light fa-comment-check",
+          value: @user_statistic.right_questions,
+          percent: percent_answers_right,
+          label: t("statistics.label.right") %>
 
       <!-- Errada -->
-      <div class="col-md-6">
-        <div class="card h-100">
-          <div class="card-body">
-            <div class="d-flex justify-content-between align-items-center">
-              <h5 class="card-title">Total de Respostas Erradas</h5>
-              <div class="stat text-primary">
-                <i class="fa-light fa-comment-xmark"></i>
-              </div>
-            </div>
-            <h1 class="mt-3 mb-3"><%= @user_statistic.wrong_questions %></h1>
-            <div>
-              <span class="badge badge-success-light" style="color: black">4.65%</span>
-              <span class="text-muted">Errada</span>
-            </div>
-          </div>
-        </div>
-      </div>
+      <%= render "panel/home/shared/stat_card",
+          title: t("statistics.wrong_questions"),
+          icon_class: "fa-light fa-comment-xmark",
+          value: @user_statistic.wrong_questions,
+          percent: percent_answers_wrong,
+          label: t("statistics.label.wrong") %>
+
+      <!-- Total -->
+      <%= render "panel/home/shared/stat_card",
+          title: t("statistics.total_questions"),
+          icon_class: "fa-light fa-comments-question",
+          labelQuestions: t("statistics.labelQuestions.total_questions_site"),
+          value_questions: @total_questions_count,
+          value: @user_statistic.total_questions,
+          percent: percent_total_questions,
+          label: t("statistics.label.questions") %>
     </div>
   </div>
 
@@ -70,26 +47,12 @@
   <div class="col-md-4">
     <div class="card flex-fill w-100">
       <div class="card-header">
-        <div class="card-actions float-end">
-          <div class="dropdown position-relative">
-            <a href="#" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false" class="">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal align-middle"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
-            </a>
-            <div class="dropdown-menu dropdown-menu-end">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
-            </div>
-          </div>
-        </div>
         <h5 class="card-title mb-0">Browser Usage</h5>
       </div>
-      <div class="card-body d-flex">
+      <div class="card-body">
         <div class="align-self-center w-100">
           <div class="py-3">
-            <div class="chart chart-xs"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
-              <canvas id="chartjs-dashboard-pie" width="407" height="187" style="display: block; height: 150px; width: 326px;" class="chartjs-render-monitor"></canvas>
-            </div>
+            <canvas id="questionsChart" width="100" height="100"></canvas>
           </div>
         </div>
       </div>

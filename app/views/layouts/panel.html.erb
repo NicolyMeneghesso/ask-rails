@@ -11,6 +11,7 @@
       <%= javascript_include_tag "https://unpkg.com/@adminkit/core@latest/dist/js/app.js" %>
 
       <!--Adicionado projeto-->
+      <%= javascript_include_tag "https://cdn.jsdelivr.net/npm/chart.js", defer: true %>
       <%= stylesheet_link_tag "panel", media: "all", "data-turbo-track": "reload" %>
       <%= stylesheet_link_tag "card", media: "all", "data-turbo-track": "reload" %>
       <%= stylesheet_link_tag "panel_admin/user_answer", media: "all", "data-turbo-track": "reload" %>
@@ -32,7 +33,7 @@
                      <li class="nav-item dropdown">
                           <a href="#" class="nav-link dropdown-toggle d-none d-sm-inline-block" data-bs-toggle="dropdown" role="button">
                            <i class="fa-regular fa-user user-nav"></i>
-                           <%= current_user.first_name %>
+                           <%= current_user.first_name + current_user.last_name  %>
                          </a>
                         <div class="dropdown-menu dropdown-menu-end">
                            <%= link_to panel_admin_user_profile_path(current_user), class:"dropdown-item btn-logout" do %>
