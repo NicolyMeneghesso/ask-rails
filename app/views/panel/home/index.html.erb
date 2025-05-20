@@ -1,68 +1,98 @@
-<div class="row">
-    <div class="col-sm-6 col-xl-3">
-      <div class="card">
-        <div class="card-body">
-          <div class="row">
-            <div class="col mt-0">
-              <h5 class="card-title">Income</h5>
-            </div>
-
-            <div class="col-auto">
+<div class="row w-100 justify-content-center">
+  <!-- Coluna da esquerda -->
+  <div class="col-md-8">
+    <div class="row g-4">
+      <!-- Total -->
+      <div class="col-md-6">
+        <div class="card h-100">
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center">
+              <h5 class="card-title">Total de Perguntas</h5>
               <div class="stat text-primary">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-dollar-sign align-middle"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                <i class="fa-light fa-comments-question"></i>
               </div>
             </div>
+            <h1 class="mt-3 mb-3"><%= @user_statistic.total_questions %></h1>
+            <div>
+              <span class="badge badge-success-light" style="color: black"><%= @total_questions_count %></span>
+              <span class="text-muted">Total</span>
+              <!--Calculo da porcentagem-->
+              <% total_site = @total_questions_count %>
+              <% total_user = @user_statistic.total_questions %>
+              <% percent = total_site > 0 ? (total_user.to_f / total_site * 100).round(1) : 0 %>
+              <span class="badge badge-success-light" style="color: black"><%= "#{percent}%" %></span>
+              <span class="text-muted">Total</span>
+            </div>
           </div>
-          <h1 class="mt-1 mb-3"><%= @user_statistic.total_questions%></h1>
-          <div class="mb-0">
-            <span class="badge badge-success-light">3.65%</span>
-            <span class="text-muted">Since last week</span>
+        </div>
+      </div>
+      <!-- Certo -->
+      <div class="col-md-6">
+        <div class="card h-100">
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center">
+              <h5 class="card-title">Total de Respostas Corretas</h5>
+              <div class="stat text-primary">
+                <i class="fa-light fa-comment-check"></i>
+              </div>
+            </div>
+            <h1 class="mt-3 mb-3"><%= @user_statistic.right_questions %></h1>
+            <div>
+              <span class="badge badge-danger-light" style="color: black">-5.25%</span>
+              <span class="text-muted">Certo</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Errada -->
+      <div class="col-md-6">
+        <div class="card h-100">
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center">
+              <h5 class="card-title">Total de Respostas Erradas</h5>
+              <div class="stat text-primary">
+                <i class="fa-light fa-comment-xmark"></i>
+              </div>
+            </div>
+            <h1 class="mt-3 mb-3"><%= @user_statistic.wrong_questions %></h1>
+            <div>
+              <span class="badge badge-success-light" style="color: black">4.65%</span>
+              <span class="text-muted">Errada</span>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="col-sm-6 col-xl-3">
-      <div class="card">
-        <div class="card-body">
-          <div class="row">
-            <div class="col mt-0">
-              <h5 class="card-title">Orders</h5>
-            </div>
+  </div>
 
-            <div class="col-auto">
-              <div class="stat text-primary">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag align-middle"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
-              </div>
+  <!--grafico de pizza-->
+  <div class="col-md-4">
+    <div class="card flex-fill w-100">
+      <div class="card-header">
+        <div class="card-actions float-end">
+          <div class="dropdown position-relative">
+            <a href="#" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false" class="">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal align-middle"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
+            </a>
+            <div class="dropdown-menu dropdown-menu-end">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
             </div>
           </div>
-          <h1 class="mt-1 mb-3"><%= @user_statistic.right_questions%></h1>
-          <div class="mb-0">
-            <span class="badge badge-danger-light">-5.25%</span>
-            <span class="text-muted">Since last week</span>
+        </div>
+        <h5 class="card-title mb-0">Browser Usage</h5>
+      </div>
+      <div class="card-body d-flex">
+        <div class="align-self-center w-100">
+          <div class="py-3">
+            <div class="chart chart-xs"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+              <canvas id="chartjs-dashboard-pie" width="407" height="187" style="display: block; height: 150px; width: 326px;" class="chartjs-render-monitor"></canvas>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="col-sm-6 col-xl-3">
-      <div class="card">
-        <div class="card-body">
-          <div class="row">
-            <div class="col mt-0">
-              <h5 class="card-title">Activity</h5>
-            </div>
-
-            <div class="col-auto">
-              <div class="stat text-primary">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-activity align-middle"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
-              </div>
-            </div>
-          </div>
-          <h1 class="mt-1 mb-3"><%= @user_statistic.wrong_questions%></h1>
-          <div class="mb-0">
-            <span class="badge badge-success-light">4.65%</span>
-            <span class="text-muted">Since last week</span>
-          </div>
-        </div>
       </div>
     </div>
   </div>
