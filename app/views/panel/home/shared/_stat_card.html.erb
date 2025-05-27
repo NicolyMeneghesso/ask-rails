@@ -1,26 +1,69 @@
+<!--Calculo da porcentagem do total de perguntas para o usuario-->
+<% total_site = @total_questions_count %>
+<% total_user = @user_statistic.total_questions %>
+<% percent_total_questions = total_site > 0 ? (total_user.to_f / total_site * 100).round(1) : 0 %>
+
+<!--Calculo da porcentagem do total de respostas certas-->
+<% total_user_right = @user_statistic.right_questions %>
+<% percent_answers_right = total_site > 0 ? (total_user_right.to_f / total_site * 100).round(1) : 0 %>
+
+<!--Calculo da porcentagem do total de respostas erradas-->
+<% total_user_wrong = @user_statistic.wrong_questions %>
+<% percent_answers_wrong = total_site > 0 ? (total_user_wrong.to_f / total_site * 100).round(1) : 0 %>
+<!-- Certa -->
 <div class="col-md-6">
   <div class="card">
     <div class="card-body">
       <div class="d-flex justify-content-between align-items-center">
-        <h3 class="card-title" style="font-size: 1.3rem"><%= title %></h3>
+        <h3 class="card-title"><%= t("statistics.right_questions") %></h3>
         <div class="stat text-primary">
-          <i class="<%= icon_class %>"></i>
+          <i class="fa-light fa-comment-check"></i>
         </div>
       </div>
-      <h1 class="mt-3 mb-3"><%= value %></h1>
+      <h1 class="mt-3 mb-3"><%= @user_statistic.right_questions %></h1>
       <div>
-        <% if defined?(labelQuestions) && labelQuestions.present? %>
-          <span class="text-muted"><%= labelQuestions %></span>
-          <span class="text-muted"><%= value_questions %></span>
-        <% end %>
+        <span class="text-card-home"><%= t("statistics.label.right") %></span>
+        <span class="text-card-home-number"><%= "#{percent_answers_right} %" %></span>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Errada -->
+<div class="col-md-6">
+  <div class="card">
+    <div class="card-body">
+      <div class="d-flex justify-content-between align-items-center">
+        <h3 class="card-title"><%= t("statistics.wrong_questions") %></h3>
+        <div class="stat text-primary">
+          <i class="fa-light fa-comment-xmark"></i>
+        </div>
+      </div>
+      <h1 class="mt-3 mb-3"><%= @user_statistic.wrong_questions %></h1>
+      <div>
+        <span class="text-card-home"><%= t("statistics.label.wrong") %></span>
+        <span class="text-card-home-number"><%= "#{percent_answers_wrong} %" %></span>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Total -->
+<div class="col-md-6">
+  <div class="card">
+    <div class="card-body">
+      <div class="d-flex justify-content-between align-items-center">
+        <h3 class="card-title"><%= t("statistics.total_questions") %></h3>
+        <div class="stat text-primary">
+          <i class="fa-light fa-comments-question"></i>
+        </div>
+      </div>
+      <h1 class="mt-3 mb-3"><%= @user_statistic.total_questions %></h1>
+      <div>
+        <span class="text-card-home"><%= t("statistics.labelQuestions.total_questions_site") %></span>
+        <span class="text-card-home" style="font-weight: 600;"><%= @total_questions_count %></span>
       </div>
       <div>
-        <% if label.present? %>
-          <span class="text-muted"><%= label %></span>
-        <% end %>
-        <% if percent.present?%>
-          <span class="badge badge-success-light" style="color: black"><%= "#{percent}%" %></span>
-        <% end %>
+        <span class="text-card-home"><%= t("statistics.label.questions") %></span>
+        <span class="text-card-home-number"><%= "#{percent_total_questions} %" %></span>
       </div>
     </div>
   </div>

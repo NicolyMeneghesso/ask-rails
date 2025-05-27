@@ -1,45 +1,14 @@
- <!--Calculo da porcentagem do total de perguntas-->
-<% total_site = @total_questions_count %>
-<% total_user = @user_statistic.total_questions %>
-<% percent_total_questions = total_site > 0 ? (total_user.to_f / total_site * 100).round(1) : 0 %>
-
-<!--Calculo da porcentagem do total de respostas certas-->
-<% total_user_right = @user_statistic.right_questions %>
-<% percent_answers_right = total_site > 0 ? (total_user_right.to_f / total_site * 100).round(1) : 0 %>
-
-<!--Calculo da porcentagem do total de respostas certas-->
-<% total_user_wrong = @user_statistic.wrong_questions %>
-<% percent_answers_wrong = total_site > 0 ? (total_user_wrong.to_f / total_site * 100).round(1) : 0 %>
+<%= stylesheet_link_tag "panel/home", media: "all", "data-turbo-track": "reload" %>
 
 <div class="row w-100 justify-content-center">
   <!-- Coluna da esquerda -->
   <div class="col-md-8">
     <div class="row g-4">
-      <!-- Certo -->
-      <%= render "panel/home/shared/stat_card",
-          title: t("statistics.right_questions"),
-          icon_class: "fa-light fa-comment-check",
-          value: @user_statistic.right_questions,
-          percent: percent_answers_right,
-          label: t("statistics.label.right") %>
-
-      <!-- Errada -->
-      <%= render "panel/home/shared/stat_card",
-          title: t("statistics.wrong_questions"),
-          icon_class: "fa-light fa-comment-xmark",
-          value: @user_statistic.wrong_questions,
-          percent: percent_answers_wrong,
-          label: t("statistics.label.wrong") %>
-
-      <!-- Total -->
-      <%= render "panel/home/shared/stat_card",
-          title: t("statistics.total_questions"),
-          icon_class: "fa-light fa-comments-question",
-          labelQuestions: t("statistics.labelQuestions.total_questions_site"),
-          value_questions: @total_questions_count,
-          value: @user_statistic.total_questions,
-          percent: percent_total_questions,
-          label: t("statistics.label.questions") %>
+      <% if current_user.user_type == 0 %>
+        <%= render "panel/home/shared/stat_card" %>
+      <% else %>
+        <%= render "panel/home/shared/stat_card_admin" %>
+      <% end %>
     </div>
   </div>
 

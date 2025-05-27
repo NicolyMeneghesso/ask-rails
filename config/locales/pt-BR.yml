@@ -69,3 +69,11 @@ pt-BR:
       wrong: "Percentual errado:"
     labelQuestions:
       total_questions_site: "Total de questões:"
+    chart:
+      completed_responses: Respostas Realizadas vs. Total
+      performance_responses: Desempenho nas Respostas
+    admin:
+      total_users: Total de Usuários 
+      total_subjects: Total de Assuntos 
+      total_users_standard: "Usuários padrão:"
+      total_users_admins: "Usuários administradores:"

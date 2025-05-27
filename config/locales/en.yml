@@ -68,3 +68,6 @@ en:
       wrong: "Wrong percentage"
     labelQuestions:
       total_questions_site: "Total Questions:"
+    chart:
+      completed_responses: Completed Responses vs. Total
+      performance_responses: Performance in Responses

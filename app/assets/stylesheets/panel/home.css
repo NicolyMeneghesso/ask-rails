@@ -1,0 +1,19 @@
+.card-title {
+    color: rgb(0, 0, 0);
+    font-size: 1.3rem
+}
+
+.card-title-chart {
+    font-size: 16px;
+}
+
+.text-card-home {
+    font-size: 15px;
+    color: #393636;
+}
+
+.text-card-home-number {
+    font-size: 15px;
+    color: #393636;
+    font-weight: 600;
+}

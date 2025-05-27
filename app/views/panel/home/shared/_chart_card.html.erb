@@ -2,7 +2,7 @@
   <!-- Gráfico 1 -->
   <div class="card" style="align-items: center;">
     <div class="card-header">
-      <h5 class="card-title mb-0">Respostas Certas e Erradas</h5>
+      <h5 class="card-title card-title-chart mb-0"><%= t("statistics.chart.performance_responses")%></h5>
     </div>
     <div class="card-body">
       <canvas id="questionsChart" width="200" height="200"></canvas>
@@ -12,7 +12,7 @@
   <!-- Gráfico 2 -->
   <div class="card" style="align-items: center;">
     <div class="card-header">
-      <h5 class="card-title mb-0">Progresso de Respostas</h5>
+      <h5 class="card-title card-title-chart mb-0"><%= t("statistics.chart.completed_responses")%></h5>
     </div>
     <div class="card-body">
       <canvas id="progressChart" width="200" height="200"></canvas>
@@ -59,14 +59,14 @@
     const chartProgress = new Chart(graphicsProgress, {
       type: 'doughnut', //Tipo de gráfico 
       data: {
-        labels: ['Total de questões', 'Perentual respondido'], // Rótulos das fatias do gráfico
+        labels: ['Total respondido', 'Total de questões'], // Rótulos das fatias do gráfico
 
         datasets: [{ // Conjunto de dados (pode ter mais de um)
             data: [ // Valores numéricos 
-              <%= @total_questions_count %>,
+              <%= @user_statistic.total_questions %>,
               <%= @total_questions_count - @user_statistic.total_questions %>
             ], 
-            backgroundColor: ['#495057', '#e9ecef'], // Cor de fundo de cada fatia
+            backgroundColor: ['#e9ecef', '#495057'], // Cor de fundo de cada fatia
             borderWidth: 1 // Espessura da borda da fatia
         }]
       },
