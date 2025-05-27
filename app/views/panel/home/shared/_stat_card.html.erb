@@ -1,15 +1,15 @@
 <!--Calculo da porcentagem do total de perguntas para o usuario-->
-<% total_site = @total_questions_count %>
+<% total_questions_site = @total_questions_count %>
 <% total_user = @user_statistic.total_questions %>
-<% percent_total_questions = total_site > 0 ? (total_user.to_f / total_site * 100).round(1) : 0 %>
+<% percent_total_questions = total_questions_site > 0 ? (total_user.to_f / total_questions_site * 100).round(1) : 0 %>
 
 <!--Calculo da porcentagem do total de respostas certas-->
 <% total_user_right = @user_statistic.right_questions %>
-<% percent_answers_right = total_site > 0 ? (total_user_right.to_f / total_site * 100).round(1) : 0 %>
+<% percent_answers_right = total_questions_site > 0 ? (total_user_right.to_f / total_questions_site * 100).round(1) : 0 %>
 
 <!--Calculo da porcentagem do total de respostas erradas-->
 <% total_user_wrong = @user_statistic.wrong_questions %>
-<% percent_answers_wrong = total_site > 0 ? (total_user_wrong.to_f / total_site * 100).round(1) : 0 %>
+<% percent_answers_wrong = total_questions_site > 0 ? (total_user_wrong.to_f / total_questions_site * 100).round(1) : 0 %>
 <!-- Certa -->
 <div class="col-md-6">
   <div class="card">

@@ -1,25 +1,13 @@
-<!-- calculo usuarios-->
+<!-- CARD DE USUARIOS-->
 <% user_counts_total = (@user_counts[0] + @user_counts[1] + @user_counts[2]) %>
 
-<!--Calculo da porcentagem do total de perguntas para o usuario-->
-<% total_site = @total_questions_count %>
-<% total_users_statistic = @total_users_statistic %>
-<% percent_answers_total_users = total_site > 0 ? (total_users_statistic.to_f / total_site * 100).round(1) : 0 %>
-
-<!--Calculo da porcentagem do total de respostas certas-->
-<% percent_users_statistic_right = total_users_statistic > 0 ? (@total_users_statistic_right.to_f / total_users_statistic * 100).round(1) : 0 %>
-
-<!--Calculo da porcentagem do total de respostas erradas-->
-<% percent_users_statistic_wrong = total_users_statistic > 0 ? (@total_users_statistic_wrong.to_f / total_users_statistic * 100).round(1) : 0 %>
-
-<!-- Total de usuarios cadastrados -->
 <div class="col-md-6">
   <div class="card">
     <div class="card-body">
       <div class="d-flex justify-content-between align-items-center">
         <h3 class="card-title"><%= t("statistics.admin.total_users") %></h3>
         <div class="stat text-primary">
-          <i class="fa-light fa-comments-question"></i>
+          <i class="fa-light fa-users"></i>
         </div>
       </div>
       <h1 class="mt-3 mb-3"><%= user_counts_total %></h1>
@@ -34,7 +22,19 @@
     </div>
   </div>
 </div>
-<!-- Total de questoes -->
+
+<!--1 - variaveis de questoes e perguntas-->
+<% total_questions_site = @total_questions_count %>
+<% total_answers = @total_answers %>
+<% users_can_answer_count = (@user_counts[0]) %>
+
+<!--2 - :-->
+<% percent_questions_answered = total_questions_site > 0 ? (total_answers.to_f / total_questions_site * 100).round(1) : 0 %>
+
+<!--3 - Calculo percentual quantos usuários realmente responderam alguma pergunta-->
+<% percent_users_participated = users_can_answer_count > 0 ? (@users_who_answered.to_f / users_can_answer_count * 100).round(1) : 0 %>
+
+<!-- CARD TOTAL QUESTOES | RESPOSTAS -->
 <div class="col-md-6">
   <div class="card">
     <div class="card-body">
@@ -44,18 +44,25 @@
           <i class="fa-light fa-comments-question"></i>
         </div>
       </div>
-      <h1 class="mt-3 mb-3"><%= percent_answers_total_users %></h1>
+      <h1 class="mt-3 mb-3"><%= total_answers %></h1>
       <div>
         <span class="text-card-home"><%= t("statistics.labelQuestions.total_questions_site") %></span>
-        <span class="text-card-home" style="font-weight: 600;"><%= @total_questions_count %></span>
+        <span class="text-card-home" style="font-weight: 600;"><%= total_questions_site %></span>
       </div>
       <div>
         <span class="text-card-home"><%= t("statistics.label.questions") %></span>     
-        <span class="text-card-home" style="font-weight: 600;"><%= "#{percent_answers_total_users} %" %></span>
+        <span class="text-card-home" style="font-weight: 600;"><%= "#{percent_users_participated} %" %></span>
       </div>
     </div>
   </div>
 </div>
+
+<!--Calculo da porcentagem do total de respostas certas-->
+<% percent_users_statistic_right = total_answers > 0 ? (@total_users_statistic_right.to_f / total_questions_site * 100).round(1) : 0 %>
+
+<!--Calculo da porcentagem do total de respostas erradas-->
+<% percent_users_statistic_wrong = total_answers > 0 ? (@total_users_statistic_wrong.to_f / total_questions_site * 100).round(1) : 0 %>
+
 <!-- Certa -->
 <div class="col-md-6">
   <div class="card">
@@ -92,14 +99,15 @@
     </div>
   </div>
 </div>
-<!-- Total de assuntos cadastrados -->
+
+<!-- TOTAL DE ASSUNTOS CADASTRADOS -->
 <div class="col-md-6">
   <div class="card">
     <div class="card-body">
       <div class="d-flex justify-content-between align-items-center">
         <h3 class="card-title"><%= t("statistics.admin.total_subjects") %></h3>
         <div class="stat text-primary">
-          <i class="fa-light fa-comments-question"></i>
+          <i class="fa-thin fa-files"></i>
         </div>
       </div>
       <h1 class="mt-3 mb-3"><%= @total_subjects %></h1>
