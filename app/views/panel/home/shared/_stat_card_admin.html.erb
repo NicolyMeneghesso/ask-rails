@@ -39,18 +39,14 @@
   <div class="card">
     <div class="card-body">
       <div class="d-flex justify-content-between align-items-center">
-        <h3 class="card-title"><%= t("statistics.total_questions") %></h3>
+        <h3 class="card-title"><%= t("statistics.total_answered") %></h3>
         <div class="stat text-primary">
           <i class="fa-light fa-comments-question"></i>
         </div>
       </div>
-      <h1 class="mt-3 mb-3"><%= total_answers %></h1>
+      <h1 class="mt-3 mb-3"><%= answers_possible %></h1>
       <div>
-        <span class="text-card-home"><%= t("statistics.labelQuestions.total_questions_site") %></span>
-        <span class="text-card-home" style="font-weight: 600;"><%= total_questions_site %></span>
-      </div>
-      <div>
-        <span class="text-card-home"><%= t("statistics.label.questions") %></span>     
+        <span class="text-card-home"><%= t("statistics.label.answered") %></span>     
         <span class="text-card-home" style="font-weight: 600;"><%= "#{percent_users_participated} %" %></span>
       </div>
     </div>
@@ -68,7 +64,7 @@
   <div class="card">
     <div class="card-body">
       <div class="d-flex justify-content-between align-items-center">
-        <h3 class="card-title"><%= t("statistics.right_questions") %></h3>
+        <h3 class="card-title"><%= t("statistics.right_answered") %></h3>
         <div class="stat text-primary">
           <i class="fa-light fa-comment-check"></i>
         </div>
@@ -86,7 +82,7 @@
   <div class="card">
     <div class="card-body">
       <div class="d-flex justify-content-between align-items-center">
-        <h3 class="card-title"><%= t("statistics.wrong_questions") %></h3>
+        <h3 class="card-title"><%= t("statistics.wrong_answered") %></h3>
         <div class="stat text-primary">
           <i class="fa-light fa-comment-xmark"></i>
         </div>
@@ -105,12 +101,20 @@
   <div class="card">
     <div class="card-body">
       <div class="d-flex justify-content-between align-items-center">
-        <h3 class="card-title"><%= t("statistics.admin.total_subjects") %></h3>
+        <h3 class="card-title"><%= t("statistics.admin.total_subjects_questions") %></h3>
         <div class="stat text-primary">
           <i class="fa-light fa-files"></i>
         </div>
       </div>
-      <h1 class="mt-3 mb-3"><%= @total_subjects %></h1>
+      <h1 class="mt-3 mb-3"><%=  %></h1>
+       <div>
+        <span class="text-card-home"><%= t("statistics.label.total_subjects_site") %></span>
+        <span class="text-card-home" style="font-weight: 600;"><%= @total_subjects %></span>
+      </div>
+      <div>
+        <span class="text-card-home"><%= t("statistics.label.total_questions_site") %></span>
+        <span class="text-card-home" style="font-weight: 600;"><%= total_questions_site %></span>
+      </div>
     </div>
   </div>
 </div>

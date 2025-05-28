@@ -15,7 +15,7 @@
   <div class="card">
     <div class="card-body">
       <div class="d-flex justify-content-between align-items-center">
-        <h3 class="card-title"><%= t("statistics.right_questions") %></h3>
+        <h3 class="card-title"><%= t("statistics.right_answered") %></h3>
         <div class="stat text-primary">
           <i class="fa-light fa-comment-check"></i>
         </div>
@@ -33,7 +33,7 @@
   <div class="card">
     <div class="card-body">
       <div class="d-flex justify-content-between align-items-center">
-        <h3 class="card-title"><%= t("statistics.wrong_questions") %></h3>
+        <h3 class="card-title"><%= t("statistics.wrong_answered") %></h3>
         <div class="stat text-primary">
           <i class="fa-light fa-comment-xmark"></i>
         </div>
@@ -51,14 +51,14 @@
   <div class="card">
     <div class="card-body">
       <div class="d-flex justify-content-between align-items-center">
-        <h3 class="card-title"><%= t("statistics.total_questions") %></h3>
+        <h3 class="card-title"><%= t("statistics.total_answered") %></h3>
         <div class="stat text-primary">
           <i class="fa-light fa-comments-question"></i>
         </div>
       </div>
       <h1 class="mt-3 mb-3"><%= @user_statistic.total_questions %></h1>
       <div>
-        <span class="text-card-home"><%= t("statistics.labelQuestions.total_questions_site") %></span>
+        <span class="text-card-home"><%= t("statistics.label.total_questions_site") %></span>
         <span class="text-card-home" style="font-weight: 600;"><%= @total_questions_count %></span>
       </div>
       <div>

@@ -60,20 +60,20 @@ pt-BR:
     answer_wrong: Resposta Errada
     answer_correct: Resposta Correta
   statistics:
-    total_questions: "Total de Questões"
-    right_questions: "Total de Respostas Corretas"
-    wrong_questions: "Total de Respostas Erradas"
+    total_answered: "Total de Respostas"
+    right_answered: "Total de Respostas Corretas"
+    wrong_answered: "Total de Respostas Erradas"
     label:
-      questions: "Percentual respondido:"
+      answered: "Percentual respondido:"
       right: "Percentual correto:"
       wrong: "Percentual errado:"
-    labelQuestions:
       total_questions_site: "Total de questões:"
+      total_subjects_site: "Total de assuntos:"
     chart:
       completed_responses: Respostas Realizadas vs. Total
       performance_responses: Desempenho nas Respostas
     admin:
       total_users: Total de Usuários 
-      total_subjects: Total de Assuntos 
+      total_subjects_questions: Total de Assuntos / Questões
       total_users_standard: "Usuários padrão:"
       total_users_admins: "Usuários administradores:"
