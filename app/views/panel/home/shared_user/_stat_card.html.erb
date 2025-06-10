@@ -10,6 +10,7 @@
 <!--Calculo da porcentagem do total de respostas erradas-->
 <% total_user_wrong = @user_statistic.wrong_questions %>
 <% percent_answers_wrong = total_questions_site > 0 ? (total_user_wrong.to_f / total_questions_site * 100).round(1) : 0 %>
+
 <!-- Certa -->
 <div class="col-md-6">
   <div class="card">
@@ -28,6 +29,7 @@
     </div>
   </div>
 </div>
+
 <!-- Errada -->
 <div class="col-md-6">
   <div class="card">
@@ -46,6 +48,7 @@
     </div>
   </div>
 </div>
+
 <!-- Total -->
 <div class="col-md-6">
   <div class="card">

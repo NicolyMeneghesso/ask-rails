@@ -1,23 +1,9 @@
 <%= stylesheet_link_tag "panel/home", media: "all", "data-turbo-track": "reload" %>
 
 <div class="row w-100 justify-content-center">
-  <!-- Coluna da esquerda -->
-  <div class="col-md-8">
-    <div class="row g-4">
-      <% if current_user.user_type == 0 %>
-        <%= render "panel/home/shared/stat_card" %>
-      <% else %>
-        <%= render "panel/home/shared/stat_card_admin" %>
-      <% end %>
-    </div>
-  </div>
-
-  <!--grafico de pizza-->
-  <div class="col-md-4">
-    <% if current_user.user_type == 0 %>
-        <%= render "panel/home/shared/chart_card" %>
-      <% else %>
-        <%= render "panel/home/shared/chart_card_admin" %>
-      <% end %>
-  </div>
+  <% if current_user.user_type == 0 %>
+    <%= render "panel/home/shared_user/index_user" %> 
+  <% else %>
+    <%= render "panel/home/shared_admin/index_admin" %> 
+  <% end %>
 </div>
