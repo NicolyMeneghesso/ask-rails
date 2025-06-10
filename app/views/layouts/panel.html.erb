@@ -33,7 +33,7 @@
                      <li class="nav-item dropdown">
                           <a href="#" class="nav-link dropdown-toggle d-none d-sm-inline-block" data-bs-toggle="dropdown" role="button">
                            <i class="fa-regular fa-user user-nav"></i>
-                           <%= current_user.first_name + current_user.last_name  %>
+                           <%= current_user.first_name%> <%= current_user.last_name %>
                          </a>
                         <div class="dropdown-menu dropdown-menu-end">
                            <%= link_to panel_admin_user_profile_path(current_user), class:"dropdown-item btn-logout" do %>

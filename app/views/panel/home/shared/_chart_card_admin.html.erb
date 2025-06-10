@@ -1,70 +1,32 @@
 <div class="d-flex flex-column">
-  <!-- Gráfico 1 -->
+  <!-- Gráfico 1 Progresso Geral -->
   <div class="card" style="align-items: center;">
     <div class="card-header">
-      <h5 class="card-title card-title-chart mb-0"><%= t("statistics.chart.performance_responses")%></h5>
+      <h5 class="card-title card-title-chart mb-0"><%= t("statistics.chart.activeUsers")%></h5>
     </div>
     <div class="card-body">
-      <canvas id="questionsChart" width="200" height="200"></canvas>
-    </div>
-  </div>
-
-  <!-- Gráfico 2 -->
-  <div class="card" style="align-items: center;">
-    <div class="card-header">
-      <h5 class="card-title card-title-chart mb-0"><%= t("statistics.chart.completed_responses")%></h5>
-    </div>
-    <div class="card-body">
-      <canvas id="progressChart" width="200" height="200"></canvas>
+      <canvas id="activeUsers" width="200" height="200"></canvas>
     </div>
   </div>
 </div>
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    const canvasQuestions = document.getElementById("questionsChart")
-    const graphicsQuestions = canvasQuestions.getContext("2d")
+    
+    //Grafico 1
+    const canvasActiveUsers = document.getElementById("activeUsers")
+    const graphicsActiveUsers = canvasActiveUsers.getContext("2d")
 
     // Chart e um objeto da biblioteca Chart.js
-    const chartQuestions = new Chart(graphicsQuestions, {
+    const chartActiveUsers = new Chart(graphicsActiveUsers, {
       type: 'doughnut', //Tipo de gráfico 
       data: {
-        labels: ['Certas', 'Erradas'], // Rótulos das fatias do gráfico
+        labels: ['Usuários ativos', 'Usuários cadastrados'], // Rótulos das fatias do gráfico
 
         datasets: [{ // Conjunto de dados (pode ter mais de um)
             data: [ // Valores numéricos 
-              <%= @user_statistic.right_questions %>, 
-              <%= @user_statistic.wrong_questions %>
-            ], 
-            backgroundColor: ['#198754', '#dc3545'], // Cor de fundo de cada fatia
-            borderWidth: 1 // Espessura da borda da fatia
-        }]
-      },
-      options: { // Opções de personalização
-        responsive: false, // O gráfico se adapta ao tamanho da tela
-        cutout: '75%', // Aqui você controla a espessura
-        plugins: {
-          legend: {
-            display: false
-          }
-        }
-      }
-    })
-
-    //Grafico 2
-    const canvasProgress = document.getElementById("progressChart")
-    const graphicsProgress = canvasProgress.getContext("2d")
-
-    // Chart e um objeto da biblioteca Chart.js
-    const chartProgress = new Chart(graphicsProgress, {
-      type: 'doughnut', //Tipo de gráfico 
-      data: {
-        labels: ['Total respondido', 'Total de questões'], // Rótulos das fatias do gráfico
-
-        datasets: [{ // Conjunto de dados (pode ter mais de um)
-            data: [ // Valores numéricos 
-              <%= @user_statistic.total_questions %>,
-              <%= @total_questions_count - @user_statistic.total_questions %>
+              <%= @users_who_answered %>, 
+              <%= @user_counts[0] - @users_who_answered %>
             ], 
             backgroundColor: ['#e9ecef', '#495057'], // Cor de fundo de cada fatia
             borderWidth: 1 // Espessura da borda da fatia

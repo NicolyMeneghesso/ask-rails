@@ -63,11 +63,18 @@ en:
     right_questions: "Total Correct Answers"
     wrong_questions: "Total Wrong Answers"
     label:
-      total: "Percentage responded"
-      right: "Percentage correct"
-      wrong: "Wrong percentage"
-    labelQuestions:
-      total_questions_site: "Total Questions:"
+      answered: "Percentage responded:"
+      right: "Percentage correct:"
+      wrong: "Wrong percentage:"
+      total_questions_site: "Total questions:"
+      total_subjects_site: "Total de subjects:"
+      total_users_who_answered: "Total users who responded:"
     chart:
       completed_responses: Completed Responses vs. Total
-      performance_responses: Performance in Responses
+      performance_responses: Response Performance
+      activeUsers: "% Active Users"
+    admin:
+      total_users: Total Users
+      total_subjects_questions: Total Subjects/Questions
+      total_users_standard: "Standard users:"
+      total_users_admins: "Admin users:"

@@ -17,7 +17,7 @@ class Panel::HomeController < PanelBaseController
     # 1. Pega todos os UserStatistic de usuários com user_type: 0 (usuários comuns) - sendo um ActiveRecord::Relation
     @users_can_answer = UserStatistic.where(user_id: User.where(user_type: 0).select(:id))
 
-    # mostra o total de perguntas respondidas
+    # total de respostas corretas + erradas feitas por usuários comuns
     @total_users_statistic_right = @users_can_answer.sum(:right_questions)
     @total_users_statistic_wrong = @users_can_answer.sum(:wrong_questions)
     @total_answers = @total_users_statistic_right + @total_users_statistic_wrong

@@ -101,13 +101,9 @@ body::-webkit-scrollbar-thumb:hover, html::-webkit-scrollbar-thumb:hover {
 .flash_error .alert {
     min-width: 290px;
     max-width: 350px; 
-    height: auto;
-    padding: 12px 16px;
+    height: 54px !important;
+    padding: 12px 16px !important;
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
-
-.btn-close {
-    right: 0 !important;
 }

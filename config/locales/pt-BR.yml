@@ -69,9 +69,11 @@ pt-BR:
       wrong: "Percentual errado:"
       total_questions_site: "Total de questões:"
       total_subjects_site: "Total de assuntos:"
+      total_users_who_answered: "Total de usuários que responderam:"
     chart:
       completed_responses: Respostas Realizadas vs. Total
       performance_responses: Desempenho nas Respostas
+      activeUsers: "% de Usuários Ativos"
     admin:
       total_users: Total de Usuários 
       total_subjects_questions: Total de Assuntos / Questões
