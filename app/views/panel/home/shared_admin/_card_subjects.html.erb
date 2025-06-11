@@ -1,0 +1,95 @@
+<!-- TOTAL DE ASSUNTOS CADASTRADOS E QUESTOES-->
+<div class="col-md-12">
+  <div class="card" style="align-items: center;">
+    <div class="card-header">
+      <h3 class="card-title card-title-chart mb-0"><%= t("statistics.chart.mostAnswered")%></h3>
+    </div>
+    <div class="card-body">
+      <canvas id="MostAnsweredTopics" width="400" height="250"></canvas>
+    </div>
+  </div>
+</div>
+
+<div class="d-flex flex-row gap-3">
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-body">
+        <div class="d-flex justify-content-between align-items-center mb-1">
+          <h3 class="card-title"><%= t("statistics.admin.total_subjects_questions") %></h3>
+          <div class="stat text-primary">
+            <i class="fa-light fa-files"></i>
+          </div>
+        </div>
+        <div>
+          <span class="text-card-home"><%= t("statistics.label.total_subjects_site") %></span>
+          <span class="text-card-home" style="font-weight: 600;"><%= @total_subjects %></span>
+        </div>
+        <div class="mt-1">
+          <span class="text-card-home"><%= t("statistics.label.total_questions_site") %></span>
+          <span class="text-card-home" style="font-weight: 600; "><%= @total_questions_count %></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-body">
+        <div class="d-flex justify-content-between align-items-center mb-1">
+          <h3 class="card-title"><%= t("statistics.admin.total_subjects_questions") %></h3>
+          <div class="stat text-primary">
+            <i class="fa-light fa-files"></i>
+          </div>
+        </div>
+        <div class="mt-2">
+          <span class="text-card-home"><%= t("statistics.label.total_users_who_answered") %></span>
+          <span class="text-card-home" style="font-weight: 600; "><%= @users_who_answered %></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const canvasMostAnswered = document.getElementById("MostAnsweredTopics")
+    const graphicsMostAnswered = canvasMostAnswered.getContext("2d")
+
+    //raw impede o Rails de escapar os caracteres HTML/JS (como aspas).
+
+    const topSubjects = <%= raw @top_subjects.map { |s| { name: s.description, count: s.try(:answers_count).to_i } }.to_json %>;
+    const labels = topSubjects.map(s => s.name); //Cria um array apenas com os nomes dos assuntos, no eixo y
+    const data = topSubjects.map(s => s.count);
+
+    // Chart e um objeto da biblioteca Chart.js
+    const chartMostAnswered = new Chart(graphicsMostAnswered, {
+      type: 'bar', //Tipo de gráfico 
+      data: {
+        labels: labels,
+        datasets: [{ 
+          axis: 'x',
+          label: 'Respostas por Assunto',
+          data: data,
+          backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(255, 159, 64, 0.2)',
+            'rgba(255, 205, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+          ],
+          borderColor: [
+            'rgb(255, 99, 132)',
+            'rgb(255, 159, 64)',
+            'rgb(255, 205, 86)',
+            'rgb(75, 192, 192)',
+            'rgb(54, 162, 235)',
+            ],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        indexAxis: 'y',
+      }
+    })
+  })
+</script>

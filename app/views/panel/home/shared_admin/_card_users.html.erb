@@ -1,9 +1,9 @@
 <!-- CARD DE USUARIOS-->
 <% user_counts_total = (@user_counts[0] + @user_counts[1] + @user_counts[2]) %>
-<div class="col-md-4">
+<div class="col-md-12">
   <div class="card">
     <div class="card-body">
-      <div class="d-flex justify-content-between align-items-center">
+      <div class="d-flex justify-content-evenly align-items-center">
         <h3 class="card-title"><%= t("statistics.admin.total_users") %></h3>
         <div class="stat text-primary">
           <i class="fa-light fa-users"></i>
@@ -22,11 +22,10 @@
   </div>
 </div>
 
-<div class="col-md-4">
-  <!-- Gráfico 1 Progresso Geral -->
+<div class="col-md-12">
   <div class="card" style="align-items: center;">
     <div class="card-header">
-      <h5 class="card-title card-title-chart mb-0"><%= t("statistics.chart.activeUsers")%></h5>
+      <h3 class="card-title card-title-chart mb-0"><%= t("statistics.chart.activeUsers")%></h3>
     </div>
     <div class="card-body">
       <canvas id="activeUsers" width="200" height="200"></canvas>
@@ -36,11 +35,8 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    
-    //Grafico 1
     const canvasActiveUsers = document.getElementById("activeUsers")
     const graphicsActiveUsers = canvasActiveUsers.getContext("2d")
-
     // Chart e um objeto da biblioteca Chart.js
     const chartActiveUsers = new Chart(graphicsActiveUsers, {
       type: 'doughnut', //Tipo de gráfico 
@@ -48,12 +44,12 @@
         labels: ['Usuários ativos', 'Usuários cadastrados'], // Rótulos das fatias do gráfico
 
         datasets: [{ // Conjunto de dados (pode ter mais de um)
-            data: [ // Valores numéricos 
-              <%= @users_who_answered %>, 
-              <%= @user_counts[0] - @users_who_answered %>
-            ], 
-            backgroundColor: ['#e9ecef', '#495057'], // Cor de fundo de cada fatia
-            borderWidth: 1 // Espessura da borda da fatia
+          data: [ // Valores numéricos 
+            <%= @users_who_answered %>, 
+            <%= @user_counts[0] - @users_who_answered %>
+          ], 
+          backgroundColor: ['#e9ecef', '#495057'], // Cor de fundo de cada fatia
+          borderWidth: 1 // Espessura da borda da fatia
         }]
       },
       options: { // Opções de personalização

@@ -24,5 +24,17 @@ class Panel::HomeController < PanelBaseController
 
     # 2. Filtra os que realmente responderam alguma pergunta (acertando ou errando)
     @users_who_answered = @users_can_answer.where("right_questions > 0 OR wrong_questions > 0").count
+
+    load_top_subjects
+  end
+
+  def load_top_subjects
+  # Exemplo: contar quantas respostas cada assunto recebeu
+  @top_subjects = Subject
+    .select("subjects.description, COUNT(answers.id) AS answers_count") # seleciona o nome do assunto e faz a contagem
+    .joins(questions: :answers) # ligando as tabelas de assuntos, perguntas e respostas numa consulta só.
+    .group("subjects.id") # Agrupamos por subjects.id para que o COUNT(answers.id) funcione corretamente.
+    .order("answers_count DESC")
+    .limit(5) # mostra os 5 mais respondidos
   end
 end

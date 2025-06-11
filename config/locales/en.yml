@@ -73,6 +73,7 @@ en:
       completed_responses: Completed Responses vs. Total
       performance_responses: Response Performance
       activeUsers: "% Active Users"
+      mostAnswered: Most Answered Topics
     admin:
       total_users: Total Users
       total_subjects_questions: Total Subjects/Questions

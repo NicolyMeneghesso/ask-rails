@@ -1,6 +1,6 @@
 <%= stylesheet_link_tag "panel/home", media: "all", "data-turbo-track": "reload" %>
 
-<div class="row w-100 justify-content-center">
+<div class="row w-100">
   <% if current_user.user_type == 0 %>
     <%= render "panel/home/shared_user/index_user" %> 
   <% else %>
