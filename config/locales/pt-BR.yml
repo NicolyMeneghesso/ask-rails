@@ -77,6 +77,7 @@ pt-BR:
       mostAnswered: Assuntos Mais Respondidos
     admin:
       total_users: Total de Usuários 
-      total_subjects_questions: Total de Assuntos / Questões
+      total_subjects: Total de Assuntos
+      total_questions: Total de Questões
       total_users_standard: "Usuários padrão:"
       total_users_admins: "Usuários administradores:"

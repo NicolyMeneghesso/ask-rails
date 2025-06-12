@@ -8,6 +8,10 @@ Rails.application.routes.draw do
       get "answers", on: :collection
       get "answer_check", on: :collection, action: :answer_check
     end
+    resources :charts, only: [] do
+      get "top_subjects", on: :collection
+      get "active_users", on: :collection
+    end
   end
 
   namespace :panel do

@@ -76,6 +76,7 @@ en:
       mostAnswered: Most Answered Topics
     admin:
       total_users: Total Users
-      total_subjects_questions: Total Subjects/Questions
+      total_subjects: Total de Subjects
+      total_questions: Total de Questions
       total_users_standard: "Standard users:"
       total_users_admins: "Admin users:"
