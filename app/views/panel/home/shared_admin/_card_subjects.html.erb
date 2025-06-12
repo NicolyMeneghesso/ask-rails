@@ -1,18 +1,18 @@
 <!-- TOTAL DE ASSUNTOS CADASTRADOS E QUESTOES-->
 <div class="col-md-12">
   <div class="card" style="align-items: center;">
-    <div class="card-header">
+    <div class="card-header pb-0">
       <h2 class="card-title card-title-chart" style="font-size: 22px;"><%= t("statistics.chart.mostAnswered")%></h2>
     </div>
-    <div class="card-body">
+    <div class="card-body pt-1">
       <canvas id="MostAnsweredTopics" width="750" height="280"></canvas>
     </div>
   </div>
 </div>
 
-<div class="d-flex flex-row justify-content-center gap-6">
+<div class="d-flex flex-row justify-content-center gap-3">
   <!-- Card: Total de Assuntos -->
-  <div class="col-md-5">
+  <div class="col-4">
     <div class="card text-center">
       <div class="card-body d-flex justify-content-evenly align-items-center">
         <h3 class="card-title"><%= t("statistics.admin.total_subjects") %></h3>
@@ -20,12 +20,12 @@
           <i class="fa-light fa-files"></i>
         </div>
       </div>
-      <h3 class="fs-3 fw-semibold text-dark"><%= @total_subjects %></h3>
+      <h1 class="text-center" style="font-size: 30px"><%= @total_subjects %></h1>
     </div>
   </div>
 
   <!-- Card: Total de Questões -->
-  <div class="col-md-5">
+  <div class="col-4">
     <div class="card text-center">
       <div class="card-body d-flex justify-content-evenly align-items-center">
         <h3 class="card-title"><%= t("statistics.admin.total_questions") %></h3>
@@ -33,7 +33,20 @@
           <i class="fa-light fa-files"></i>
         </div>
       </div>
-      <h3 class="fs-3 fw-semibold text-dark"><%= @total_questions_count %></h3>
+      <h1 class="fs-3 fw-semibold text-dark"><%= @total_questions_count %></h1>
+    </div>
+  </div>
+
+  <!-- Card: Total de Questões -->
+  <div class="col-4">
+    <div class="card text-center">
+      <div class="card-body d-flex justify-content-evenly align-items-center">
+        <h3 class="card-title"><%= t("statistics.admin.total_questions") %></h3>
+        <div class="stat text-primary">
+          <i class="fa-light fa-files"></i>
+        </div>
+      </div>
+      <h1 class="fs-3 fw-semibold text-dark"><%= @total_answers %></h1>
     </div>
   </div>
 </div>
