@@ -5,105 +5,29 @@
       <h2 class="card-title card-title-chart" style="font-size: 22px;"><%= t("statistics.chart.mostAnswered")%></h2>
     </div>
     <div class="card-body pt-1">
-      <canvas id="MostAnsweredTopics" width="750" height="280"></canvas>
+      <canvas id="MostAnsweredTopics" width="780" height="290"></canvas>
     </div>
   </div>
 </div>
 
-<div class="d-flex flex-row justify-content-center gap-3">
-  <!-- Card: Total de Assuntos -->
-  <div class="col-4">
-    <div class="card text-center">
-      <div class="card-body d-flex justify-content-evenly align-items-center">
-        <h3 class="card-title"><%= t("statistics.admin.total_subjects") %></h3>
-        <div class="stat text-primary">
-          <i class="fa-light fa-files"></i>
-        </div>
-      </div>
-      <h1 class="text-center" style="font-size: 30px"><%= @total_subjects %></h1>
-    </div>
-  </div>
+<% cards = [
+  {title: t("statistics.admin.total_subjects"), value: @total_subjects, icon: "fa-folders"},
+  {title: t("statistics.admin.total_questions"), value: @total_questions_count, icon: "fa-messages-question"},
+  {title: t("statistics.admin.total_answers"), value: @total_answers, icon: "fa-comments-question-check"}
+] %>
 
-  <!-- Card: Total de Questões -->
-  <div class="col-4">
-    <div class="card text-center">
-      <div class="card-body d-flex justify-content-evenly align-items-center">
-        <h3 class="card-title"><%= t("statistics.admin.total_questions") %></h3>
-        <div class="stat text-primary">
-          <i class="fa-light fa-files"></i>
+<div class="d-flex flex-row justify-content-center gap-2">
+  <% cards.each do |card| %>
+    <div class="col">
+      <div class="card text-center">
+        <div class="card-body d-flex justify-content-evenly align-items-center pb-2">
+          <h3 class="card-title"><%= card[:title] %></h3>
+          <div class="stat text-primary">
+            <i class="fa-light <%= card[:icon] %>"></i>
+          </div>
         </div>
+        <h1 class="text-center" style="font-size: 30px"><%= card[:value]  %></h1>
       </div>
-      <h1 class="fs-3 fw-semibold text-dark"><%= @total_questions_count %></h1>
     </div>
-  </div>
-
-  <!-- Card: Total de Questões -->
-  <div class="col-4">
-    <div class="card text-center">
-      <div class="card-body d-flex justify-content-evenly align-items-center">
-        <h3 class="card-title"><%= t("statistics.admin.total_questions") %></h3>
-        <div class="stat text-primary">
-          <i class="fa-light fa-files"></i>
-        </div>
-      </div>
-      <h1 class="fs-3 fw-semibold text-dark"><%= @total_answers %></h1>
-    </div>
-  </div>
+  <% end %>
 </div>
-
-<script>
-  async function loadChartDataSubjects() {
-    const response = await fetch('/api/charts/top_subjects');
-    const topSubjects = await response.json();
-
-    const labels = topSubjects.map(s => s.name); //Cria um array apenas com os nomes dos assuntos, no eixo y
-    const data = topSubjects.map(s => s.count); // Cria um array com as quantidades de respostas por assunto
-
-    const canvasMostAnswered = document.getElementById("MostAnsweredTopics").getContext("2d")  
-
-    // Chart e um objeto da biblioteca Chart.js
-    const chartMostAnswered = new Chart(canvasMostAnswered, {
-      type: 'bar', //Tipo de gráfico 
-      data: {
-        labels: labels,
-        datasets: [{ 
-          axis: 'x',
-          label: '',
-          data: data,
-          backgroundColor: [
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(255, 159, 64, 0.2)',
-            'rgba(255, 205, 86, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-            'rgba(54, 162, 235, 0.2)',
-            'rgba(153, 102, 255, 0.2)',
-            'rgba(201, 203, 207, 0.2)'
-          ],
-          borderColor: [
-            'rgb(255, 99, 132)',
-            'rgb(255, 159, 64)',
-            'rgb(255, 205, 86)',
-            'rgb(75, 192, 192)',
-            'rgb(54, 162, 235)',
-            'rgb(153, 102, 255)',
-            'rgb(201, 203, 207)'
-            ],
-          borderWidth: 1
-        }]
-      },
-      options: {
-        indexAxis: 'y',
-        plugins: {
-          legend: {
-            display: false
-          }
-        }
-      }
-    })
-  }
-  
-  document.addEventListener("DOMContentLoaded", () => {
-    loadChartDataSubjects();
-    setInterval(loadChartDataSubjects, 60000); // Atualiza a cada 60 segundos
-  });
-</script>

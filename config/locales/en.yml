@@ -67,7 +67,7 @@ en:
       right: "Percentage correct:"
       wrong: "Wrong percentage:"
       total_questions_site: "Total questions:"
-      total_subjects_site: "Total de subjects:"
+      total_subjects_site: "Total of subjects:"
       total_users_who_answered: "Total users who responded:"
     chart:
       completed_responses: Completed Responses vs. Total
@@ -76,7 +76,8 @@ en:
       mostAnswered: Most Answered Topics
     admin:
       total_users: Total Users
-      total_subjects: Total de Subjects
-      total_questions: Total de Questions
+      total_subjects: Total of Subjects
+      total_questions: Total of Questions
+      total_answers: Total of Answers
       total_users_standard: "Standard users:"
       total_users_admins: "Admin users:"
