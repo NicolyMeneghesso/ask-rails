@@ -3,7 +3,13 @@ class Panel::Admin::SubjectsController < PanelBaseController
   before_action :authorize_admin_access, only: [ :new, :create, :edit, :update, :destroy ] # Apenas as ações que alteram dados (CRUD) são protegida
 
   def index
-    @subjects = Subject.all.page(params[:page])
+    @subjects =
+      if params[:term].present?
+        term = params[:term].to_s.downcase
+        Subject.where("LOWER(description) LIKE ?", "%#{term}%").page(params[:page])
+      else
+        Subject.all.page(params[:page])
+      end
   end
 
   def new
@@ -36,6 +42,10 @@ class Panel::Admin::SubjectsController < PanelBaseController
     else
       render :index
     end
+  end
+
+  def subjectSearch # Realiza a busca de assuntos pela descrição na interface de usuários padrão (página de questões)
+    @subjects = Subject.where("description LIKE ?", "%#{params[:term]}%").page(params[:page])
   end
 
   private

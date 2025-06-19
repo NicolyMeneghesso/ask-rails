@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_06_16_233200) do
+ActiveRecord::Schema[8.0].define(version: 2025_06_19_163117) do
   create_table "answers", force: :cascade do |t|
     t.text "description", null: false
     t.integer "question_id", null: false
@@ -34,6 +34,17 @@ ActiveRecord::Schema[8.0].define(version: 2025_06_16_233200) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "questions_count"
+  end
+
+  create_table "user_question_answers", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "question_id", null: false
+    t.integer "answer_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["answer_id"], name: "index_user_question_answers_on_answer_id"
+    t.index ["question_id"], name: "index_user_question_answers_on_question_id"
+    t.index ["user_id"], name: "index_user_question_answers_on_user_id"
   end
 
   create_table "user_statistics", force: :cascade do |t|
@@ -67,5 +78,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_06_16_233200) do
 
   add_foreign_key "answers", "questions"
   add_foreign_key "questions", "subjects"
+  add_foreign_key "user_question_answers", "answers"
+  add_foreign_key "user_question_answers", "questions"
+  add_foreign_key "user_question_answers", "users"
   add_foreign_key "user_statistics", "users"
 end

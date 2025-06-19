@@ -50,11 +50,11 @@ en:
     user_type_0: Standard User
     user_type_1: Administrator
     user_type_2: General Administrator
+    search: Search
   answer:
     title_subjects: Subjects
     title_questions: Questions
     title_answers: Answers
-    search: Search
     button_answers: To Respond
     answer_wrong: Answer Wrong
     answer_correct: Answer Correct

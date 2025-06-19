@@ -1,17 +1,6 @@
 <div class="col-6 col-xl-5 me-4 ms-4">
   <div class="card bg-primary-subtle py-3 px-4">
-    <nav class="navbar bg-primary-subtle border-bottom border-body py-3 px-0" data-bs-theme="light">
-      <div class="container-fluid">
-        <h1 class="title-edit"><%= t('answer.title_subjects') %></h1>
-        <%# Campo de pesquisa que permite filtrar os assuntos por nome. Faz requisição GET para a rota 'panel_admin_answer_path' %>
-        <%= form_with(url: panel_admin_answer_path, local: true, method: :get, class: "d-flex") do |form| %>
-            <%= form.text_field :term, class:"form-control me-2", placeholder: t('answer.search') %>
-            <%= button_tag type: "submit", class:"btn btn-outline-primary" do %>
-              <i class="fa-regular fa-magnifying-glass"></i>
-            <% end %>
-        <% end %>
-      </div>
-    </nav>
+    <%= render "panel/admin/shared/subject_search", url: panel_admin_answer_path, title: t("answer.title_subjects") %>
     <table class="table table-striped table-hover">
       <tbody>
         <% @subjects.each do |subject| %>

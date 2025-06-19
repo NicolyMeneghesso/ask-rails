@@ -27,6 +27,7 @@ Rails.application.routes.draw do
       end
 
       resources :subjects
+      get :subject, to: "users#subject"
       resources :questions
     end
   end
