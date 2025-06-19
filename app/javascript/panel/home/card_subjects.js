@@ -1,3 +1,5 @@
+let chartMostAnswered = null;
+
 async function loadChartDataSubjects() {
   const response = await fetch('/api/charts/top_subjects');
   const topSubjects = await response.json();
@@ -6,9 +8,17 @@ async function loadChartDataSubjects() {
   const data = topSubjects.map(s => s.count); // Cria um array com as quantidades de respostas por assunto
 
   const canvasMostAnswered = document.getElementById("MostAnsweredTopics").getContext("2d")  
+   if (!ctx) {
+    console.warn("Canvas 'MostAnsweredTopics' não encontrado.");
+    return;
+  }
 
+  // Destroi o gráfico anterior, se existir
+  if (chartMostAnswered) {
+    chartMostAnswered.destroy();
+  }
   // Chart e um objeto da biblioteca Chart.js
-  const chartMostAnswered = new Chart(canvasMostAnswered, {
+  new Chart(canvasMostAnswered, {
     type: 'bar', //Tipo de gráfico 
     data: {
       labels: labels,

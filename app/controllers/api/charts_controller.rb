@@ -2,9 +2,8 @@ class Api::ChartsController < ApplicationController
   def top_subjects
     # Exemplo: contar quantas respostas cada assunto recebeu
     top_subjects = Subject
-      .select("subjects.description, COUNT(DISTINCT answers.id) AS answers_count") # seleciona o nome do assunto e faz a contagem
-      .joins(questions: :answers) # ligando as tabelas de assuntos, perguntas e respostas numa consulta só.
-      .where("answers.user_id IS NOT NULL") # <-- filtra apenas respostas válidas
+      .select("subjects.description, COUNT(user_question_answers.id) AS answers_count") # seleciona o nome do assunto e faz a contagem
+      .joins(questions: :user_question_answers) # conecta os assuntos até as respostas dos usuários.
       .group("subjects.id", "subjects.description") # Agrupamos por subjects.id para que o COUNT(answers.id) funcione corretamente.
       .order("answers_count DESC")
       .limit(7) # mostra os 5 mais respondidos
