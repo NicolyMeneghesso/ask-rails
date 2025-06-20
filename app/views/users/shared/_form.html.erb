@@ -74,10 +74,11 @@
     </div>
     <div class="text-center mt-2">
       <% if controller_name == 'sessions' %>
-        <p style="font-size: 18px"><%= t('devise.sessions.text_no_signup') %><%= render "users/shared/sign_up_link" %></p>
+        <p style="font-size: 18px; margin-bottom: 6px;"><%= t('devise.sessions.text_no_signup') %><%= render "users/shared/sign_up_link" %></p>
       <% elsif controller_name == 'registrations' %>
-        <p style="font-size: 18px"><%= t('devise.registrations.text_login') %><%= render "users/shared/log_in_link" %></p>
+        <p style="font-size: 18px; margin-bottom: 6px;"><%= t('devise.registrations.text_login') %><%= render "users/shared/log_in_link" %></p>
       <% end %>
+      <%= link_to t('devise.shared.btn_back'), "/site/index" , class:"login-link2", style:"font-size: 18px" %>
     </div>
   </div>
 </main>

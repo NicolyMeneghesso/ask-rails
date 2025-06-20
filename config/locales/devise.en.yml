@@ -38,6 +38,7 @@ en:
       updated_not_active: "Your password has been changed successfully."
       title_forgotPassword: "Forgot your password?"
       btn_resetPassword: "Reset Password"
+      subtitle: "Enter your email to receive the reset link"
     registrations:
       destroyed: "Bye! Your account has been successfully cancelled. We hope to see you again soon."
       signed_up: "Welcome! You have signed up successfully."
@@ -65,6 +66,7 @@ en:
       signup_link: Sign up
       forgot_password: Forgot your password?
       login_link: Log in
+      btn_back: Return to home screen
     unlocks:
       send_instructions: "You will receive an email with instructions for how to unlock your account in a few minutes."
       send_paranoid_instructions: "If your account exists, you will receive an email with instructions for how to unlock it in a few minutes."

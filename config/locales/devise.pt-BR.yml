@@ -36,6 +36,7 @@ pt-BR:
       updated_not_active: "Sua senha foi redefinida com sucesso."
       title_forgotPassword: "Esqueceu sua senha?"
       btn_resetPassword: "Redefinir a senha"
+      subtitle: "Digite seu e-mail para receber o link de redefinição"
     registrations:
       destroyed: "Até a próxima! Sua conta foi cancelada com sucesso. Esperamos te ver de volta logo."
       signed_up: "Bem vindo! Você se registrou com sucesso."
@@ -63,6 +64,7 @@ pt-BR:
       signup_link: Inscrever-se
       forgot_password: Esqueceu sua senha?
       login_link: Entrar
+      btn_back: Voltar para tela inicial
     unlocks:
       send_instructions: "Você receberá um e-mail com instruções sobre como desbloquear a sua conta em alguns minutos."
       send_paranoid_instructions: "Se o seu e-mail existir em nossa base de dados, você receberá um e-mail com instruções sobre como desbloquear a sua conta em alguns minutos."

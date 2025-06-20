@@ -46,3 +46,8 @@
 .alert-login {
     width: 100%;
 }
+
+.alert-notice {
+    width: 60%;
+    right: 20% !important;
+}
