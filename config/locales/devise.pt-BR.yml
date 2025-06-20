@@ -26,7 +26,6 @@ pt-BR:
       password_change:
         subject: "Senha modificada"
       texts:
-        welcome: "Olá, %{email}"
         num1: Alguém solicitou um link para alterar sua senha. Você pode fazer isso através do link abaixo.
         num2: Se você não solicitou isso, ignore este e-mail.
         num3: Sua senha não mudará até que você acesse o link acima e crie uma nova.
@@ -42,6 +41,7 @@ pt-BR:
       title_forgotPassword: "Esqueceu sua senha?"
       btn_resetPassword: "Redefinir a senha"
       subtitle: "Digite seu e-mail para receber o link de redefinição"
+      title_change: Alterar sua senha
     registrations:
       destroyed: "Até a próxima! Sua conta foi cancelada com sucesso. Esperamos te ver de volta logo."
       signed_up: "Bem vindo! Você se registrou com sucesso."

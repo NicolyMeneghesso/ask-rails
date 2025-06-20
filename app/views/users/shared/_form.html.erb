@@ -11,6 +11,8 @@
       <% elsif controller_name == 'registrations' %>
         <h1 class="title-edit"><%= t('devise.registrations.title_signup') %></h1>
         <p style="font-size: 18px"><%= t('devise.registrations.subtitle_signup') %></p>
+      <% elsif controller_name == 'passwords' %>
+        <h1 class="title-edit"><%= t('devise.passwords.title_change') %></h1>
       <% end %>
     </div>
     
@@ -18,13 +20,22 @@
       <div class="card-body m-sm-3">
         <div class="row">
           <!--Define a variável form_url dinamicamente-->
-          <% form_url = controller_name == 'sessions' ? session_path(resource_name) : registration_path(resource_name) %>
+          <% form_url = 
+            if controller_name == 'sessions'
+              session_path(resource_name)
+            elsif controller_name == 'registrations'
+              registration_path(resource_name)
+            elsif controller_name == 'passwords' && action_name == 'edit'
+              password_path(resource_name)
+            end
+          %>
+          <% form_method = controller_name == 'passwords' && action_name == 'edit' ? :put : :post %>
           <!--Cria uma variável form_options que só inclui data-turbo="false"
               %w[] = criar um array de strings | Verifica se o controller_name atual está dentro desse array-->
           <% form_options = %w[sessions registrations].include?(controller_name) ? { html: { data: { turbo: false } } } : {} %>
 
           <!--Usa as variáveis definidas acima, e **form_options expande dinamicamente o hash-->
-          <%= form_with(model: resource, as: resource_name, url: form_url, **form_options.merge(local: true)) do |f| %>
+          <%= form_with(model: resource, as: resource_name, url: form_url, method: form_method, **form_options.merge(local: true)) do |f| %>
             <div class="row">
               <div class="col-md-12">
                 <%= f.label :email, class: "mb-1" %>
@@ -65,6 +76,26 @@
 
                 <div class="actions">
                   <%= f.submit t('devise.registrations.btn_signup'), class: "btn btn-card-login" %>
+                </div>
+
+              <% elsif controller_name == 'passwords' && action_name == 'edit' %>
+                <%= f.hidden_field :reset_password_token, value: params[:reset_password_token] %>
+
+                <div class="col-md-12 mb-2">
+                  <%= f.label t('form.password'), class: "mb-1" %>
+                  <% if @minimum_password_length %>
+                    <em>(<%= @minimum_password_length %> <%= t('devise.registrations.password_characters') %>)</em>
+                  <% end %>
+                  <%= f.password_field :password, autocomplete: "new-password", class: "form-control bg-light-subtle" %>
+                </div>
+
+                <div class="col-md-12 mb-3">
+                  <%= f.label t('form.password_confirmation'), class: "mb-1" %>
+                  <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control bg-light-subtle" %>
+                </div>
+
+                <div class="actions">
+                  <%= f.submit t('devise.passwords.title_change'), class: "btn btn-card-login" %>
                 </div>
               <% end %>
             </div>
