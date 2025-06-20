@@ -3,6 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  has_many :user_question_answers
 
   # para nao enviar o nome vazio
   with_options presence: true, length: { minimum: 4, maximum: 20 }, on: :update do

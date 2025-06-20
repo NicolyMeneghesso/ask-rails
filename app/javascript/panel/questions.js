@@ -3,9 +3,15 @@
 document.addEventListener("DOMContentLoaded", function () {
     const container = document.getElementById("answers-container");
     const addAnswerBtn = document.getElementById("add-answer-btn");
-    const answerTemplate = document.getElementById("answer-template").content;
+    const answerTemplateElement = document.getElementById("answer-template");
     let answerCount = document.querySelectorAll(".nested-answer").length; // Contar respostas existentes
- 
+   
+    if (!answerTemplateElement) {
+      console.error("Elemento com id 'answer-template' não encontrado.");
+      return;
+   }
+   const answerTemplate = answerTemplateElement.content;
+
     addAnswerBtn.addEventListener("click", function () {
       if (answerCount < 4) {
          const newAnswer = answerTemplate.cloneNode(true);
