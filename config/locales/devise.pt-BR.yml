@@ -25,6 +25,11 @@ pt-BR:
         subject: "Email modificado"
       password_change:
         subject: "Senha modificada"
+      texts:
+        welcome: "Olá, %{email}"
+        num1: Alguém solicitou um link para alterar sua senha. Você pode fazer isso através do link abaixo.
+        num2: Se você não solicitou isso, ignore este e-mail.
+        num3: Sua senha não mudará até que você acesse o link acima e crie uma nova.
     omniauth_callbacks:
       failure: "Não foi possível autenticá-lo em %{kind} porque \"%{reason}\"."
       success: "Autenticado com sucesso em %{kind}."
