@@ -19,16 +19,19 @@ pt-BR:
         subject: "Instruções de confirmação"
       reset_password_instructions:
         subject: "Instruções para redefinir sua senha"
+        title: Recuperação de senha - RespondeDev
+        buttom: Redefinir minha senha
+        num1: Alguém solicitou um link para alterar sua senha. Você pode fazer isso através do link abaixo.
+        num2: Se você não solicitou isso, ignore este e-mail.
+        num3: Sua senha não mudará até que você acesse o link acima e crie uma nova.
       unlock_instructions:
         subject: "Instruções para desbloquear sua conta"
       email_changed:
         subject: "Email modificado"
       password_change:
         subject: "Senha modificada"
-      texts:
-        num1: Alguém solicitou um link para alterar sua senha. Você pode fazer isso através do link abaixo.
-        num2: Se você não solicitou isso, ignore este e-mail.
-        num3: Sua senha não mudará até que você acesse o link acima e crie uma nova.
+        title: Alteração de senha - RespondeDev
+        num1: Estamos entrando em contato para notificá-lo de que sua senha foi alterada.
     omniauth_callbacks:
       failure: "Não foi possível autenticá-lo em %{kind} porque \"%{reason}\"."
       success: "Autenticado com sucesso em %{kind}."
@@ -40,7 +43,7 @@ pt-BR:
       updated_not_active: "Sua senha foi redefinida com sucesso."
       title_forgotPassword: "Esqueceu sua senha?"
       btn_resetPassword: "Redefinir a senha"
-      subtitle: "Digite seu e-mail para receber o link de redefinição"
+      subtitle: "Para redefinir a senha, informe seu e-mail cadastrado na sua conta e lhe enviaremos um link com as instruções."
       title_change: Alterar sua senha
     registrations:
       destroyed: "Até a próxima! Sua conta foi cancelada com sucesso. Esperamos te ver de volta logo."

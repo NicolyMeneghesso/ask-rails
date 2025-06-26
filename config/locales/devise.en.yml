@@ -21,16 +21,19 @@ en:
         subject: "Confirmation instructions"
       reset_password_instructions:
         subject: "Reset password instructions"
+        title: Password recovery - RespondeDev
+        buttom: Reset my password
+        num1: Someone requests a link to change their password. You can do so via the link below.
+        num2: If you did not request this, please ignore this email.
+        num3: Your password will not change until you access the link above and create a new one.
       unlock_instructions:
         subject: "Unlock instructions"
       email_changed:
         subject: "Email Changed"
       password_change:
         subject: "Password Changed"
-      texts:
-        num1: Someone requests a link to change their password. You can do so via the link below.
-        num2: If you did not request this, please ignore this email.
-        num3: Your password will not change until you access the link above and create a new one.
+        title: Password Changed - RespondeDev
+        num1: We're contacting you to notify you that your password has been changed.
     omniauth_callbacks:
       failure: "Could not authenticate you from %{kind} because \"%{reason}\"."
       success: "Successfully authenticated from %{kind} account."
@@ -42,7 +45,7 @@ en:
       updated_not_active: "Your password has been changed successfully."
       title_forgotPassword: "Forgot your password?"
       btn_resetPassword: "Reset Password"
-      subtitle: "Enter your email to receive the reset link"
+      subtitle: "To reset your password, enter the email address registered to your account and we will send you a link with instructions."
       title_change: Change your password
     registrations:
       destroyed: "Bye! Your account has been successfully cancelled. We hope to see you again soon."
