@@ -33,7 +33,9 @@ en:
       password_change:
         subject: "Password Changed"
         title: Password Changed - RespondeDev
-        num1: We're contacting you to notify you that your password has been changed.
+        num1: We are sending you this message to inform you that your password has recently been changed.
+        num2: If you have changed your password, no further action is required.
+        num3: If this was not your case, please reset your password immediately and contact our support team to ensure the security of your account.
     omniauth_callbacks:
       failure: "Could not authenticate you from %{kind} because \"%{reason}\"."
       success: "Successfully authenticated from %{kind} account."

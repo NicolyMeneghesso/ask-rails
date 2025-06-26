@@ -32,9 +32,9 @@ class Users::PasswordsController < Devise::PasswordsController
   #   super(resource_name)
   # end
   #
-  def create
+  def create # Sobrescreve o método `create` padrão do Devise para envio de instruções de redefinição de senha.
     self.resource = resource_class.send_reset_password_instructions(resource_params)
-
+    # Em vez de redirecionar, renderiza novamente a página `new` com uma flash message
     if successfully_sent?(resource)
       flash.now[:notice] = I18n.t("devise.passwords.send_instructions")
       render :new

@@ -29,7 +29,16 @@ class Panel::Admin::UsersController < PanelBaseController
   end
 
   def update
+    is_self = current_user == @user
+    password_being_changed = permitted_user_params[:password].present?
+
     if @user.update(permitted_user_params)
+      # Só envia o e-mail de "senha alterada" e faz o bypass_sign_in se o usuário estiver alterando a própria senha.
+      if is_self && password_being_changed
+        @user.reload
+        bypass_sign_in(@user) # é um método do Devise que reautentica o usuário sem exigir login novamente.
+        Devise::Mailer.password_change(@user).deliver_later
+      end
       flash[:notice] = "Usuário atualizado com sucesso."
       redirect_to panel_admin_user_profile_path(@user)
     else
