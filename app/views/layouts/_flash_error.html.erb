@@ -1,7 +1,7 @@
 <% if flash[:notice] || flash[:alert] %>
   <div class="flash_error">
     <div class="alert <%= flash[:notice] ? 'alert-success' : 'alert-danger' %> alert-dismissible fade show alert-login" role="alert">
-      <strong><%= flash[:notice] || flash[:alert] %></strong>
+      <strong class="alert-text"><%= flash[:notice] || flash[:alert] %></strong>
       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
   </div>

@@ -1,23 +1,23 @@
 class Panel::Admin::UsersController < PanelBaseController
+  before_action :authorize_super_admin!, only: [ :new, :create ] # Apenas Super Admin pode criar usuários
   before_action :set_user, only: [ :edit, :update, :destroy, :profile ]
   before_action :verify_password, only: [ :update ]
-  before_action :authorize_admin_access, except: [ :profile, :answer, :update ] # Todas as ações exigem ser admin, exceto profile e answer
-  before_action :authorize_profile_admin, only: [ :profile ] # Garante que o usuário só possa acessar o próprio perfil.
+  before_action :authorize_admin_access, except: [ :profile, :answer ] # Todas as ações exigem ser admin, exceto profile..
+  before_action :authorize_user_access, only: [ :edit, :update, :destroy, :profile ]
 
   def index
     @users = User.where(user_type: [ 0 ]).page(params[:page])
   end
 
-  def edit
-  end
-
-  # Método que exibe o formulário
+  # Método que exibe o formulário de novo usuário
   def new
+    authorize_super_admin! # apenas super admin pode criar usuários
     @user = User.new
   end
 
-  # Método que processa a submissão do formulário
+  # Método que cria um novo usuário com os parâmetros permitidos
   def create
+    authorize_super_admin!
     @user = User.new(user_params)
     if @user.save
       flash[:notice] = "Usuário criado com sucesso."
@@ -28,12 +28,15 @@ class Panel::Admin::UsersController < PanelBaseController
     end
   end
 
+  def edit
+  end
+
   def update
     is_self = current_user == @user
     password_being_changed = permitted_user_params[:password].present?
 
     if @user.update(permitted_user_params)
-      # Só envia o e-mail de "senha alterada" e faz o bypass_sign_in se o usuário estiver alterando a própria senha.
+      # Se o usuário estiver atualizando a própria senha, reautentica e envia e-mail de confirmação
       if is_self && password_being_changed
         @user.reload
         bypass_sign_in(@user) # é um método do Devise que reautentica o usuário sem exigir login novamente.
@@ -48,32 +51,38 @@ class Panel::Admin::UsersController < PanelBaseController
   end
 
   def destroy
-    if @user.destroy
-      flash[:notice] = "Úsuario excluído com sucesso"
-      redirect_to panel_admin_user_path, notice: "Úsuario excluído com sucesso"
+    if current_user.user_type == 2 || current_user == @user
+      @user.destroy
+      redirect_to panel_home_index_path, notice: "Conta excluída com sucesso."
     else
-      flash.now[:alert] = "Erro ao excluir o usuário."
-      render :index
+      redirect_to panel_home_index_path, alert: "Você não tem permissão para excluir esta conta."
     end
   end
 
   def profile
   end
 
-  def answer # Realiza a busca de assuntos pela descrição na interface de usuários padrão (página de questões), e o search
+  # Busca de assuntos por descrição (usado na tela de questões)
+  def answer
     @subjects = Subject.where("description LIKE ?", "%#{params[:term]}%").page(params[:page])
   end
 
   private
-    # busca um usuário a partir do parâmetro id e o armazena em @user, ele so executa a ações depois de passar pelas outras verificaões
+    # Carrega o usuário com base no parâmetro :id ou :user_id
     def set_user
       @user = User.find(params[:id] || params[:user_id])
     end
 
-    # Garante que o usuário só possa acessar o próprio perfil, evitando que o usuario logado acesse o perfil de outro usuario
-    def authorize_profile_admin
-      unless current_user == @user
-        redirect_to panel_home_index_path
+    def authorize_user_access
+      if current_user.user_type == 2
+        # super admin: acesso total
+        nil
+      elsif current_user.user_type == 1
+        # admin: só pode editar/ver ele mesmo
+        authorize_self_or_super_admin!(@user)
+      elsif current_user.user_type == 0
+        # usuário comum: só pode ver/editar ele mesmo
+        only_self!(@user)
       end
     end
 end
