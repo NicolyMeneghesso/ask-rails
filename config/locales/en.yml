@@ -4,7 +4,7 @@ en:
     text_home: Our website is a collaborative space where anyone can ask questions and get clear, reliable answers from the community.
     text_home2: Whether you want to resolve a doubt, help someone or learn something new, you're in the right place.
   sidebar:
-    title_menu: Control Panel
+    title_menu: RespondeDev
     dashboard: Dashboard
     administrators: Administrators
     users: Users

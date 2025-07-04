@@ -6,7 +6,8 @@ class Panel::Admin::UsersController < PanelBaseController
   before_action :authorize_user_access, only: [ :edit, :update, :destroy, :profile ]
 
   def index
-    @users = User.where(user_type: [ 0 ]).page(params[:page])
+    @users = User.where(user_type: [ 0 ])
+            .("description LIKE ?", "%#{params[:term]}%").page(params[:page])
   end
 
   # Método que exibe o formulário de novo usuário
