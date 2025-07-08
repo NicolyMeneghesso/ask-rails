@@ -24,6 +24,9 @@ Rails.application.routes.draw do
 
       resources :users do
         get :profile
+        collection do # pesquisando dentro da coleção inteira.
+          get :search # painel/admin/users/search
+        end
       end
 
       resources :subjects

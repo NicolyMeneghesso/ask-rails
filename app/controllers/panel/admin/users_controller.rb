@@ -6,8 +6,8 @@ class Panel::Admin::UsersController < PanelBaseController
   before_action :authorize_user_access, only: [ :edit, :update, :destroy, :profile ]
 
   def index
-    @users = User.where(user_type: [ 0 ])
-            .("description LIKE ?", "%#{params[:term]}%").page(params[:page])
+    @users = User.users_only.search_by_name(params[:term]).page(params[:page])
+    # users_only.search_by_name - criado no model como scope para reutilizar em outros locais
   end
 
   # Método que exibe o formulário de novo usuário
@@ -66,6 +66,14 @@ class Panel::Admin::UsersController < PanelBaseController
   # Busca de assuntos por descrição (usado na tela de questões)
   def answer
     @subjects = Subject.where("description LIKE ?", "%#{params[:term]}%").page(params[:page])
+  end
+
+  # Busca de usuarios tipo 0 cadastrados nio banco
+  def search
+    term = params[:term]
+    users = User.users_only.search_by_name(term).limit(10)
+
+    render json: users.map { |u| { id: u.id, text: u.full_name } }
   end
 
   private

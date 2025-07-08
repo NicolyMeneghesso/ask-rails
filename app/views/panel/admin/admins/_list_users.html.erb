@@ -1,0 +1,33 @@
+<div class="col-9 col-xl-8">
+  <div class="card bg-primary-subtle py-3 px-4">
+    <nav class="navbar bg-primary-subtle border-bottom border-body py-3 px-0" data-bs-theme="light">
+      <div class="container-fluid d-flex justify-content-between align-items-center">
+        <h1 class="title-edit mb-0"><%= t('index.title_user') %></h1>
+        <%= form_with(url: panel_admin_users_path, method: :get, local: true, class: "flex-grow-1 ms-5") do |form| %>
+          <div class="w-100">
+            <%= select_tag :term, nil,
+                prompt: t("form.search"),
+                class: "form-control me-2 tom-select custom-select-style",
+                id: "user-select" %>
+        <% end %>
+      </div>
+    </nav>
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th scope="col"><%= t('activerecord.attributes.user.full_name') %></th>
+          <th scope="col"><%= t('activerecord.attributes.user.email') %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @users.each do |users_type_zero| %>
+          <tr>
+            <td><%= users_type_zero.full_name %></td>
+            <td><%= users_type_zero.email %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <%= paginate @users %> 
+</div>

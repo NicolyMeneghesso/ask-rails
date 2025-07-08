@@ -11,7 +11,7 @@
     attributes:
       user:
         id: Código
-        first_name: Nome
+        full_name: Nome Completo
         email: E-mail
         password: <strong>Senha</strong>
         password_confirmation: <strong>Confirmar senha</strong>

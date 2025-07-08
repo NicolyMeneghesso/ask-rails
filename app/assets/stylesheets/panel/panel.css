@@ -28,6 +28,20 @@ body::-webkit-scrollbar-thumb:hover, html::-webkit-scrollbar-thumb:hover {
    background-color: rgb(165, 175, 212);
 }
 
+footer {
+   font-size: 14px !important;
+   color: rgba(0, 0, 0, 0.9) !important;
+}
+
+.github {
+   color: inherit !important;
+   text-decoration: none; 
+}
+
+footer .github:hover {
+  text-decoration: none;
+}
+
 /*MENU LATERAL*/
 .sidebar-content, footer, .sidebar-item, a.sidebar-link {
    background-color: rgb(89, 96, 166);

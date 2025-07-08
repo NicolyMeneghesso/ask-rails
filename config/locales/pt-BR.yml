@@ -15,6 +15,9 @@ pt-BR:
   navbar:
     logout: Sair
     profile: Perfil
+  footer:
+    text: Criado por
+    name: Nicoly Meneghesso
   index:
     title_admin: Lista de administradores
     title_user: Lista de usuários
