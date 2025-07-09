@@ -5,8 +5,7 @@ class Panel::Admin::UsersController < PanelBaseController
   before_action :authorize_user_access, only: [ :edit, :update, :destroy, :profile ]
 
   def index
-    @users = User.users_all.search_by_name(params[:term]).page(params[:page])
-    # users_only.search_by_name - criado no model como scope para reutilizar em outros locais
+    @users = User.all.page(params[:page])
   end
 
   # Método que exibe o formulário de novo usuário
@@ -67,7 +66,7 @@ class Panel::Admin::UsersController < PanelBaseController
     @subjects = Subject.where("description LIKE ?", "%#{params[:term]}%").page(params[:page])
   end
 
-  # Busca de usuarios tipo 0 cadastrados no banco
+  # Busca de usuarios cadastrados no banco
   def search
     term = params[:term]
     users = User.users_all.search_by_name(term).limit(10)

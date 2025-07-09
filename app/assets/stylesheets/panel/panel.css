@@ -42,37 +42,6 @@ footer .github:hover {
   text-decoration: none;
 }
 
-/*MENU LATERAL*/
-.sidebar-content, footer, .sidebar-item, a.sidebar-link {
-   background-color: rgb(89, 96, 166);
-   color: rgb(255, 255, 255);
-}
-
-.fa-light {
-   font-size: 17px;
-}
-
-.sidebar-item.active>.sidebar-link {
-   background: none !important;
-   border-left-color: transparent !important;
-}
-
-.title-menu {
-   color: rgb(251, 251, 251);
-   padding: 24px 24px 6px;
-}
-
-.align-middle {
-   color: rgb(251, 251, 251) !important;
-}
-
-.sidebar-link:hover, .sidebar-link:hover .align-middle, .sidebar-link:hover svg {
-   background: none !important;
-   color: rgb(5, 5, 5) !important;
-   stroke: rgb(5, 5, 5) !important;
-   /* Cor do ícone SVG */
-}
-
 /*NAVEGADOR*/
 .navbar {
    box-shadow: none !important;

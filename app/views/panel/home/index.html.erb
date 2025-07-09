@@ -1,5 +1,5 @@
 <div class="row w-100">
-  <% if current_user.user_type == 0 %>
+  <% if current_user.regular? %>
     <%= render "panel/home/shared_user/index_user" %> 
   <% else %>
     <%= render "panel/home/shared_admin/index_admin" %> 

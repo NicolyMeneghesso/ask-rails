@@ -13,7 +13,7 @@ class Api::ChartsController < ApplicationController
 
   def active_users
     # 1. Pegamos todos os IDs de usuários comuns (user_type: 0)
-    user_ids = User.regular.pluck(:id)
+    user_ids = User.where(user_type: 0).pluck(:id)
 
     # 2. Total de usuários comuns
     users_can_answer_count = user_ids.size

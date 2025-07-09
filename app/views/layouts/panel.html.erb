@@ -9,7 +9,7 @@
     <%= stylesheet_link_tag "https://unpkg.com/@adminkit/core@latest/dist/css/app.css", media: "all", rel: "stylesheet" %>
     <%= stylesheet_link_tag "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap", media: "all", rel: "stylesheet" %>
     <%= javascript_include_tag "https://unpkg.com/@adminkit/core@latest/dist/js/app.js" %>
-
+    
     <!--Adicionado projeto-->
     <%= stylesheet_link_tag "panel/panel", media: "all", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "panel/sidebar", media: "all", "data-turbo-track": "reload" %>
@@ -17,6 +17,7 @@
     <%= stylesheet_link_tag "panel/card", media: "all", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "panel/search", media: "all", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "panel/user_answer", media: "all", "data-turbo-track": "reload" %>
+    
   </head>
   <body>
     <div class="wrapper">
@@ -25,32 +26,7 @@
       <%= render "layouts/sidebar" %>  
       <!--Navegador-->
       <div class="main">
-        <nav class="navbar navbar-expand navbar-light navbar-bg" >
-          <a class="sidebar-toggle js-sidebar-toggle">
-            <i class="hamburger align-self-center"></i>
-          </a>
-          <div class="navbar-collapse collapse">
-            <ul class="navbar-nav navbar-align">
-              <li class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle d-none d-sm-inline-block" data-bs-toggle="dropdown" role="button">
-                  <i class="fa-regular fa-user user-nav"></i>
-                  <%= current_user.full_name %>
-                </a>
-                <div class="dropdown-menu dropdown-menu-end">
-                  <%= link_to panel_admin_user_profile_path(current_user), class:"dropdown-item btn-logout" do %>
-                    <i class="fa-regular fa-user me-1"></i>
-                    <%= t('navbar.profile')%>
-                  <% end %>
-                  
-                  <%= button_to destroy_user_session_path, method: :delete, class:"dropdown-item btn-logout" do %>
-                    <i class="fa-regular fa-arrow-right-from-bracket me-1"></i>
-                    <%= t('navbar.logout')%>
-                  <% end %>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </nav>
+        <%= render "layouts/navbar" %>
 
         <main class="content px-3 py-4 ">
           <div class="container-fluid p-0 d-flex justify-content-center">
@@ -67,6 +43,5 @@
         </footer>
       </div>
     </div>
-    <%= javascript_include_tag "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js", defer: true %>
   </body>
 </html>

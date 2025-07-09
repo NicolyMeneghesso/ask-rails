@@ -1,0 +1,26 @@
+<nav class="navbar navbar-expand navbar-light navbar-bg" >
+  <a class="sidebar-toggle js-sidebar-toggle">
+    <i class="hamburger align-self-center"></i>
+  </a>
+  <div class="navbar-collapse collapse">
+    <ul class="navbar-nav navbar-align">
+      <li class="nav-item dropdown">
+        <a href="#" class="nav-link dropdown-toggle d-none d-sm-inline-block" data-bs-toggle="dropdown" role="button">
+          <i class="fa-regular fa-user user-nav"></i>
+          <%= current_user.full_name %>
+        </a>
+        <div class="dropdown-menu dropdown-menu-end">
+          <%= link_to panel_admin_user_profile_path(current_user), class:"dropdown-item btn-logout" do %>
+            <i class="fa-regular fa-user me-1"></i>
+            <%= t('navbar.profile')%>
+          <% end %>
+          
+          <%= button_to destroy_user_session_path, method: :delete, class:"dropdown-item btn-logout" do %>
+            <i class="fa-regular fa-arrow-right-from-bracket me-1"></i>
+            <%= t('navbar.logout')%>
+          <% end %>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>

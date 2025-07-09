@@ -10,8 +10,6 @@ class User < ApplicationRecord
   # adiciona métodos auxiliares como user.comum?
   enum :user_type, { regular: 0, admin_user: 1, super_admin: 2 }
 
-  # Escopo que retorna apenas usuários comuns ou admins - reutilizavel nos controllers
-  scope :users_all, -> { where(user_type: [ 0, 1, 2 ]) }
   # Escopo que busca usuários pelo primeiro ou último nome
   scope :search_by_name, ->(term) {
     where("first_name LIKE :term OR last_name LIKE :term", term: "%#{term}%") if term.present?
