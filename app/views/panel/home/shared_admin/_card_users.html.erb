@@ -1,5 +1,9 @@
 <!-- CARD DE USUARIOS-->
-<% user_counts_total = (@user_counts["regular"].to_i + @user_counts["admin_user"].to_i + @user_counts["super_admin"].to_i) %>
+<% user_regular = @user_counts["regular"].to_i %>
+<% user_admin_user = @user_counts["admin_user"].to_i %>
+<% user_super_admin = @user_counts["super_admin"].to_i %>
+<% user_counts_total = (user_regular + user_admin_user + user_super_admin) %>
+
 <div class="col-md-12">
   <div class="card">
     <div class="card-body">
@@ -12,11 +16,11 @@
       <h1 class="text-center pb-2" style="font-size: 35px;"><%= user_counts_total %></h1>
       <div>
         <span class="text-card-home"><%= t("statistics.admin.total_users_standard") %></span>
-        <span class="text-card-home" style="font-weight: 600;"><%= @user_counts["regular"].to_i || 0 %></span>
+        <span class="text-card-home" style="font-weight: 600;"><%= user_regular || 0 %></span>
       </div>
       <div>
         <span class="text-card-home"><%= t("statistics.admin.total_users_admins") %></span>
-        <span class="text-card-home" style="font-weight: 600;"><%= (@user_counts["admin_user"].to_i || 0) + (@user_counts["super_admin"].to_i || 0) %></span>      
+        <span class="text-card-home" style="font-weight: 600;"><%= (user_admin_user || 0) + (user_super_admin || 0) %></span>      
       </div>
     </div>
   </div>
@@ -25,7 +29,7 @@
 <div class="col-md-12">
   <div class="card" style="align-items: center;">
     <div class="card-header">
-      <h3 class="card-title card-title-chart mb-0"><%= t("statistics.chart.activeUsers")%></h3>
+      <h3 class="card-title mb-0"><%= t("statistics.chart.activeUsers")%></h3>
     </div>
     <div class="card-body">
       <canvas id="activeUsers" width="200" height="200"></canvas>

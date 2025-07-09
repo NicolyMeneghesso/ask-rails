@@ -12,7 +12,7 @@ class Panel::HomeController < PanelBaseController
     # total de assuntos para o card
     @total_subjects = Subject.count
 
-    # 1. Buscamos todos os usuários agrupados por tipo para o card geral
+    # Agrupa por tipo de usuário (inteiros)
     @user_counts = User.group(:user_type).count
 
     # 2. Pegamos todos os IDs de usuários comuns (user_type: 0)

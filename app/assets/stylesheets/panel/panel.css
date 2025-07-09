@@ -101,37 +101,3 @@ footer .github:hover {
    background-color: rgb(89, 96, 166);
    color: rgb(5, 5, 5);
 }
-
-/*flash*/
-
-.flash_error {
-   position: fixed;
-   top: 55px;
-   right: 40px;
-   z-index: 1050;
-}
-
-.flash_error .alert {
-   min-width: 350px;
-   max-width: 380px;
-   height: auto !important;
-   padding: 16px 40px 16px 16px !important;
-   position: relative;
-   font-size: 15px !important;
-   word-break: break-word;
-   white-space: normal;
-}
-
-.alert-text {
-   display: block;
-}
-
-.alert-danger {
-   background: #a10b1aeb !important;
-}
-
-.btn-close {
-   position: absolute;
-   top: 10px;
-   right: 10px;
-}

@@ -1,4 +1,5 @@
 @import "panel";
 @import "admin/admins";
+@import "admin/user";
+@import "home";
 @import "users";
-@import "admin/user"

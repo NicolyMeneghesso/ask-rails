@@ -2,7 +2,6 @@ class Panel::Admin::UsersController < PanelBaseController
   before_action :authorize_super_admin!, only: [ :new, :create ] # Apenas Super Admin pode criar usuários
   before_action :set_user, only: [ :edit, :update, :destroy, :profile ]
   before_action :verify_password, only: [ :update ]
-  before_action :authorize_admin_access, except: [ :profile, :answer ] # Todas as ações exigem ser admin, exceto profile..
   before_action :authorize_user_access, only: [ :edit, :update, :destroy, :profile ]
 
   def index

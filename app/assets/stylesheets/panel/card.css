@@ -8,6 +8,7 @@ th {
 
 .btn-info {
     width: 15vh;
+    background-color: rgb(89, 96, 166);
 }
 
 /*parte da edição do admin*/
@@ -55,17 +56,6 @@ th {
     border: solid 1px rgb(89, 96, 166);
 }
 
-/*Alert*/
-.alert-danger {
-    background: #c41224b9;
-    color: black;
-    padding: 10px;
-}
-
-.alert-success {
-    height: 44px !important;
-    padding: 10px !important;
-}
 
 /*pagination*/
 .page-link {
@@ -96,29 +86,4 @@ th {
     font-weight: bold;
     text-decoration: none;
     border-radius: 5px; /* Suaviza os cantos */
-}
-
-/* search */
-.tom-select.custom-select-style {
-    padding: 0.65rem 1rem;     
-    font-size: 16px;           
-    line-height: 1.5;          
-    border-radius: 6px;       
-    border: 1px solid #ccc;    
-    min-height: 44px;
-}        
-
-.tom-select.custom-select-style.ts-control {
-    border: none;            
-    box-shadow: none;     
-    background: white; 
-}
-
-.tom-select.custom-select-style.ts-dropdown {
-    border-radius: 0 0 6px 6px; 
-    border: 1px solid #ccc;   
-}
-
-.tom-select.custom-select-style.ts-wrapper.single.input-active .ts-control {
-  background: white; 
 }

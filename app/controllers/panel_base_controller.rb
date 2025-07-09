@@ -46,8 +46,8 @@ class PanelBaseController < ApplicationController
 
     # Restringe acesso à área administrativa apenas para Admins e Super Admins
     def authorize_admin_access
-      unless [ 1, 2 ].include?(current_user.user_type)
-        redirect_to panel_home_index_path
+      unless current_user.admin_user? || current_user.super_admin?
+        redirect_to panel_home_index_path, alert: "Acesso negado."
       end
     end
 end

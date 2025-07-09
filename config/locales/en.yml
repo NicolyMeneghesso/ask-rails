@@ -20,6 +20,7 @@ en:
     title_user: Users
     title_subjects: Subjects
     title_questions: Questions
+    btn_new: New
   editing: 
     title_subjects: Editing subjects
     title_user: Editing user
