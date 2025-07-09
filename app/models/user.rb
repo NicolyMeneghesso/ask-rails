@@ -6,9 +6,12 @@ class User < ApplicationRecord
 
   has_many :user_question_answers
 
+  # O attribute Enum mapeia valores inteiros para nomes simbólicos legíveis,
+  # adiciona métodos auxiliares como user.comum?
+  enum :user_type, { regular: 0, admin_user: 1, super_admin: 2 }
+
   # Escopo que retorna apenas usuários comuns ou admins - reutilizavel nos controllers
-  scope :admins_only, -> { where(user_type: [ 1, 2 ]) }
-  scope :users_only, -> { where(user_type: 0) }
+  scope :users_all, -> { where(user_type: [ 0, 1, 2 ]) }
   # Escopo que busca usuários pelo primeiro ou último nome
   scope :search_by_name, ->(term) {
     where("first_name LIKE :term OR last_name LIKE :term", term: "%#{term}%") if term.present?
@@ -19,7 +22,7 @@ class User < ApplicationRecord
     "#{first_name} #{last_name}"
   end
 
-  # para nao enviar o nome vazio
+  # Validações - para nao enviar o nome vazio
   with_options presence: true, length: { minimum: 4, maximum: 20 }, on: :update do
     validates :first_name
     validates :last_name

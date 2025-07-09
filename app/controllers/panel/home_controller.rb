@@ -3,7 +3,7 @@ class Panel::HomeController < PanelBaseController
     @user_statistic = UserStatistic.find_or_create_by(user: current_user)
     @total_questions_count = Question.count # ira mostrar o número total de perguntas cadastradas no banco de dados.
 
-    set_admin_data unless current_user.user_type == 0
+    set_admin_data unless current_user.regular?
   end
 
   private
@@ -16,7 +16,7 @@ class Panel::HomeController < PanelBaseController
     @user_counts = User.group(:user_type).count
 
     # 2. Pegamos todos os IDs de usuários comuns (user_type: 0)
-    user_ids = User.where(user_type: 0).pluck(:id)
+    user_ids = User.regular.pluck(:id)
 
     # 3. Total de usuários comuns
     @users_can_answer_count = user_ids.size

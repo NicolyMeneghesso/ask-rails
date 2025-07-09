@@ -7,7 +7,6 @@ pt-BR:
   sidebar:
     title_menu: RespondeDev
     dashboard: Painel
-    administrators: Administradores
     users: Usuários
     subjects: Assuntos
     questions: Questões
@@ -19,17 +18,14 @@ pt-BR:
     text: Criado por
     name: Nicoly Meneghesso
   index:
-    title_admin: Lista de administradores
-    title_user: Lista de usuários
-    title_subjects: Lista de assuntos
-    title_questions: Lista de questões
+    title_user: Usuários
+    title_subjects: Assuntos
+    title_questions: Questões
   editing:
-    title_admin: Editado administrador
     title_user: Editando usuário
     title_subjects: Editado assuntos
     title_questions: Editando questões
   new:
-    title_admin: Criar administrador
     title_admin: Criar usuário
     title_subjects: Criar assuntos
     title_questions: Criar questões
@@ -85,3 +81,9 @@ pt-BR:
       total_answers: Total de Respostas
       total_users_standard: "Usuários padrão:"
       total_users_admins: "Usuários administradores:"
+  enums:
+    user:
+      user_type:
+        regular: Usuário Comum
+        admin_user: Administrador
+        super_admin: Administrador Geral

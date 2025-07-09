@@ -5,14 +5,15 @@
         one: Usuário
         other: Usuários
       subject:
-        one: assunto/area
+        one: Assunto
       question:
-        one: questão
+        one: Questão
     attributes:
       user:
         id: Código
         full_name: Nome Completo
         email: E-mail
+        type: Tipo de Usuário
         password: <strong>Senha</strong>
         password_confirmation: <strong>Confirmar senha</strong>
         created_at: Criando em

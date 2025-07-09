@@ -3,9 +3,9 @@ class PanelBaseController < ApplicationController
     layout "panel"
 
   private
-    # Permite acesso apenas a Super Admins (user_type == 2)
+    # Permite acesso apenas a Super Admins
     def authorize_super_admin!
-      unless current_user.user_type == 2
+      unless current_user.super_admin?
         flash[:alert] = "Apenas o Administrador Geral podem acessar esta página."
         redirect_to panel_home_index_path
       end
@@ -13,7 +13,7 @@ class PanelBaseController < ApplicationController
 
     # Permite acesso ao próprio usuário ou ao Super Admin
     def authorize_self_or_super_admin!(target_user)
-      unless current_user == target_user || current_user.user_type == 2
+      unless current_user == target_user || current_user.super_admin?
         flash[:alert] = "Você não tem permissão para acessar esta página."
         redirect_to panel_home_index_path
       end
@@ -31,7 +31,7 @@ class PanelBaseController < ApplicationController
     def permitted_user_params
       permitted_params = [ :first_name, :last_name, :address_street, :address_building_number, :address_city, :address_state,
                             :address_country, :email, :password, :password_confirmation ]
-      permitted_params << :user_type if current_user.user_type == 2 # Adiciona o campo :user_type apenas se o usuário atual for Super Admin (user_type == 2).
+      permitted_params << :user_type if current_user.super_admin? # Adiciona o campo apenas se o usuário atual for Super Admin (user_type == 2).
 
       # Garante que os parâmetros recebidos vêm de params[:user] e filtra apenas os campos permitidos
       params.require(:user).permit(permitted_params)

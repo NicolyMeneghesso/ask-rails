@@ -6,7 +6,7 @@ class Panel::Admin::UsersController < PanelBaseController
   before_action :authorize_user_access, only: [ :edit, :update, :destroy, :profile ]
 
   def index
-    @users = User.users_only.search_by_name(params[:term]).page(params[:page])
+    @users = User.users_all.search_by_name(params[:term]).page(params[:page])
     # users_only.search_by_name - criado no model como scope para reutilizar em outros locais
   end
 
@@ -52,7 +52,7 @@ class Panel::Admin::UsersController < PanelBaseController
   end
 
   def destroy
-    if current_user.user_type == 2 || current_user == @user
+    if current_user.super_admin? || current_user == @user
       @user.destroy
       redirect_to panel_home_index_path, notice: "Conta excluída com sucesso."
     else
@@ -68,10 +68,10 @@ class Panel::Admin::UsersController < PanelBaseController
     @subjects = Subject.where("description LIKE ?", "%#{params[:term]}%").page(params[:page])
   end
 
-  # Busca de usuarios tipo 0 cadastrados nio banco
+  # Busca de usuarios tipo 0 cadastrados no banco
   def search
     term = params[:term]
-    users = User.users_only.search_by_name(term).limit(10)
+    users = User.users_all.search_by_name(term).limit(10)
 
     render json: users.map { |u| { id: u.id, text: u.full_name } }
   end
@@ -83,13 +83,13 @@ class Panel::Admin::UsersController < PanelBaseController
     end
 
     def authorize_user_access
-      if current_user.user_type == 2
+      if current_user.super_admin?
         # super admin: acesso total
         nil
-      elsif current_user.user_type == 1
+      elsif current_user.admin_user?
         # admin: só pode editar/ver ele mesmo
         authorize_self_or_super_admin!(@user)
-      elsif current_user.user_type == 0
+      elsif current_user.regular?
         # usuário comum: só pode ver/editar ele mesmo
         only_self!(@user)
       end

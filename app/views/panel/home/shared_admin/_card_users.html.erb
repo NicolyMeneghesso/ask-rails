@@ -1,5 +1,5 @@
 <!-- CARD DE USUARIOS-->
-<% user_counts_total = (@user_counts[0] + @user_counts[1] + @user_counts[2]) %>
+<% user_counts_total = (@user_counts["regular"].to_i + @user_counts["admin_user"].to_i + @user_counts["super_admin"].to_i) %>
 <div class="col-md-12">
   <div class="card">
     <div class="card-body">
@@ -12,11 +12,11 @@
       <h1 class="text-center pb-2" style="font-size: 35px;"><%= user_counts_total %></h1>
       <div>
         <span class="text-card-home"><%= t("statistics.admin.total_users_standard") %></span>
-        <span class="text-card-home" style="font-weight: 600;"><%= @user_counts[0] || 0 %></span>
+        <span class="text-card-home" style="font-weight: 600;"><%= @user_counts["regular"].to_i || 0 %></span>
       </div>
       <div>
         <span class="text-card-home"><%= t("statistics.admin.total_users_admins") %></span>
-        <span class="text-card-home" style="font-weight: 600;"><%= (@user_counts[1] || 0) + (@user_counts[2] || 0) %></span>      
+        <span class="text-card-home" style="font-weight: 600;"><%= (@user_counts["admin_user"].to_i || 0) + (@user_counts["super_admin"].to_i || 0) %></span>      
       </div>
     </div>
   </div>
