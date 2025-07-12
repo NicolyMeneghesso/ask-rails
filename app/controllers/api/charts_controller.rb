@@ -28,4 +28,17 @@ class Api::ChartsController < ApplicationController
 
     render json: { active: users_who_answered, inactive: users_inactive }
   end
+
+  def user_graph_answers
+    users_answers = UserStatistic.where(user: current_user)
+
+    question_right = users_answers.sum(:right_questions)
+    question_wrong = users_answers.sum(:wrong_questions)
+
+    questions_site = Question.count
+
+    total_user = question_right + question_wrong
+
+    render json: { right: question_right, wrong: question_wrong, questionSite: questions_site, questionUser: total_user }
+  end
 end

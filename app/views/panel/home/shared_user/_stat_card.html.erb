@@ -11,63 +11,31 @@
 <% total_user_wrong = @user_statistic.wrong_questions %>
 <% percent_answers_wrong = total_questions_site > 0 ? (total_user_wrong.to_f / total_questions_site * 100).round(1) : 0 %>
 
-<!-- Certa -->
-<div class="col-md-6">
-  <div class="card">
-    <div class="card-body">
-      <div class="d-flex justify-content-between align-items-center">
-        <h3 class="card-title"><%= t("statistics.right_answered") %></h3>
-        <div class="stat text-primary">
-          <i class="fa-light fa-comment-check"></i>
-        </div>
-      </div>
-      <h1 class="mt-3 mb-3"><%= @user_statistic.right_questions %></h1>
-      <div>
-        <span class="text-card-home"><%= t("statistics.label.right") %></span>
-        <span class="text-card-home-number"><%= "#{percent_answers_right} %" %></span>
-      </div>
-    </div>
-  </div>
-</div>
+<% cardsUser = [
+  {title1: t("statistics.right_answered"), value1: @user_statistic.right_questions, icon: "fa-comment-check", 
+    title2: t("statistics.label.right"), value2: "#{percent_answers_right} %"},
+  {title1: t("statistics.wrong_answered"), value1: @user_statistic.wrong_questions, icon: "fa-comment-xmark", 
+    title2: t("statistics.label.wrong"), value2: "#{percent_answers_wrong} %"},
+  {title1: t("statistics.total_answered"), value1: @user_statistic.total_questions, icon: "fa-comments-question", 
+    title2: t("statistics.label.answered"), value2: "#{percent_total_questions} %"}
+] %>
 
-<!-- Errada -->
-<div class="col-md-6">
-  <div class="card">
-    <div class="card-body">
-      <div class="d-flex justify-content-between align-items-center">
-        <h3 class="card-title"><%= t("statistics.wrong_answered") %></h3>
-        <div class="stat text-primary">
-          <i class="fa-light fa-comment-xmark"></i>
+<div class="d-flex flex-column justify-content-center gap-1">
+  <% cardsUser.each do |cardUser| %>
+    <div class="col">
+      <div class="card">
+        <div class="card-body d-flex justify-content-center align-items-center pb-0">
+          <h3 class="card-title px-2" style="font-size: 22px;"><%= cardUser[:title1] %></h3>
+          <div class="stat text-primary">
+            <i class="fa-light <%= cardUser[:icon] %>"></i>
+          </div>
+        </div>
+        <h1 class="text-center" style="font-size: 35px"><%= cardUser[:value1]  %></h1>
+        <div class="pb-2 px-3">
+          <span class="text-card-home"><%= cardUser[:title2] %></span>
+          <span class="text-card-home-number"><%= cardUser[:value2] %></span>
         </div>
       </div>
-      <h1 class="mt-3 mb-3"><%= @user_statistic.wrong_questions %></h1>
-      <div>
-        <span class="text-card-home"><%= t("statistics.label.wrong") %></span>
-        <span class="text-card-home-number"><%= "#{percent_answers_wrong} %" %></span>
-      </div>
     </div>
-  </div>
-</div>
-
-<!-- Total -->
-<div class="col-md-6">
-  <div class="card">
-    <div class="card-body">
-      <div class="d-flex justify-content-between align-items-center">
-        <h3 class="card-title"><%= t("statistics.total_answered") %></h3>
-        <div class="stat text-primary">
-          <i class="fa-light fa-comments-question"></i>
-        </div>
-      </div>
-      <h1 class="mt-3 mb-3"><%= @user_statistic.total_questions %></h1>
-      <div>
-        <span class="text-card-home"><%= t("statistics.label.total_questions_site") %></span>
-        <span class="text-card-home" style="font-weight: 600;"><%= @total_questions_count %></span>
-      </div>
-      <div>
-        <span class="text-card-home"><%= t("statistics.label.answered") %></span>
-        <span class="text-card-home-number"><%= "#{percent_total_questions} %" %></span>
-      </div>
-    </div>
-  </div>
+  <% end %>
 </div>

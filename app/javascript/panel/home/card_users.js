@@ -1,10 +1,11 @@
+//CARD DE TODOS OS USUARIOS ATIVOS E INATIVOS TELA DO ADMIN 
 async function loadChartDataUsers() {
   const response = await fetch('/api/charts/active_users');
   const activeUsers = await response.json();
 
   const canvasActiveUsers = document.getElementById("activeUsers").getContext("2d")
 
-  const chartActiveUsers = new Chart(canvasActiveUsers, {
+  new Chart(canvasActiveUsers, {
     type: 'doughnut', //Tipo de gráfico 
     data: {
       labels: ['Usuários ativos', 'Usuários inativos'], // Rótulos das fatias do gráfico

@@ -1,3 +1,4 @@
+//CARD DOS ASSUNTOS MAIS RESPONDIDOS TELA DO ADMIN 
 let chartMostAnswered = null;
 
 async function loadChartDataSubjects() {

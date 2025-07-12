@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :charts, only: [] do
       get "top_subjects", on: :collection
       get "active_users", on: :collection
+      get "user_graph_answers", on: :collection
     end
   end
 
