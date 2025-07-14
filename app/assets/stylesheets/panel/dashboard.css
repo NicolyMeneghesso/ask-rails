@@ -1,15 +1,27 @@
-.card-title {
+.card-title, .card-title-user {
     color: rgb(0, 0, 0) !important;
+}
+
+.card-title {
     font-size: 18px !important;
 }
 
-.text-card-home {
+.card-title-user {
+    font-size: 20px !important;
+    font-weight: 600 !important;
+}
+
+.text-card-home, .text-card-home-number {
     font-size: 16px;
     color: #222324 !important;
 }
 
 .text-card-home-number {
-    font-size: 16px;
-    color: #222324 !important;
     font-weight: 600 !important;
 }
+
+.text-user {
+    font-size: 35px !important;
+}
+
+

@@ -1,12 +1,73 @@
-<%= render "panel/admin/shared/form_users",
-    resource: @user,
-    bd_first_name: :first_name,
-    bd_last_name: :last_name,
-    bd_address_street: :address_street,
-    bd_address_building_number: :address_building_number,
-    bd_address_city: :address_city,
-    bd_address_state: :address_state,
-    bd_address_country: :address_country,
-    bd_email: :email,
-    bd_password: :password,
-    bd_password_confirmation: :password_confirmation %>
+<%= form_with(model: [:panel, :admin, users], local: true, data: { turbo: false }) do |form| %>
+  <div class="row g-3">
+    <!--CAMPO DO NOME-->
+    <div class="col-md-6">
+      <%= form.label t('form.first_name'), class: "form-label mb-1 ps-1" %>
+      <%= form.text_field bd_first_name, class: "form-control bg-light-subtle" %> 
+      <!--bd_first_name = variavel de instancia declarada no users/form -->
+    </div>
+    <div class="col-md-6">
+      <%= form.label t('form.last_name'), class: "form-label mb-1 ps-1" %>
+      <%= form.text_field bd_last_name, class: "form-control bg-light-subtle" %>
+    </div>
+
+    <!--CAMPO DO ENDERECO-->
+    <div class="col-md-8">
+      <%= form.label t('form.address_street'), class: "form-label mb-1 ps-1" %>
+      <%= form.text_field bd_address_street, class: "form-control bg-light-subtle" %>
+    </div>
+     <div class="col-md-4">
+      <%= form.label t('form.address_building_number'), class: "form-label mb-1 ps-1" %>
+      <%= form.text_field bd_address_building_number, class: "form-control bg-light-subtle" %>
+    </div>
+    <div class="col-md-5">
+      <%= form.label t('form.address_city'), class: "form-label mb-1 ps-1" %>
+      <%= form.text_field bd_address_city, class: "form-control bg-light-subtle" %>
+    </div>
+    <div class="col-md-4">
+      <%= form.label t('form.address_state'), class: "form-label mb-1 ps-1" %>
+      <%= form.text_field bd_address_state, class: "form-control bg-light-subtle" %>
+    </div>
+    <div class="col-md-3">
+      <%= form.label t('form.address_country'), class: "form-label mb-1 ps-1" %>
+      <%= form.text_field bd_address_country, class: "form-control bg-light-subtle" %>
+    </div>
+
+    <!--CAMPO DO EMAIL-->
+    <div class="col-md-12">
+      <%= form.label t('form.email'), class: "form-label mb-1 ps-1" %>
+      <%= form.text_field bd_email, class: "form-control bg-light-subtle", disabled: true %>
+    </div>
+    <div class="col-md-6">
+      <%= form.label t('form.password'), class: "form-label mb-1 ps-1" %>
+      <%= form.password_field bd_password, class: "form-control bg-light-subtle" %>
+    </div>
+    <div class="col-md-6">
+      <%= form.label t('form.password_confirmation'), class: "form-label mb-1 ps-1" %>
+      <%= form.password_field bd_password_confirmation, class: "form-control bg-light-subtle" %>
+    </div>
+    
+    <!--TIPO DE USUARIO SO SUPER ADMIN VISUALIZA E ALTERA-->
+    <% unless current_user.admin_user? || current_user.regular? %>
+      <h5 class="form-label mb-0"><%= t('form.user_type') %></h5>
+      <div class="col-md-12 d-flex justify-content-around">
+        <div class="form-check">
+          <%= form.radio_button :user_type, 0, class: "form-check-input", id: "user_type_0" %>
+          <%= form.label :user_type_0, t('form.user_type_0'), class: "form-label", style: "font-weight: 500" %>
+        </div>
+        <div class="form-check">
+          <%= form.radio_button :user_type, 1, class: "form-check-input", id: "user_type_1" %>
+          <%= form.label :user_type_1, t('form.user_type_1'), class: "form-label", style: "font-weight: 500" %>
+        </div>
+        <div class="form-check">
+          <%= form.radio_button :user_type, 2, class: "form-check-input", id: "user_type_2" %>
+          <%= form.label :user_type_2, t('form.user_type_2'), class: "form-label", style: "font-weight: 500" %>
+        </div>
+      </div>
+    <% end %>
+    <div class="d-grid d-md-flex gap-2 pt-2">
+      <%= link_to t('links.back'), panel_admin_users_path, class: "btn btn-card" %>
+      <%= form.submit t(resource.new_record? ? 'form.btn_new' : 'form.btn_edit'), class: "btn btn-card mb-2" %>
+    </div>
+  </div>
+<% end %>
