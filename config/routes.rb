@@ -20,7 +20,6 @@ Rails.application.routes.draw do
     get "home/index" # dashboard
 
     namespace :admin do
-      resources :admins
       get :answer, to: "users#answer"
 
       resources :users do

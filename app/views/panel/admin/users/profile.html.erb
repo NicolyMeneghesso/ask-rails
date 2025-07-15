@@ -1,5 +1,11 @@
-<%= render "panel/admin/shared/edit_card",
-           resource: @user,
-           resource_name: :user,
-           form_partial: "form",
-           back_path: panel_admin_users_path %>
+<div class="col-6">
+	<div class="card bg-primary-subtle py-3 px-4">
+   	<div class="card-body bg-primary-subtle p-2">
+			<%= render "form", user: @user, editable: false %>
+		</div>
+    <div class="d-flex justify-content-between pt-2">
+      <%= link_to "Editar", edit_panel_admin_user_path(@user), class: "btn btn-primary" %>
+      <%= button_to "Excluir", panel_admin_user_path(@user), method: :delete, data: { confirm: "Tem certeza?" }, class: "btn btn-danger" %>
+    </div>
+	</div>
+</div>

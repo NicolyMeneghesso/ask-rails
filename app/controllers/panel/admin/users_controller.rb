@@ -59,6 +59,7 @@ class Panel::Admin::UsersController < PanelBaseController
   end
 
   def profile
+    render :profile
   end
 
   # Busca de assuntos por descrição (usado na tela de questões)

@@ -30,6 +30,10 @@ th {
     font-size: 16px;
 }
 
+.form-type {
+    font-weight: 500;
+}
+
 .btn-card {
     height: 40px;
     width: 100%;

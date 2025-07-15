@@ -1,5 +1,7 @@
-<%= render "panel/admin/shared/new_card",
-           resource: @user,
-           resource_name: :user,
-           form_partial: "form",
-           back_path: panel_admin_users_path %>
+<div class="col-7">
+  <div class="card bg-primary-subtle py-3 px-4">
+    <div class="card-body bg-primary-subtle p-2">
+      <%= render "form", user: @user %>
+    </div>
+  </div>
+</div>
