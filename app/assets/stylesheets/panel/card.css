@@ -43,14 +43,14 @@ th {
     font-size: 16px;
     font-weight: 500;
     color: rgb(245, 245, 250);
-    background-color: rgb(72, 78, 156);
+    background-color: rgb(89, 96, 166);
     text-align: center;
     text-decoration: none;
 }
 
 .btn-card:hover {
-    background-color: rgb(216, 229, 248);
-    color: rgb(15, 15, 15);
+    background-color: rgb(165, 175, 212);
+    color: rgb(9, 9, 9);
     text-decoration: none;
 }
 

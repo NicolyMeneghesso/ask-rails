@@ -88,3 +88,10 @@ pt-BR:
         regular: Usuário Comum
         admin_user: Administrador
         super_admin: Administrador Geral
+  profile:
+    email: "Email: "
+    address: "Endereço completo: "
+    state: "Estado: "
+    country: "País: "
+    btn_edit: Editar
+    btn_delete: Excluir

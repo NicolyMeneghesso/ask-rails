@@ -87,3 +87,10 @@ en:
         regular: Regular User
         admin_user: Administrator
         super_admin: Super Administrator
+  profile:
+    email: "Email: "
+    address: "Full Address: "
+    state: "State: "
+    country: "Country: "
+    btn_edit: Edit
+    btn_delete: Delete

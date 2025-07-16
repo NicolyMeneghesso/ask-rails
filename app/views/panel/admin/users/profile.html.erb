@@ -1,11 +1,47 @@
 <div class="col-6">
-	<div class="card bg-primary-subtle py-3 px-4">
-   	<div class="card-body bg-primary-subtle p-2">
-			<%= render "form", user: @user, editable: false %>
-		</div>
-    <div class="d-flex justify-content-between pt-2">
-      <%= link_to "Editar", edit_panel_admin_user_path(@user), class: "btn btn-primary" %>
-      <%= button_to "Excluir", panel_admin_user_path(@user), method: :delete, data: { confirm: "Tem certeza?" }, class: "btn btn-danger" %>
+	<div class="card bg-primary-subtle">
+   	<div class="card-body bg-primary-subtle p-0">
+      <h1 class="text-center pt-4 px-3 pb-1 fw-bold"><%= @user.full_name %></h1>
+      <p class="p-0" style="border: solid 1.60px rgb(165, 175, 212)"></p>
+
+      <!-- Email -->
+      <div class="d-flex align-items-start px-4 pb-3" style="font-size: 18px;">
+        <i class="fa-regular fa-envelopes me-3"></i>
+        <strong class="pe-2"><%= t('profile.email') %></strong> <%= @user.email %>
+      </div>
+
+      <!-- Endereço -->
+      <div class="d-flex align-items-start px-4 pb-3 mt-2" style="font-size: 18px;">
+        <i class="fa-regular fa-map me-3"></i>
+        <div>
+          <strong class="pb-1"><%= t('profile.address') %></strong>
+          <div class="ps-1">
+            <div>
+              <%= @user.address_street %>, <%= @user.address_building_number %> - <%= @user.address_city %>
+            </div>
+
+            <!-- Estado / País -->
+            <div class="row mt-2">
+              <div class="col-8">
+                <strong><%= t('profile.state') %></strong> <%= @user.address_state %>
+              </div>
+              <div class="col-4">
+                <strong><%= t('profile.country') %></strong> <%= @user.address_country %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p style="border: solid 1.60px rgb(165, 175, 212)"></p>
+      <div class="row px-4 py-3">
+        <div class="col">
+          <%= link_to t('profile.btn_edit'), edit_panel_admin_user_path(@user), class: "btn btn-card w-100" %>
+        </div>
+        <div class="col">
+          <%= button_to t('profile.btn_delete'), site_index_path, method: :delete, data: { confirm: "Tem certeza?" }, class: "btn btn-card w-100" %>
+        </div>
+      </div>
     </div>
-	</div>
+  </div>
 </div>
