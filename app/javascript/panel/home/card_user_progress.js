@@ -30,5 +30,4 @@ async function loadProgressChart() {
 
 document.addEventListener("DOMContentLoaded", () => {
   loadProgressChart();
-  setInterval(loadProgressChart, 60000); // Atualiza a cada 60 segundos
 });

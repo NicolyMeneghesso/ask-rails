@@ -4,16 +4,13 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :user_question_answers
+  has_many :user_question_answers, dependent: :destroy
+  has_many :user_statistics, dependent: :destroy
+  # dependent: :destroy - garante que todas as respostas associadas a ele sejam excluidas
 
   # O attribute Enum mapeia valores inteiros para nomes simbólicos legíveis,
   # adiciona métodos auxiliares como user.comum?
   enum :user_type, { regular: 0, admin_user: 1, super_admin: 2 }
-
-  # Escopo que busca usuários pelo primeiro ou último nome
-  scope :search_by_name, ->(term) {
-    where("first_name LIKE :term OR last_name LIKE :term", term: "%#{term}%") if term.present?
-  }
 
   # Método que retorna o nome completo do usuário
   def full_name

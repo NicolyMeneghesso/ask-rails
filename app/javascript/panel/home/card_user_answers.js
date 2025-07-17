@@ -31,5 +31,4 @@ async function loadUserGraphAnswers() {
 
 document.addEventListener("DOMContentLoaded", () => {
   loadUserGraphAnswers();
-  setInterval(loadUserGraphAnswers, 60000); // Atualiza a cada 60 segundos
 });

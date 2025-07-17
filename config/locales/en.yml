@@ -90,6 +90,7 @@ en:
   profile:
     email: "Email: "
     address: "Full Address: "
+    city: "City: "
     state: "State: "
     country: "Country: "
     btn_edit: Edit

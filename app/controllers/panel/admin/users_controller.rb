@@ -5,7 +5,13 @@ class Panel::Admin::UsersController < PanelBaseController
   before_action :authorize_user_access, only: [ :edit, :update, :destroy, :profile ]
 
   def index
-    @users = User.all.page(params[:page])
+    @users =
+      if params[:term].present?
+        term = params[:term].to_s.downcase
+        User.where("LOWER(first_name) LIKE ? OR LOWER(last_name) LIKE ? ", "%#{term}%", "%#{term}%").page(params[:page])
+      else
+        User.all.page(params[:page])
+      end
   end
 
   # Método que exibe o formulário de novo usuário
@@ -52,7 +58,13 @@ class Panel::Admin::UsersController < PanelBaseController
   def destroy
     if current_user.super_admin? || current_user == @user
       @user.destroy
-      redirect_to panel_home_index_path, notice: "Conta excluída com sucesso."
+
+      if current_user == @user
+        sign_out(current_user)
+        redirect_to site_index_path, notice: "Sua conta foi excluída com sucesso."
+      else
+        redirect_to panel_admin_users_path, notice: "Conta excluída com sucesso."
+      end
     else
       redirect_to panel_home_index_path, alert: "Você não tem permissão para excluir esta conta."
     end
@@ -62,17 +74,9 @@ class Panel::Admin::UsersController < PanelBaseController
     render :profile
   end
 
-  # Busca de assuntos por descrição (usado na tela de questões)
+  # Busca de assuntos por descrição (usado na tela de questões do user comum)
   def answer
     @subjects = Subject.where("description LIKE ?", "%#{params[:term]}%").page(params[:page])
-  end
-
-  # Busca de usuarios cadastrados no banco
-  def search
-    term = params[:term]
-    users = User.users_all.search_by_name(term).limit(10)
-
-    render json: users.map { |u| { id: u.id, text: u.full_name } }
   end
 
   private

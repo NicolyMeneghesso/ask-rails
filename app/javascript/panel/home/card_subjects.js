@@ -62,5 +62,4 @@ async function loadChartDataSubjects() {
 
 document.addEventListener("DOMContentLoaded", () => {
   loadChartDataSubjects();
-  setInterval(loadChartDataSubjects, 60000); // Atualiza a cada 60 segundos
 });

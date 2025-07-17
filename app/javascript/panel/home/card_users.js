@@ -29,5 +29,4 @@ async function loadChartDataUsers() {
 
 document.addEventListener("DOMContentLoaded", () => {
   loadChartDataUsers();
-  setInterval(loadChartDataUsers, 60000); // Atualiza a cada 60 segundos
 });

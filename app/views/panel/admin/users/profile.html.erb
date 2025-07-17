@@ -5,27 +5,30 @@
       <p class="p-0" style="border: solid 1.60px rgb(165, 175, 212)"></p>
 
       <!-- Email -->
-      <div class="d-flex align-items-start px-4 pb-3" style="font-size: 18px;">
+      <div class="d-flex px-4 pb-3" style="font-size: 18px;">
         <i class="fa-regular fa-envelopes me-3"></i>
         <strong class="pe-2"><%= t('profile.email') %></strong> <%= @user.email %>
       </div>
 
       <!-- Endereço -->
-      <div class="d-flex align-items-start px-4 pb-3 mt-2" style="font-size: 18px;">
+      <div class="d-flex px-4 pb-3 mt-2" style="font-size: 18px;">
         <i class="fa-regular fa-map me-3"></i>
-        <div>
+        <div style="width: 100%">
           <strong class="pb-1"><%= t('profile.address') %></strong>
           <div class="ps-1">
             <div>
-              <%= @user.address_street %>, <%= @user.address_building_number %> - <%= @user.address_city %>
+              <%= @user.address_street %>, <%= @user.address_building_number %>
             </div>
 
             <!-- Estado / País -->
             <div class="row mt-2">
-              <div class="col-8">
+              <div class="col-4">
+                <strong><%= t('profile.city') %></strong> <%= @user.address_city %>
+              </div>
+              <div class="col-5">
                 <strong><%= t('profile.state') %></strong> <%= @user.address_state %>
               </div>
-              <div class="col-4">
+              <div class="col-3">
                 <strong><%= t('profile.country') %></strong> <%= @user.address_country %>
               </div>
             </div>
@@ -39,7 +42,7 @@
           <%= link_to t('profile.btn_edit'), edit_panel_admin_user_path(@user), class: "btn btn-card w-100" %>
         </div>
         <div class="col">
-          <%= button_to t('profile.btn_delete'), site_index_path, method: :delete, data: { confirm: "Tem certeza?" }, class: "btn btn-card w-100" %>
+          <%= link_to t('profile.btn_delete'), panel_admin_user_path(@user), method: :delete, data: { turbo_method: :delete, turbo_confirm: "Tem certeza?" }, class: "btn btn-card w-100" %>
         </div>
       </div>
     </div>

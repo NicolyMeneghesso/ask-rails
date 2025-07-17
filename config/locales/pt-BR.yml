@@ -91,6 +91,7 @@ pt-BR:
   profile:
     email: "Email: "
     address: "Endereço completo: "
+    city: "Cidade: "
     state: "Estado: "
     country: "País: "
     btn_edit: Editar
