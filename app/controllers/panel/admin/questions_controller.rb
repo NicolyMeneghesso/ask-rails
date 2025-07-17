@@ -1,14 +1,14 @@
 class Panel::Admin::QuestionsController < PanelBaseController
   before_action :set_question, only: [ :edit, :update, :destroy ]
   before_action :get_subjects, only: [ :new, :edit ]
-  before_action :authorize_admin_access, only: [ :new, :create, :edit, :update, :destroy ]
+  before_action :authorize_admin_access, only: [ :new, :create, :edit, :update, :destroy, :index ]
 
   def index
-      @questions = Question.includes(:subject).page(params[:page])
+    @questions = Question.includes(:subject).page(params[:page])
   end
 
   def new
-      @question = Question.new
+    @question = Question.new
   end
 
   def create

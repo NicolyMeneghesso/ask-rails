@@ -1,6 +1,7 @@
-<%= render "panel/admin/shared/new_card",
-           resource: @subject,
-           resource_name: :subject,
-           form_partial: "form",
-           title_key: "new.title_subjects",
-           back_path: panel_admin_subjects_path %>
+<div class="col-6">
+	<div class="card bg-primary-subtle py-3 px-4">
+		<div class="card-body bg-primary-subtle p-2">
+			<%= render "form", subject: @subject %>
+		</div>
+	</div>
+</div>

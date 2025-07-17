@@ -1,6 +1,7 @@
-<%= render "panel/admin/shared/edit_card",
-           resource: @question,
-           resource_name: :question,
-           form_partial: "form",
-           title_key: "editing.title_questions",
-           back_path: panel_admin_questions_path %>
+<div class="col-10">
+	<div class="card bg-primary-subtle py-3 px-4">
+		<div class="card-body bg-primary-subtle p-2">
+			<%= render "form", question: @question %>
+		</div>
+	</div>
+</div>

@@ -1,6 +1,6 @@
 class Panel::Admin::SubjectsController < PanelBaseController
   before_action :set_subject, only: [ :edit, :update, :destroy ]
-  before_action :authorize_admin_access, only: [ :new, :create, :edit, :update, :destroy ] # Apenas as ações que alteram dados (CRUD) são protegida
+  before_action :authorize_admin_access, only: [ :new, :create, :edit, :update, :destroy, :index ] # Apenas as ações que alteram dados (CRUD) são protegida
 
   def index
     @subjects =
@@ -8,7 +8,7 @@ class Panel::Admin::SubjectsController < PanelBaseController
         term = params[:term].to_s.downcase
         Subject.where("LOWER(description) LIKE ?", "%#{term}%").page(params[:page])
       else
-        Subject.all.page(params[:page])
+        Subject.includes(:questions).all.page(params[:page])
       end
   end
 

@@ -1,6 +1,6 @@
 <div class="col-10 col-xl-9">
   <div class="card bg-primary-subtle">
-    <div class="card-header bg-primary-subtle d-flex justify-content-between mb-0">
+    <div class="card-header bg-primary-subtle d-flex justify-content-between pb-0 px-4 pt-4">
       <h1 class="title-edit"><%= t('index.title_user') %></h1>
       <% if current_user.super_admin?  %>
         <div>
@@ -11,11 +11,11 @@
       <% end %>
     </div>
 
-    <div class="card-body bg-primary-subtle pb-1">
+    <div class="card-body bg-primary-subtle">
       <div class="bg-primary-subtle border-bottom border-body" data-bs-theme="light">
-        <%= form_with(url: panel_admin_users_path, method: :get, local: true, class: "flex-grow-1 ms-5") do |form| %>
-          <%= form.text_field :term, class:"form-control me-2", placeholder: t('form.search') %>
-          <%= button_tag type: "submit", class:"btn btn-outline-primary" do %>
+        <%= form_with(url: panel_admin_users_path, method: :get, local: true, class: "d-flex") do |form| %>
+          <%= form.text_field :term, class:"form-control flex-grow-1 me-3 ms-2", placeholder: t('form.search') %>
+          <%= button_tag type: "submit", class:"btn btn-outline-primary flex-shrink-1" do %>
             <i class="fa-regular fa-magnifying-glass"></i>
           <% end %>
         <% end %>

@@ -20,29 +20,30 @@
             <div class="border rounded d-flex align-items-center gap-3">
               <!-- Campo de texto ocupa a maior parte do espaço -->
               <div class="flex-grow-1">
-                  <%= answer_form.text_area :description, class: "form-control mb-2", rows: 5, placeholder: t('form.type_answer') %>
+                <%= answer_form.text_area :description, class: "form-control mb-2", rows: 5, placeholder: t('form.type_answer') %>
               </div>
 
               <!-- Check e Label lado a lado -->
               <div class="form-check d-flex align-items-center gap-1">
-                  <%= answer_form.radio_button :correct, true, class: "form-check-input" %>
-                  <%= answer_form.label :correct, class: "form-check-label mb-0" %>
+                <%= answer_form.radio_button :correct, true, class: "form-check-input" %>
+                <%= answer_form.label :correct, class: "form-check-label mb-0" %>
               </div>
               <!-- Botão para remover -->
               <%= button_tag type: "button", class: "btn btn-danger btn-sm remove-answer", style: "padding-bottom: 0px;" do %>
-                  <i class="fa-light fa-delete-right"></i>
+                <i class="fa-light fa-delete-right"></i>
               <% end %>
             </div>
-            <hr class="line-div-answers">
           </div>
-    <% end %>
-    </div>
+        <% end %>
+      </div>
     <!-- Botão para adicionar novas respostas -->
     <%= button_tag t('form.add_answer'), type: "button",  id:"add-answer-btn", class:"btn btn-card" %>
+    <hr class="line-div-answers">
   </div>
 
   <!-- Botão de Submissão -->
-  <div class="d-flex flex-column align-items-center">
+  <div class="d-grid d-md-flex gap-2 pt-2">
+    <%= link_to t('links.back'), panel_admin_questions_path, class: "btn btn-card mb-2" %>
     <%= form.submit nil, class: "btn btn-card mb-2" %>
   </div>
 <% end %>

@@ -19,17 +19,12 @@ pt-BR:
     name: Nicoly Meneghesso
   index:
     title_user: Usuários
-    title_subjects: Assuntos
     title_questions: Questões
     btn_new: Novo
   editing:
-    title_user: Editando usuário
-    title_subjects: Editado assuntos
-    title_questions: Editando questões
-  new:
-    title_admin: Criar usuário
-    title_subjects: Criar assuntos
-    title_questions: Criar questões
+    subject:
+      number_questions: Quantidade de Perguntas 
+      number_answers: Quantidade de Respostas 
   links:
     back: Voltar
   form:

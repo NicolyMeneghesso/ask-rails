@@ -18,17 +18,11 @@ en:
     name: Nicoly Meneghesso
   index:
     title_user: Users
-    title_subjects: Subjects
     title_questions: Questions
     btn_new: New
-  editing: 
-    title_subjects: Editing subjects
-    title_user: Editing user
-    title_questions: Editando questions
-  new:
-    title_admin: Create user
-    title_subjects: Create subjects
-    title_questions: Create questions
+  editing:
+    number_questions: Number of Questions
+    number_answers: Number of Responses
   links:
     back: Back
   form:

@@ -1,10 +1,27 @@
 <%= form_with(model: [:panel, :admin, subject], local: true) do |form| %>
-   <div>
-      <%= form.label :description, style: "display: block", for: "exampleInputEmail1", class: "form-label mb-1" %>
-      <%= form.text_field :description, class: "form-control bg-light-subtle mb-3",  id: "exampleInputEmail1" %>
-   </div>
+  <div>
+    <%= form.label :description, style: "display: block", for: "exampleInputEmail1", class: "form-label mb-1" %>
+    <%= form.text_field :description, class: "form-control bg-light-subtle mb-3",  id: "exampleInputEmail1" %>
+  </div>
 
-   <div class="d-flex flex-column align-items-center">
-      <%= form.submit nil, class: "btn btn-card mb-2" %>
-   </div>
+  <div class="row mb-3">
+    <div class="col-md-6">
+      <%= form.label t('editing.subject.number_questions'), style: "display: block", 
+            for: "exampleInputEmail1", class: "form-label mb-1" %>
+      <%= form.text_field :questions_count_fake, value: subject.questions.size, 
+            class: "form-control bg-light-subtle mb-3", disabled: true, readonly: true %>
+    </div>
+
+    <div class="col-md-6">
+      <%= form.label t('editing.subject.number_answers'), style: "display: block", 
+            for: "exampleInputEmail1", class: "form-label mb-1" %>
+      <%= form.text_field :answers_count_fake, value: subject.questions.joins(:answers).count, 
+            class: "form-control bg-light-subtle mb-3", disabled: true, readonly: true %>
+    </div>
+  </div>
+
+  <div class="d-grid d-md-flex gap-2 pt-2">
+    <%= link_to t('links.back'), panel_admin_subjects_path, class: "btn btn-card mb-2" %>
+    <%= form.submit nil, class: "btn btn-card" %>
+  </div>
 <% end %>
