@@ -10,6 +10,12 @@
     </div>
 
     <div class="card-body bg-primary-subtle">
+      <div class="bg-primary-subtle border-bottom border-body" data-bs-theme="light">
+        <%= form_with( method: :get, local: true, class: "d-flex") do |form| %>
+          <%= form.collection_select (:subject_id, @subjects, :id, :description, {}, { class: "form-select form-select-lg mb-3" }) %>
+        <% end %>
+      </div>
+
       <table class="table table-striped table-hover">
         <thead>
           <tr>

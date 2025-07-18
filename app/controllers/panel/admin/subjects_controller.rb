@@ -44,10 +44,6 @@ class Panel::Admin::SubjectsController < PanelBaseController
     end
   end
 
-  def subjectSearch # Realiza a busca de assuntos pela descrição na interface de usuários padrão (página de questões)
-    @subjects = Subject.where("description LIKE ?", "%#{params[:term]}%").page(params[:page])
-  end
-
   private
     def params_subject
       params.require(:subject).permit(:description)
