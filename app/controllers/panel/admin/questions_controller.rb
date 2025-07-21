@@ -1,10 +1,13 @@
 class Panel::Admin::QuestionsController < PanelBaseController
   before_action :set_question, only: [ :edit, :update, :destroy ]
-  before_action :get_subjects, only: [ :new, :edit ]
+  before_action :get_subjects, only: [ :index, :new, :edit ]
   before_action :authorize_admin_access, only: [ :new, :create, :edit, :update, :destroy, :index ]
 
   def index
+    # Carrega todas as perguntas (questions), incluindo os dados da associação 'subject'
     @questions = Question.includes(:subject).page(params[:page])
+    # Se um 'subject_id' foi enviado nos parâmetros (filtro), aplica um filtro para trazer apenas as perguntas que pertencem ao assunto selecionado
+    @questions = @questions.where(subject_id: params[:subject_id]) if params[:subject_id].present?
   end
 
   def new

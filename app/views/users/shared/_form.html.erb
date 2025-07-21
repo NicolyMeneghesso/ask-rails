@@ -1,10 +1,11 @@
 <main class="login-content d-flex align-items-center justify-content-center vh-100">
+  <!-- Exibe mensagens de erro do Devise -->
   <div class="card-alert-login mt-3 px-3">
-      <%= render "layouts/flash_error", resource: resource %>
-
+    <%= render "layouts/flash_error", resource: resource %>
   </div>
 
   <div class="col-12 col-sm-8 col-md-6 col-lg-4">
+    <!-- Cabeçalho dinâmico de acordo com o tipo de controller -->
     <div class="text-center mb-4">
       <% if controller_name == 'sessions' %>
         <h1 class="title-edit"><%= t('devise.sessions.title_login') %></h1>
@@ -17,10 +18,11 @@
       <% end %>
     </div>
     
+    <!-- Card com o formulário -->
     <div class="card bg-primary-subtle">
       <div class="card-body m-sm-3">
         <div class="row">
-          <!--Define a variável form_url dinamicamente-->
+          <!-- Define a URL do form com base no controller -->
           <% form_url = 
             if controller_name == 'sessions'
               session_path(resource_name)
@@ -30,6 +32,7 @@
               password_path(resource_name)
             end
           %>
+          <!-- Define o método do form (POST ou PUT) -->
           <% form_method = controller_name == 'passwords' && action_name == 'edit' ? :put : :post %>
           <!--Cria uma variável form_options que só inclui data-turbo="false"
               %w[] = criar um array de strings | Verifica se o controller_name atual está dentro desse array-->
@@ -43,24 +46,26 @@
                 <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control bg-light-subtle mb-3" %>
               </div>
 
+              <!-- Se for login -->
               <% if controller_name == 'sessions' %>
                 <div class="col-md-12 mb-2">
                   <%= f.label t('form.password'), class: "mb-1" %>
                   <%= f.password_field :password, autocomplete: "current-password", class: "form-control bg-light-subtle" %>
                   <%= render "users/shared/forgot_password_link" %>
                 </div>
-
+                <!-- Checkbox "lembrar de mim", se estiver ativado no Devise -->
                 <% if devise_mapping.rememberable? %>
                   <div class="field mb-3">
                     <%= f.check_box :remember_me, class: "form-check-input" %>
                     <%= f.label :remember_me, t('devise.sessions.remember') %>
                   </div>
                 <% end %>
-
+                <!-- Botão de login -->
                 <div class="actions">
                   <%= f.submit t('devise.sessions.btn_login'), class: "btn btn-card-login" %>
                 </div>
 
+              <!-- Se for cadastro -->
               <% elsif controller_name == 'registrations' %>
                 <div class="col-md-12 mb-2">
                   <%= f.label t('form.password'), class: "mb-1" %>
@@ -74,11 +79,12 @@
                   <%= f.label t('form.password_confirmation'), class: "mb-1" %>
                   <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control bg-light-subtle" %>
                 </div>
-
+                <!-- Botão de cadastro -->
                 <div class="actions">
                   <%= f.submit t('devise.registrations.btn_signup'), class: "btn btn-card-login" %>
                 </div>
 
+              <!-- Se for redefinição de senha -->
               <% elsif controller_name == 'passwords' && action_name == 'edit' %>
                 <%= f.hidden_field :reset_password_token, value: params[:reset_password_token] %>
 
@@ -95,6 +101,7 @@
                   <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control bg-light-subtle" %>
                 </div>
 
+                <!-- Botão de salvar nova senha -->
                 <div class="actions">
                   <%= f.submit t('devise.passwords.title_change'), class: "btn btn-card-login" %>
                 </div>
@@ -104,6 +111,8 @@
         </div>
       </div>
     </div>
+    
+    <!-- Links abaixo do formulário -->
     <div class="text-center mt-2">
       <% if controller_name == 'sessions' %>
         <p style="font-size: 18px; margin-bottom: 6px;"><%= t('devise.sessions.text_no_signup') %><%= render "users/shared/sign_up_link" %></p>

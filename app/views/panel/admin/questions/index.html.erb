@@ -10,9 +10,12 @@
     </div>
 
     <div class="card-body bg-primary-subtle">
-      <div class="bg-primary-subtle border-bottom border-body" data-bs-theme="light">
-        <%= form_with( method: :get, local: true, class: "d-flex") do |form| %>
-          <%= form.collection_select (:subject_id, @subjects, :id, :description, {}, { class: "form-select form-select-lg mb-3" }) %>
+      <div class="bg-primary-subtle border-bottom border-body mx-2 my-2" data-bs-theme="light">
+        <%= form_with(url: panel_admin_questions_path, method: :get, local: true, class: "d-flex align-items-center gap-2") do |form| %>
+          <%= form.collection_select(:subject_id, @subjects, :id, :description, { include_blank: ""}, { class: "form-select form-select-lg" }) %>
+          <%= button_tag type: "submit", class: "btn btn-outline-primary" do %>
+            <i class="fa-regular fa-magnifying-glass"></i>
+          <% end %>
         <% end %>
       </div>
 

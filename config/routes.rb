@@ -36,8 +36,7 @@ Rails.application.routes.draw do
   end
 
   devise_for :users, controllers: {
-    passwords: "users/passwords",
-    confirmations: "users/confirmations"
+    passwords: "users/passwords"
   }
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
