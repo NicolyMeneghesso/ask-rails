@@ -27,7 +27,9 @@
             <th scope="col"><%= t('activerecord.attributes.user.full_name') %></th>
             <th scope="col"><%= t('activerecord.attributes.user.email') %></th>
             <th scope="col"><%= t('activerecord.attributes.user.type') %></th>
-            <th></th>
+            <% if current_user.super_admin?  %>
+              <th></th>
+            <% end %>
           </tr>
         </thead>
         <tbody>

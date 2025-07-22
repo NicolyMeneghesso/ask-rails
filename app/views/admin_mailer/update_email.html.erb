@@ -1,0 +1,39 @@
+<!-- Este e-mail é enviado automaticamente quando os dados da conta são alterados. -->
+<table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color: #6e77bee0; padding: 40px 0; font-family: Arial, sans-serif;">
+  <tr>
+    <td align="center">
+      <table width="600" cellpadding="0" cellspacing="0" border="0" style="background-color: #ffffff; border-radius: 8px; overflow: hidden;">
+        <tr>
+          <td style="background-color: #3f4689; padding: 20px; text-align: center; color: white; font-size: 24px; font-weight: bold;">
+            <%= t("mailer.password_change.title") %>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding: 30px; color: black; font-size: 18px; text-align: center">
+            <h2 style="margin-top: 0; font-size: 25px;">
+              <%= t("mailer.password_change.welcome") %> <%= @user.first_name || @user.email %>
+            </h2>
+
+            <% if @current_user == @user %>
+              <p style="margin: 25px 0; text-align: left;">
+                <%= t("mailer.update.self_notice") %>
+              </p>
+            <% else %>
+              <p style="margin: 25px 0; text-align: left;">
+                <%= t("mailer.update.admin_notice", admin: @current_user.first_name || @current_user.email) %>
+              </p>
+            <% end %>
+
+            <p style="margin: 25px 0; text-align: left;">
+              <%= t("mailer.password_change.num2") %>
+            </p>
+
+            <p style="margin: 25px 0; text-align: left;">
+              <%= t("mailer.password_change.num3") %>
+            </p>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>

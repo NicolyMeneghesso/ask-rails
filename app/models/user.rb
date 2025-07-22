@@ -17,6 +17,20 @@ class User < ApplicationRecord
     "#{first_name} #{last_name}"
   end
 
+  # 1. Define um "atributo virtual" chamado skip_password_notification
+  attr_accessor :skip_password_notification
+
+  # 2. Após atualizar o usuário, chama o método send_password_change_notification
+  #    MAS apenas se a senha foi alterada E a flag skip_password_notification NÃO está ativada
+  after_update :send_password_change_notification, if: -> {
+    saved_change_to_encrypted_password? && !skip_password_notification
+  }
+
+  # 3. Esse método é responsável por enviar o e-mail
+  def send_password_change_notification
+    Devise::Mailer.password_change(self).deliver_later
+  end
+
   # Validações - para nao enviar o nome vazio
   with_options presence: true, length: { minimum: 4, maximum: 20 }, on: :update do
     validates :first_name

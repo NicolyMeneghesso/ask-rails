@@ -1,0 +1,13 @@
+<%= t("mailer.password_change.title") %>
+
+<%= t("mailer.password_change.welcome") %> <%= @user.first_name || @user.email %>
+
+<% if @current_user == @user %>
+<%= t("mailer.update.self_notice") %>
+<% else %>
+<%= t("mailer.update.admin_notice", admin: @current_user.first_name || @current_user.email) %>
+<% end %>
+
+<%= t("mailer.password_change.num2") %>
+
+<%= t("mailer.password_change.num3") %>

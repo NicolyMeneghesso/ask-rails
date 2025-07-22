@@ -89,3 +89,12 @@ en:
     country: "Country: "
     btn_edit: Edit
     btn_delete: Delete
+  mailer:
+    password_change:
+      title: "Data change"
+      welcome: "Hi,"
+      num2: "If you have not requested this change, please contact us immediately."
+      num3: "Thank you for keeping your information up to date."
+    update:
+      self_notice: "Your data has been updated successfully."
+      admin_notice: "Your data has been updated by the General Administrator."

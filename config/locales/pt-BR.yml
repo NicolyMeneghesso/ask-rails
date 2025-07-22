@@ -91,3 +91,12 @@ pt-BR:
     country: "País: "
     btn_edit: Editar
     btn_delete: Excluir
+  mailer:
+    password_change:
+      title: "Alteração de dados"
+      welcome: "Olá,"
+      num2: "Caso você não tenha solicitado esta alteração, entre em contato imediatamente."
+      num3: "Agradecemos por manter seus dados atualizados."
+    update:
+      self_notice: "Seus dados foram atualizados com sucesso."
+      admin_notice: "Seus dados foram atualizados pelo Administrador Geral."
