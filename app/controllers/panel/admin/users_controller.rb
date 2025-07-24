@@ -23,12 +23,23 @@ class Panel::Admin::UsersController < PanelBaseController
   # Método que cria um novo usuário com os parâmetros permitidos
   def create
     authorize_super_admin!
-    @user = User.new(user_params)
+    @user = User.new(permitted_user_params)
+
+    # Senha padrão
+    default_password = "123456"
+
+    # Constrói o usuário com a senha padrão
+    @user = User.new(permitted_user_params.merge(
+      password: default_password,
+      password_confirmation: default_password
+    ))
+
     if @user.save
+      AdminMailer.new_user_email(current_user, @user).deliver_later
       flash[:notice] = "Usuário criado com sucesso."
-      redirect_to user_path(@user)
+      redirect_to panel_admin_users_path
     else
-      flash.now[:alert] = "Erro ao criar usuário."
+      flash.now[:alert] = "Erro ao criar usuário. #{@user.errors.full_messages.join(', ')}"
       render :new
     end
   end
@@ -49,7 +60,6 @@ class Panel::Admin::UsersController < PanelBaseController
       # Caso 1: o próprio usuário alterou sua senha
       if is_self && changing_password
         bypass_sign_in(@user)  # Devise: reautentica sem logout
-        Devise::Mailer.password_change(@user).deliver_later # e-mail de confirmação da alteração de senha
 
       # Caso 2: admin alterou os dados de outro usuário
       elsif !is_self

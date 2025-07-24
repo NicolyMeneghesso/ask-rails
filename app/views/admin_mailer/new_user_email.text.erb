@@ -1,0 +1,12 @@
+<%= t("mailer.new.title") %>
+
+<%= t("mailer.new.welcome") %> <%= @user.first_name.presence || @user.email %>
+
+<%= t("mailer.new.admin_notice") %>
+<%= t("mailer.new.self_notice") %>
+
+<%= t("mailer.new.temporary_password") %>
+<%= t("mailer.new.change_password_prompt") %>
+<%= t("mailer.new.assistance") %>
+
+<%= t("mailer.new.footer") %>

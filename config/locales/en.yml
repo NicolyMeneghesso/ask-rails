@@ -3,6 +3,7 @@ en:
     title_home: Discover, ask and share knowledge
     text_home: Our website is a collaborative space where anyone can ask questions and get clear, reliable answers from the community.
     text_home2: Whether you want to resolve a doubt, help someone or learn something new, you're in the right place.
+    btn_home: Log in to explore, collaborate, and learn
   sidebar:
     title_menu: RespondeDev
     dashboard: Dashboard
@@ -98,3 +99,12 @@ en:
     update:
       self_notice: "Your data has been updated successfully."
       admin_notice: "Your data has been updated by the General Administrator."
+    new:
+      title: "Welcome to RespondaDev"
+      welcome: "Hi,"
+      admin_notice: "Your email has been registered by a General Administrator on our platform."
+      self_notice: "You can now access the system using the email address provided and the temporary password below:"
+      temporary_password: "Temporary password: 123456"
+      change_password_prompt: "For security reasons, we recommend that you change your password as soon as you access the system."
+      assistance: "If you do not recognize this registration or need help, please contact our support team.."
+      footer: "We are happy to have you with us!"

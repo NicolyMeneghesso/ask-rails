@@ -69,7 +69,7 @@ en:
       already_signed_out: "Signed out successfully."
       title_login: Welcome back!
       subtitle_login: Sign in to your account to continue
-      text_signup: Don't have an account?
+      text_no_signup: Don't have an account?
       remember: Remember Me
       btn_login: Log in
     shared:

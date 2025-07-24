@@ -35,7 +35,7 @@
     <!--CAMPO DO EMAIL-->
     <div class="col-md-12">
       <%= form.label t('form.email'), class: "form-label mb-1 ps-1" %>
-      <%= form.text_field :email, class: "form-control bg-light-subtle", disabled: true %>
+      <%= form.text_field :email, class: "form-control bg-light-subtle" %>
     </div>
     <div class="col-md-6">
       <%= form.label t('form.password'), class: "form-label mb-1 ps-1" %>
@@ -51,16 +51,16 @@
       <h5 class="form-label mb-0"><%= t('form.user_type') %></h5>
       <div class="col-md-12 d-flex justify-content-around">
         <div class="form-check">
-          <%= form.radio_button :user_type, 0, class: "form-check-input", id: "user_type_0" %>
-          <%= form.label :user_type_0, t('form.user_type_0'), class: "form-label form-type"%>
+          <%= form.radio_button :user_type, 'regular', class: "form-check-input", id: "regular" %>
+          <%= form.label :user_type, t('form.user_type_0'), class: "form-label form-type"%>
         </div>
         <div class="form-check">
-          <%= form.radio_button :user_type, 1, class: "form-check-input", id: "user_type_1" %>
-          <%= form.label :user_type_1, t('form.user_type_1'), class: "form-label form-type" %>
+          <%= form.radio_button :user_type, 'admin_user', class: "form-check-input", id: "admin_user" %>
+          <%= form.label :user_type, t('form.user_type_1'), class: "form-label form-type" %>
         </div>
         <div class="form-check">
-          <%= form.radio_button :user_type, 2, class: "form-check-input", id: "user_type_2" %>
-          <%= form.label :user_type_2, t('form.user_type_2'), class: "form-label form-type" %>
+          <%= form.radio_button :user_type,'super_admin', class: "form-check-input", id: "super_admin" %>
+          <%= form.label :user_type, t('form.user_type_2'), class: "form-label form-type" %>
         </div>
       </div>
     <% end %>

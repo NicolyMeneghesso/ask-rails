@@ -100,3 +100,12 @@ pt-BR:
     update:
       self_notice: "Seus dados foram atualizados com sucesso."
       admin_notice: "Seus dados foram atualizados pelo Administrador Geral."
+    new:
+      title: "Bem-vindo ao RespondaDev!"
+      welcome: "Olá,"
+      admin_notice: "Seu e-mail foi cadastrado por um Administrador Geral em nossa plataforma."
+      self_notice: "Você já pode acessar o sistema utilizando o e-mail informado e a senha temporária abaixo:"
+      temporary_password: "Senha temporária: 123456"
+      change_password_prompt: "Por motivos de segurança, recomendamos que você altere sua senha assim que acessar o sistema."
+      assistance: "Caso você não reconheça este cadastro ou precise de ajuda, entre em contato com nossa equipe de suporte."
+      footer: "Estamos felizes em tê-lo conosco!"

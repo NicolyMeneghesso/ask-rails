@@ -1,5 +1,13 @@
 <div class="row w-100 align-items-center px-5 home-wrapper">
   <div class="col-md-7">
+    <ul class="nav fixed-top justify-content-end pe-5">
+      <li class="nav-item">
+          <%= link_to 'Português', root_path(locale: 'pt-BR'), class: "nav-link link-dark #{I18n.locale == :'pt-BR' ? 'active' : ''}" %>
+      </li>
+      <li class="nav-item">
+          <%= link_to 'English', root_path(locale: 'en'), class: "nav-link link-dark #{I18n.locale == :en ? 'active' : ''}" %>
+      </li>
+    </ul>
     <div class="text-home">
       <h1 class="title-edit">
         <%= t('site.title_home') %>
