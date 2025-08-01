@@ -31,6 +31,7 @@ en:
     last_name: Last Name
     address_street: Address
     address_building_number: Number
+    zip_code: Zip Code
     address_city: City
     address_state: State
     address_country: Country

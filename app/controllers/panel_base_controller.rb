@@ -29,7 +29,7 @@ class PanelBaseController < ApplicationController
 
     # Este método define os campos permitidos no formulário de criação/edição de usuário.
     def permitted_user_params
-      permitted_params = [ :email, :password, :password_confirmation, :first_name, :last_name, :address_street,
+      permitted_params = [ :email, :password, :password_confirmation, :first_name, :last_name, :zip_code, :address_street,
                           :address_building_number, :address_city, :address_state, :address_country ]
       permitted_params << :user_type if current_user.super_admin? # Adiciona o campo apenas se o usuário atual for Super Admin (user_type == 2).
 

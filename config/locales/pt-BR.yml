@@ -32,6 +32,7 @@ pt-BR:
     last_name: Último nome
     address_street: Endereço
     address_building_number: Número
+    zip_code: CEP
     address_city: Cidade
     address_state: Estado
     address_country: País

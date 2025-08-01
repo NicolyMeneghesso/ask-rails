@@ -11,21 +11,30 @@
     </div>
 
     <!--CAMPO DO ENDERECO-->
-    <div class="col-md-8">
+    <div class="col-md-7">
       <%= form.label t('form.address_street'), class: "form-label mb-1 ps-1" %>
-      <%= form.text_field :address_street, class: "form-control bg-light-subtle" %>
+      <%= form.text_field :address_street, class: "form-control bg-light-subtle", id: "street" %>
     </div>
-     <div class="col-md-4">
+    <div class="col-md-2">
       <%= form.label t('form.address_building_number'), class: "form-label mb-1 ps-1" %>
       <%= form.text_field :address_building_number, class: "form-control bg-light-subtle" %>
     </div>
+    <div class="col-md-3">
+      <%= form.label t('form.zip_code'), class: "form-label mb-1 ps-1" %>
+      <div class="input-group mb-3">
+        <%= form.text_field :zip_code, class: "form-control bg-light-subtle", id:"zip_code" %>
+        <%= link_to "#", class:"btn btn-outline-primary pt-2", onclick: "clickZipeCode()" do %>
+          <i class="fa-regular fa-magnifying-glass"></i>
+        <% end %>
+      </div>
+    </div>
     <div class="col-md-5">
       <%= form.label t('form.address_city'), class: "form-label mb-1 ps-1" %>
-      <%= form.text_field :address_city, class: "form-control bg-light-subtle" %>
+      <%= form.text_field :address_city, class: "form-control bg-light-subtle", id: "city" %>
     </div>
     <div class="col-md-4">
       <%= form.label t('form.address_state'), class: "form-label mb-1 ps-1" %>
-      <%= form.text_field :address_state, class: "form-control bg-light-subtle" %>
+      <%= form.text_field :address_state, class: "form-control bg-light-subtle", id: "city" %>
     </div>
     <div class="col-md-3">
       <%= form.label t('form.address_country'), class: "form-label mb-1 ps-1" %>

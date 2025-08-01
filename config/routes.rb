@@ -14,6 +14,7 @@ Rails.application.routes.draw do
         get "active_users", on: :collection
         get "user_graph_answers", on: :collection
       end
+      get "zip_code", to: "zip_code#show"
     end
 
     namespace :panel do
