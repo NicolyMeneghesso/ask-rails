@@ -42,6 +42,6 @@ class ZipCode
     # Atribui os valores dos campos retornados para os atributos da instância
     @address_street = zipCode_found["logradouro"]
     @address_city   = zipCode_found["localidade"]
-    @address_state  = zipCode_found["uf"]
+    @address_state  = zipCode_found["estado"]
   end
 end
