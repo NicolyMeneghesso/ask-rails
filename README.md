@@ -1,9 +1,11 @@
 # 🎯 Ask Rails - Plataforma de Perguntas e Respostas
 
 =======
+
 Uma aplicação robusta e bem estruturada para gestão de conhecimento colaborativo, desenvolvida em **Ruby on Rails 8.0** com foco em usabilidade, escalabilidade e boas práticas de desenvolvimento.
 
 =======
+
 ## 📋 Sumário
 
 - [Visão Geral](#visão-geral)
