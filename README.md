@@ -2,11 +2,9 @@
 
 =======
 Uma aplicação robusta e bem estruturada para gestão de conhecimento colaborativo, desenvolvida em **Ruby on Rails 8.0** com foco em usabilidade, escalabilidade e boas práticas de desenvolvimento.
->>>>>>> c8d9bff (Ajuste README)
 
 =======
 ## 📋 Sumário
->>>>>>> c8d9bff (Ajuste README)
 
 - [Visão Geral](#visão-geral)
 - [Demonstração](#demonstração)
