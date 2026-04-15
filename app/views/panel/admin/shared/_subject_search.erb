@@ -1,9 +1,0 @@
-<div class="bg-primary-subtle border-bottom border-body" data-bs-theme="light">
-  <%# Campo de pesquisa que permite filtrar os assuntos por nome. Faz requisição GET para a rota 'panel_admin_answer_path' %>
-  <%= form_with(url: url, local: true, method: :get, class: "d-flex") do |form| %>
-      <%= form.text_field :term, class:"form-control me-2", placeholder: t('form.search') %>
-      <%= button_tag type: "submit", class:"btn btn-outline-primary" do %>
-        <i class="fa-regular fa-magnifying-glass"></i>
-      <% end %>
-  <% end %>
-</div>
